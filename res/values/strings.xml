@@ -5,7 +5,7 @@
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="now">Сегодня:</string>
-    <string name="date">27-Jan-2000</string>
+    <string name="date">27-</string>
     <string name="day">Четверг</string>
     <color name="day_color">#FF00FF</color>
     <string name="account_score_text">У Вас на счету:</string>
@@ -28,5 +28,10 @@
     <string name="rent_land_text">Плата за землю:</string>
     <string name="rent_land">2%</string>
     <color name="spinner_color">#AAAAAA</color>
+    <color name="bakc">#0000FF</color>
+    <string name="month">Jan-</string>
+    <string name="year">2000</string>
+    <string name="quit">Выход</string>
+    <string name="about">Версия</string>
 
 </resources>

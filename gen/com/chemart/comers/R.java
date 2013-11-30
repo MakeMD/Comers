@@ -11,6 +11,7 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int bakc=0x7f060002;
         public static final int day_color=0x7f060000;
         public static final int spinner_color=0x7f060001;
     }
@@ -33,36 +34,64 @@ public final class R {
     }
     public static final class id {
         public static final int RelativeLayout1=0x7f090000;
-        public static final int action_settings=0x7f09001e;
-        public static final int imageView1=0x7f090001;
-        public static final int imageView2=0x7f090004;
-        public static final int imageView3=0x7f09000f;
-        public static final int spinner1=0x7f09001d;
-        public static final int textView1=0x7f090003;
-        public static final int textView10=0x7f090013;
-        public static final int textView11=0x7f090016;
-        public static final int textView12=0x7f090017;
-        public static final int textView13=0x7f090015;
-        public static final int textView14=0x7f09001b;
-        public static final int textView15=0x7f090019;
-        public static final int textView16=0x7f090007;
-        public static final int textView17=0x7f09000c;
-        public static final int textView18=0x7f090006;
-        public static final int textView19=0x7f09000b;
+        public static final int TextView01=0x7f090003;
+        public static final int TextView02=0x7f090004;
+        public static final int TextView03=0x7f090005;
+        public static final int TextView04=0x7f090006;
+        public static final int TextView05=0x7f090007;
+        public static final int TextView06=0x7f090008;
+        public static final int TextView07=0x7f09000f;
+        public static final int TextView08=0x7f09000d;
+        public static final int TextView09=0x7f09000e;
+        public static final int TextView10=0x7f09000b;
+        public static final int TextView11=0x7f09000a;
+        public static final int TextView12=0x7f09000c;
+        public static final int TextView13=0x7f090009;
+        public static final int TextView14=0x7f09001c;
+        public static final int TextView17=0x7f090016;
+        public static final int TextView18=0x7f090015;
+        public static final int TextView19=0x7f09001a;
+        public static final int TextView20=0x7f090017;
+        public static final int TextView21=0x7f090019;
+        public static final int TextView22=0x7f090018;
+        public static final int TextView23=0x7f090011;
+        public static final int TextView24=0x7f090012;
+        public static final int TextView25=0x7f090010;
+        public static final int TextView26=0x7f090014;
+        public static final int TextView27=0x7f090013;
+        public static final int TextView28=0x7f09001b;
+        public static final int action_settings=0x7f09003a;
+        public static final int imageView1=0x7f09001d;
+        public static final int imageView2=0x7f09001e;
+        public static final int imageView3=0x7f090029;
+        public static final int spinner1=0x7f090037;
+        public static final int textView1=0x7f090001;
+        public static final int textView10=0x7f09002d;
+        public static final int textView11=0x7f090030;
+        public static final int textView12=0x7f090031;
+        public static final int textView13=0x7f09002f;
+        public static final int textView14=0x7f090035;
+        public static final int textView15=0x7f090033;
+        public static final int textView16=0x7f090021;
+        public static final int textView17=0x7f090026;
+        public static final int textView18=0x7f090020;
+        public static final int textView19=0x7f090025;
         public static final int textView2=0x7f090002;
-        public static final int textView20=0x7f090005;
-        public static final int textView21=0x7f09000a;
-        public static final int textView22=0x7f090008;
-        public static final int textView23=0x7f09000d;
-        public static final int textView24=0x7f090009;
-        public static final int textView25=0x7f09000e;
-        public static final int textView26=0x7f09001a;
-        public static final int textView3=0x7f09001c;
-        public static final int textView4=0x7f090010;
-        public static final int textView5=0x7f090012;
-        public static final int textView7=0x7f090011;
-        public static final int textView8=0x7f090014;
-        public static final int textView9=0x7f090018;
+        public static final int textView20=0x7f09001f;
+        public static final int textView21=0x7f090024;
+        public static final int textView22=0x7f090022;
+        public static final int textView23=0x7f090027;
+        public static final int textView24=0x7f090023;
+        public static final int textView25=0x7f090028;
+        public static final int textView26=0x7f090034;
+        public static final int textView27=0x7f090039;
+        public static final int textView3=0x7f090036;
+        public static final int textView4=0x7f09002a;
+        public static final int textView5=0x7f09002c;
+        public static final int textView6=0x7f090038;
+        public static final int textView7=0x7f09002b;
+        public static final int textView8=0x7f09002e;
+        public static final int textView9=0x7f090032;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -71,6 +100,7 @@ public final class R {
         public static final int main=0x7f080000;
     }
     public static final class string {
+        public static final int about=0x7f05001c;
         public static final int account_score_text=0x7f050006;
         public static final int acount_score=0x7f050007;
         public static final int action_settings=0x7f050001;
@@ -88,14 +118,17 @@ public final class R {
         public static final int kredit_proc=0x7f050010;
         public static final int kredit_proc_text=0x7f05000f;
         public static final int kredit_text=0x7f05000a;
+        public static final int month=0x7f050019;
         public static final int now=0x7f050003;
         public static final int profit=0x7f05000d;
         public static final int profit_text=0x7f05000e;
+        public static final int quit=0x7f05001b;
         public static final int rent_house=0x7f050016;
         public static final int rent_house_text=0x7f050015;
         public static final int rent_land=0x7f050018;
         public static final int rent_land_text=0x7f050017;
         public static final int score_value=0x7f050008;
+        public static final int year=0x7f05001a;
     }
     public static final class style {
         /** 
