@@ -3,11 +3,14 @@ package com.chemart.comers;
 
 
 
+import java.text.DecimalFormat;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,8 +31,13 @@ public class MainActivity extends Activity {
 	 String[] date = {"01-","02-","03-","04-","05-","06-","07-","08-","09-","10-","11-","12-","13-","14-","15-","16-","17-","18-","19-","20-","21-","22-","23-","24-","25-","26-","27-","28-","29-","30-"};
 	 String[] month = {"Jan-","Feb-","Mar-","Apr-","May-","Jun-","Jul-","Aug-","Sep-","Oct-","Nov-","Dec-"};
 	 int y_timer = 2000;   
-	 TextView dt,dy,mnt,yr;
+	 TextView dt,dy,mnt,yr,score_tv;
 	    int day_timer,d_timer,m_timer =0;
+	    double house_rent = 0.71;
+	    double land_rent = 0.98;
+	    double income_tax = 0.98;
+	    double profit = 137.00;
+	    double score = 43657.00;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +65,7 @@ public class MainActivity extends Activity {
         dt = (TextView) findViewById(R.id.textView2);
         mnt = (TextView) findViewById(R.id.textView6);
         yr = (TextView) findViewById(R.id.textView27);
+        score_tv = (TextView) findViewById(R.id.textView5);
         
         Thread th=new Thread(){
         	
@@ -94,15 +103,24 @@ public class MainActivity extends Activity {
                                     {
                                         e.printStackTrace();
                                    d_timer=0;
-                                   m_timer++; 
+                                   m_timer++;
+                                   score = score+(profit*income_tax);
+                                   //double pr = profit*income_tax;
+                                   //String formatedDouble = String.format("%.10f", pr);
+                                   DecimalFormat df = new DecimalFormat("###########");
+                                   Toast.makeText(getBaseContext(), "”держиваетс€ подоходный налог в размере "+ df.format(profit-(profit*income_tax))+" гроблей", Toast.LENGTH_LONG).show();
+                                   Log.w("score", Double.toString(score));
+                                   score_tv.setText(df.format(score));
+                                   profit=0;
                                     } 
                                     try{
                                     	mnt.setText(month[m_timer]);
+                                    	
                                     }
                                     catch(Exception e)
                                     {
                                     	e.printStackTrace();
-                                    	//m_timer=0;
+                                    	m_timer=0;
                                     	y_timer++;
                                     }
                                     try{
@@ -111,7 +129,7 @@ public class MainActivity extends Activity {
                                     catch(Exception e)
                                     {
                                     	e.printStackTrace();
-                                    	//y_timer=0;
+                                    	y_timer=0;
                                     }
                                     if (m_timer == 12 & d_timer == 30 ){
                                     	Toast.makeText(getBaseContext(), "Happy New year!", Toast.LENGTH_SHORT).show();   
@@ -119,8 +137,7 @@ public class MainActivity extends Activity {
                                     }
                             });
                             waited += 100;
-                             
-                                 	
+                                	
                             }  
                         
                     }
@@ -130,10 +147,8 @@ public class MainActivity extends Activity {
                 
                 }
             }
-            
             };
         th.start();
-     
         }
 	
 	

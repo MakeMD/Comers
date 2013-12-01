@@ -29,7 +29,8 @@
         android:layout_alignBottom="@+id/textView1"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/textView1"
-        android:text="@string/date" />
+        android:text="@string/date"
+        android:typeface="normal" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -50,7 +51,8 @@
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
-        android:text="@string/kredit_proc_text" />
+        android:text="@string/kredit_proc_text"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView18"
@@ -60,7 +62,8 @@
         android:layout_below="@+id/textView20"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="5dp"
-        android:text="@string/debt_proc_text" />
+        android:text="@string/debt_proc_text"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView16"
@@ -70,7 +73,8 @@
         android:layout_below="@+id/textView18"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="5dp"
-        android:text="@string/incom_tax_text" />
+        android:text="@string/incom_tax_text"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView22"
@@ -80,7 +84,8 @@
         android:layout_below="@+id/textView24"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
-        android:text="@string/rent_land_text" />
+        android:text="@string/rent_land_text"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView21"
@@ -91,7 +96,8 @@
         android:layout_marginBottom="5dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-        android:text="@string/kredit_proc" />
+        android:text="@string/kredit_proc"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView19"
@@ -101,7 +107,8 @@
         android:layout_below="@+id/textView21"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="10dp"
-        android:text="@string/debt_proc" />
+        android:text="@string/debt_proc"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView17"
@@ -111,7 +118,8 @@
         android:layout_below="@+id/textView19"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="10dp"
-        android:text="@string/income_tax" />
+        android:text="@string/income_tax"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView23"
@@ -121,7 +129,8 @@
         android:layout_below="@+id/textView25"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="10dp"
-        android:text="@string/rent_land" />
+        android:text="@string/rent_land"
+        android:typeface="normal" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -130,7 +139,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginBottom="10dp"
-        android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:src="@drawable/plashka3" />
 
@@ -143,7 +151,8 @@
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
-        android:text="@string/account_score_text" />
+        android:text="@string/account_score_text"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView7"
@@ -155,7 +164,8 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="10dp"
-        android:text="@string/score_value" />
+        android:text="@string/score_value"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView5"
@@ -164,7 +174,8 @@
         android:layout_alignBaseline="@+id/textView7"
         android:layout_alignBottom="@+id/textView7"
         android:layout_toLeftOf="@+id/textView7"
-        android:text="@string/acount_score" />
+        android:text="@string/acount_score"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView10"
@@ -173,7 +184,8 @@
         android:layout_alignLeft="@+id/textView7"
         android:layout_below="@+id/textView7"
         android:layout_marginBottom="5dp"
-        android:text="@string/score_value" />
+        android:text="@string/score_value"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView8"
@@ -182,7 +194,8 @@
         android:layout_alignBaseline="@+id/textView10"
         android:layout_alignBottom="@+id/textView10"
         android:layout_alignRight="@+id/textView5"
-        android:text="@string/kredit" />
+        android:text="@string/kredit"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView13"
@@ -191,7 +204,8 @@
         android:layout_alignLeft="@+id/textView10"
         android:layout_below="@+id/textView10"
         android:layout_marginBottom="5dp"
-        android:text="@string/score_value" />
+        android:text="@string/score_value"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView11"
@@ -200,7 +214,8 @@
         android:layout_alignBaseline="@+id/textView13"
         android:layout_alignBottom="@+id/textView13"
         android:layout_alignLeft="@+id/textView8"
-        android:text="@string/debt" />
+        android:text="@string/debt"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView12"
@@ -209,7 +224,8 @@
         android:layout_alignLeft="@+id/textView9"
         android:layout_below="@+id/textView9"
         android:layout_marginBottom="5dp"
-        android:text="@string/debt_text" />
+        android:text="@string/debt_text"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView15"
@@ -218,7 +234,8 @@
         android:layout_alignLeft="@+id/textView12"
         android:layout_below="@+id/textView12"
         android:layout_marginBottom="5dp"
-        android:text="@string/profit_text" />
+        android:text="@string/profit_text"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView26"
@@ -227,7 +244,8 @@
         android:layout_alignLeft="@+id/textView13"
         android:layout_below="@+id/textView13"
         android:layout_marginBottom="5dp"
-        android:text="@string/score_value" />
+        android:text="@string/score_value"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView9"
@@ -236,7 +254,8 @@
         android:layout_alignLeft="@+id/textView4"
         android:layout_below="@+id/textView4"
         android:layout_marginBottom="5dp"
-        android:text="@string/kredit_text" />
+        android:text="@string/kredit_text"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView14"
@@ -245,7 +264,8 @@
         android:layout_alignBaseline="@+id/textView26"
         android:layout_alignBottom="@+id/textView26"
         android:layout_alignRight="@+id/textView11"
-        android:text="@string/profit" />
+        android:text="@string/profit"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView3"
@@ -254,9 +274,11 @@
         android:layout_alignLeft="@+id/textView20"
         android:layout_below="@+id/textView1"
         android:layout_marginLeft="65dp"
+        android:gravity="center"
         android:text="@string/day"
         android:textColor="@color/day_color"
-        android:textSize="12sp" />
+        android:textSize="12sp"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView25"
@@ -266,7 +288,8 @@
         android:layout_below="@+id/textView17"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="10dp"
-        android:text="@string/rent_house" />
+        android:text="@string/rent_house"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView24"
@@ -276,7 +299,8 @@
         android:layout_alignBottom="@+id/textView25"
         android:layout_alignLeft="@+id/textView16"
         android:layout_marginBottom="5dp"
-        android:text="@string/rent_house_text" />
+        android:text="@string/rent_house_text"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView1"
@@ -285,7 +309,8 @@
         android:layout_alignLeft="@+id/textView20"
         android:layout_alignTop="@+id/imageView1"
         android:layout_margin="10dp"
-        android:text="@string/now" />
+        android:text="@string/now"
+        android:typeface="normal" />
 
     <Spinner
         android:id="@+id/spinner1"
@@ -303,7 +328,8 @@
         android:layout_alignBaseline="@+id/textView2"
         android:layout_alignBottom="@+id/textView2"
         android:layout_toRightOf="@+id/textView2"
-        android:text="@string/month" />
+        android:text="@string/month"
+        android:typeface="normal" />
 
     <TextView
         android:id="@+id/textView27"
@@ -311,6 +337,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView6"
         android:layout_toRightOf="@+id/textView6"
-        android:text="@string/year" />
+        android:text="@string/year"
+        android:typeface="normal" />
 
 </RelativeLayout>
