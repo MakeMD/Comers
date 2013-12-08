@@ -7,7 +7,9 @@
     <string name="now">Сегодня:</string>
     <string name="date">27-</string>
     <string name="day">Четверг</string>
+
     <color name="day_color">#FF00FF</color>
+
     <string name="account_score_text">У Вас на счету:</string>
     <string name="acount_score">43657</string>
     <string name="score_value">Гроблей</string>
@@ -27,11 +29,41 @@
     <string name="rent_house">21%</string>
     <string name="rent_land_text">Плата за землю:</string>
     <string name="rent_land">2%</string>
+
     <color name="spinner_color">#AAAAAA</color>
     <color name="bakc">#0000FF</color>
+    <color name="text_color">#EDD721</color>
+
     <string name="month">Jan-</string>
     <string name="year">2000</string>
     <string name="quit">Выход</string>
     <string name="about">Версия</string>
+    <string name="luaz">ЛуАЗ-969</string>
+    <string name="moskvitch">Москвич-412</string>
+    <string name="moskvitch2">Москвич-2141</string>
+    <string name="vaz6">ВАЗ-2106</string>
+    <string name="vaz9">ВАЗ-2109</string>
+    <string name="gaz24">ГАЗ-24</string>
+    <string name="gaz3102">ГАЗ-3102</string>
+    <string name="onek">1-комнатная</string>
+    <string name="twok">2-комнатная</string>
+    <string name="threek">3-комнатная</string>
+    <string name="fourk">4-комнатная</string>
+    <string name="fivek">5-комнатная</string>
+    <string name="sixk">6-комнатная</string>
+    <string name="sevenk">7-комнатная</string>
+    <string name="shop">Рынок</string>
+    <string name="title_activity_shop">Shop</string>
+    <string name="luaz_c">7620</string>
+    <string name="moskw_c">23827</string>
+    <string name="vaz6_c">30603</string>
+    <string name="vaz9_c">44269</string>
+    <string name="gaz_c">74879</string>
+    <string name="onek_c">8304</string>
+    <string name="twok_c">17286</string>
+    <string name="threek_c">18934</string>
+    <string name="fourk_c">34304</string>
+    <string name="fivek_c">34574</string>
+    <string name="title_activity_config">Config</string>
 
 </resources>

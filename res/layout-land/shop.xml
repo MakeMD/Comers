@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@drawable/bkg" >
+
+    <RadioButton
+        android:id="@+id/radioButton7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/radioButton5"
+        android:layout_below="@+id/radioButton5"
+        android:text="@string/vaz6" 
+        android:onClick = "onRadioClick"
+        android:textColor="@color/text_color"/>
+
+    <RadioButton
+        android:id="@+id/radioButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/radioButton2"
+        android:layout_below="@+id/radioButton2"
+        android:text="@string/twok"
+        android:onClick = "onRadioClick" 
+        android:textColor="@color/text_color"/>
+
+    <RadioButton
+        android:id="@+id/radioButton6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/radioButton4"
+        android:layout_below="@+id/radioButton4"
+        android:text="@string/threek" 
+        android:onClick = "onRadioClick"
+        android:textColor="@color/text_color"/>
+ 
+    <RadioButton
+        android:id="@+id/radioButton8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/radioButton6"
+        android:layout_below="@+id/radioButton6"
+        android:text="@string/fourk" 
+        android:onClick = "onRadioClick"
+        android:textColor="@color/text_color"/>
+
+    <RadioButton
+        android:id="@+id/radioButton10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/radioButton8"
+        android:layout_below="@+id/radioButton8"
+        android:text="@string/fivek" 
+        android:onClick = "onRadioClick"
+    	android:textColor="@color/text_color"/>
+
+    <RadioButton
+        android:id="@+id/radioButton13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/radioButton9"
+        android:layout_below="@+id/radioButton9"
+        android:text="@string/gaz3102" 
+        android:onClick = "onRadioClick"
+        android:textColor="@color/text_color"/>
+
+    <RadioButton
+        android:id="@+id/radioButton5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/radioButton1"
+        android:layout_below="@+id/radioButton1"
+        android:text="@string/moskvitch2" 
+        android:onClick = "onRadioClick"
+        android:textColor="@color/text_color"/>
+
+    <RadioButton
+        android:id="@+id/radioButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/luaz"
+        android:textColor="@color/text_color" 
+        android:onClick = "onRadioClick"/>
+
+    <RadioButton
+        android:id="@+id/radioButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="160dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/onek"
+        android:onClick = "onRadioClick"
+        android:textColor="@color/text_color" />
+
+    <RadioButton
+        android:id="@+id/radioButton9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/radioButton7"
+        android:layout_below="@+id/radioButton7"
+        android:text="@string/vaz9" 
+        android:onClick = "onRadioClick"
+        android:textColor="@color/text_color"/>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/radioButton1"
+        android:layout_alignBottom="@+id/radioButton1"
+        android:layout_marginLeft="50dp"
+        android:layout_toRightOf="@+id/radioButton1"
+        android:textColor="@color/text_color"
+        android:text="@string/luaz_c" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/radioButton7"
+        android:layout_alignBottom="@+id/radioButton7"
+        android:layout_alignLeft="@+id/textView1"
+        android:textColor="@color/text_color"
+        android:text="@string/vaz6_c" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/radioButton9"
+        android:layout_alignBottom="@+id/radioButton9"
+        android:layout_alignLeft="@+id/textView3"
+        android:textColor="@color/text_color"
+        android:text="@string/vaz9_c" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/radioButton13"
+        android:layout_alignBottom="@+id/radioButton13"
+        android:layout_alignLeft="@+id/textView4"
+        android:textColor="@color/text_color"
+        android:text="@string/gaz_c" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/radioButton5"
+        android:layout_alignBottom="@+id/radioButton5"
+        android:layout_alignLeft="@+id/textView3"
+        android:textColor="@color/text_color"
+        android:text="@string/moskw_c" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/radioButton2"
+        android:layout_alignBottom="@+id/radioButton2"
+        android:textColor="@color/text_color"
+        android:layout_marginLeft="50dp"
+        android:layout_toRightOf="@+id/radioButton4"
+        android:text="@string/onek_c" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/radioButton4"
+        android:layout_alignBottom="@+id/radioButton4"
+        android:layout_alignLeft="@+id/textView6"
+        android:textColor="@color/text_color"
+        android:text="@string/twok_c" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/radioButton6"
+        android:layout_alignBottom="@+id/radioButton6"
+        android:layout_alignLeft="@+id/textView7"
+        android:textColor="@color/text_color"
+        android:text="@string/threek_c" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/radioButton8"
+        android:layout_alignBottom="@+id/radioButton8"
+        android:layout_alignLeft="@+id/textView8"
+        android:textColor="@color/text_color"
+        android:text="@string/fourk_c" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/radioButton10"
+        android:layout_alignBottom="@+id/radioButton10"
+        android:layout_alignLeft="@+id/textView9"
+        android:textColor="@color/text_color"
+        android:text="@string/fivek_c" />
+
+"
+
+</RelativeLayout>

@@ -14,6 +14,7 @@ public final class R {
         public static final int bakc=0x7f060002;
         public static final int day_color=0x7f060000;
         public static final int spinner_color=0x7f060001;
+        public static final int text_color=0x7f060003;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -60,10 +61,24 @@ public final class R {
         public static final int TextView26=0x7f090014;
         public static final int TextView27=0x7f090013;
         public static final int TextView28=0x7f09001b;
-        public static final int action_settings=0x7f09003a;
+        public static final int action_settings=0x7f090048;
         public static final int imageView1=0x7f09001d;
         public static final int imageView2=0x7f09001e;
         public static final int imageView3=0x7f090029;
+        public static final int radioButton1=0x7f090042;
+        public static final int radioButton10=0x7f09003e;
+        public static final int radioButton11=0x7f090046;
+        public static final int radioButton12=0x7f09003f;
+        public static final int radioButton13=0x7f090047;
+        public static final int radioButton14=0x7f090040;
+        public static final int radioButton2=0x7f09003b;
+        public static final int radioButton3=0x7f090041;
+        public static final int radioButton4=0x7f09003a;
+        public static final int radioButton5=0x7f090043;
+        public static final int radioButton6=0x7f09003c;
+        public static final int radioButton7=0x7f090044;
+        public static final int radioButton8=0x7f09003d;
+        public static final int radioButton9=0x7f090045;
         public static final int spinner1=0x7f090037;
         public static final int textView1=0x7f090001;
         public static final int textView10=0x7f09002d;
@@ -95,9 +110,13 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int config=0x7f030001;
+        public static final int shop=0x7f030002;
     }
     public static final class menu {
-        public static final int main=0x7f080000;
+        public static final int config=0x7f080000;
+        public static final int main=0x7f080001;
+        public static final int shop=0x7f080002;
     }
     public static final class string {
         public static final int about=0x7f05001c;
@@ -111,6 +130,13 @@ public final class R {
         public static final int debt_proc=0x7f050012;
         public static final int debt_proc_text=0x7f050011;
         public static final int debt_text=0x7f05000c;
+        public static final int fivek=0x7f050028;
+        public static final int fivek_c=0x7f050036;
+        public static final int fourk=0x7f050027;
+        public static final int fourk_c=0x7f050035;
+        public static final int gaz24=0x7f050022;
+        public static final int gaz3102=0x7f050023;
+        public static final int gaz_c=0x7f050031;
         public static final int hello_world=0x7f050002;
         public static final int incom_tax_text=0x7f050013;
         public static final int income_tax=0x7f050014;
@@ -118,8 +144,15 @@ public final class R {
         public static final int kredit_proc=0x7f050010;
         public static final int kredit_proc_text=0x7f05000f;
         public static final int kredit_text=0x7f05000a;
+        public static final int luaz=0x7f05001d;
+        public static final int luaz_c=0x7f05002d;
         public static final int month=0x7f050019;
+        public static final int moskvitch=0x7f05001e;
+        public static final int moskvitch2=0x7f05001f;
+        public static final int moskw_c=0x7f05002e;
         public static final int now=0x7f050003;
+        public static final int onek=0x7f050024;
+        public static final int onek_c=0x7f050032;
         public static final int profit=0x7f05000d;
         public static final int profit_text=0x7f05000e;
         public static final int quit=0x7f05001b;
@@ -128,6 +161,19 @@ public final class R {
         public static final int rent_land=0x7f050018;
         public static final int rent_land_text=0x7f050017;
         public static final int score_value=0x7f050008;
+        public static final int sevenk=0x7f05002a;
+        public static final int shop=0x7f05002b;
+        public static final int sixk=0x7f050029;
+        public static final int threek=0x7f050026;
+        public static final int threek_c=0x7f050034;
+        public static final int title_activity_config=0x7f050037;
+        public static final int title_activity_shop=0x7f05002c;
+        public static final int twok=0x7f050025;
+        public static final int twok_c=0x7f050033;
+        public static final int vaz6=0x7f050020;
+        public static final int vaz6_c=0x7f05002f;
+        public static final int vaz9=0x7f050021;
+        public static final int vaz9_c=0x7f050030;
         public static final int year=0x7f05001a;
     }
     public static final class style {
