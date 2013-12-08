@@ -14,6 +14,7 @@ public class Config extends Activity {
 	double house_rent_conf = 0.71;
 	double car_cost,apart_cost;
 	String car,apart;
+	int splashTime = 500;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -25,11 +26,13 @@ public class Config extends Activity {
 		intent.putExtra("income_tax_conf", income_tax_conf);
 		intent.putExtra("land_rent_conf", land_rent_conf);
 		intent.putExtra("house_rent_conf", house_rent_conf);
+		intent.putExtra("splashTime", splashTime);
 		//car_cost = getIntent().getExtras().getDouble("CAR_COST");
 		//car = getIntent().getExtras().getString("CAR");
 		//apart_cost = getIntent().getExtras().getDouble("APART_COST");
 		//apart = getIntent().getExtras().getString("APART");
-	startActivity(intent);
+		
+		startActivity(intent);
 	finish();
 	}
 

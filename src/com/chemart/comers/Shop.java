@@ -11,15 +11,18 @@ public class Shop extends Activity {
 	double score;
 	//public final static String CAR="";
 	//public final static int CAR_COST = 0;
+	int splashTime = 2000;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.shop);
-	}
+	
+		}
 	
 	public void onRadioClick(View v) {
 		
 		Intent shopIntent = new Intent(Shop.this,MainActivity.class);
+		Intent config_Intent = new Intent(Shop.this, Config.class);
 		Intent conf_intent = getIntent();
 		
 		switch (v.getId()) 
@@ -32,6 +35,7 @@ public class Shop extends Activity {
 			score = score - 10000;
 			shopIntent.putExtra("score_conf", score);
 			Toast.makeText(getBaseContext(), "Вы купили Луаз! -7620 гроблей", Toast.LENGTH_SHORT).show();
+			//shopIntent.putExtra("splashTime", splashTime);
 			break;
 		case R.id.radioButton5:
 			shopIntent.putExtra("CAR", R.string.moskvitch2);
@@ -111,6 +115,7 @@ public class Shop extends Activity {
 		}
 		setResult(RESULT_OK, shopIntent);
 		finish();
+		shopIntent.putExtra("splashTime", splashTime);
 		
 	}
 

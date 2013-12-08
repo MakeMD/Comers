@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
 	final int MENU_QUIT_ID = 2;
 	final int MENU_ABOUT_ID = 3;
 	String[] data = {"Банк", "Рынок", "Биржа", "Хозяйство", "Секретарь"};
-	 protected int splashTime = 500;
+	 protected int splashTime;
 	 String[] day = {"Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"};
 	 String[] date = {"01-","02-","03-","04-","05-","06-","07-","08-","09-","10-","11-","12-","13-","14-","15-","16-","17-","18-","19-","20-","21-","22-","23-","24-","25-","26-","27-","28-","29-","30-", "31-"};
 	 String[] month = {"Jan-","Feb-","Mar-","Apr-","May-","Jun-","Jul-","Aug-","Sep-","Oct-","Nov-","Dec-"};
@@ -49,6 +49,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		final Intent conf_intent = getIntent();
+		splashTime = conf_intent.getIntExtra("splashTime", 0);
 		score = conf_intent.getDoubleExtra("score_conf", 0);
 		profit = conf_intent.getDoubleExtra("profit_conf", 0);
 		income_tax = conf_intent.getDoubleExtra("income_tax_conf", 0);
@@ -71,9 +72,11 @@ public class MainActivity extends Activity {
             	break;            	
             }
             case 1:{
+            	splashTime = 6000;
             	Intent intent = new Intent(MainActivity.this, Shop.class);
                 startActivity(intent);
                 break;
+                
             }
             case 2:{
             	//Intent intent = new Intent(MainActivity.this, Rialto.class);
@@ -91,6 +94,7 @@ public class MainActivity extends Activity {
                 break;
             }
             }
+            
             }
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
@@ -107,25 +111,28 @@ public class MainActivity extends Activity {
         score_tv.setText(df.format(score));
         profit_tv.setText(df.format(profit));
         income_tax_tv.setText(df.format((1-income_tax)*100)+"%");
-        Thread th=new Thread(){
+         final Thread th=new Thread(){
         	
             @Override
             public void run(){
             	
             	try
                 {
-                	m_timer = 0;
+            		m_timer = 0;
                 	d_timer=-1;
                 	day_timer=-1;
                     while (d_timer > -2 & day_timer > -2) {
                 	//for (timer = 0; timer < 31; timer++)
                     d_timer++;
                     day_timer++;
+                    splashTime = conf_intent.getIntExtra("splashTime", 0);
+            		
                     	{
                         int waited = 0;
+                        
                         while(waited < splashTime)
                         {
-                            Thread.sleep(100);
+                        	    Thread.sleep(100);
                             runOnUiThread(new Runnable() { 
                                 @Override
                                 public void run() {
@@ -138,7 +145,7 @@ public class MainActivity extends Activity {
                                     }
                                 	try {
                                         dt.setText(date[d_timer]);
-                                
+                                        
                                     }
                                     catch(Exception e) 
                                     {
