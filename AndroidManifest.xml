@@ -18,7 +18,9 @@
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name"
             android:screenOrientation="landscape" >
-        
+        <intent-filter><action android:name="android.intent.action.MAIN" />
+         <category android:name="android.intent.category.LAUNCHER" /></intent-filter>
+         
         </activity>
         <activity
             android:name="com.chemart.comers.Shop"
@@ -26,14 +28,7 @@
             android:label="@string/shop"
             android:screenOrientation="landscape" >
         </activity>
-        <activity
-            android:name="com.chemart.comers.Config"
-            android:label="@string/title_activity_config" >
-                <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        
     </application>
 
 </manifest>

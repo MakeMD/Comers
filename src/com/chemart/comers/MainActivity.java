@@ -7,8 +7,12 @@ import java.text.DecimalFormat;
 import java.util.GregorianCalendar;
 
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -30,7 +34,7 @@ public class MainActivity extends Activity {
 	final int MENU_QUIT_ID = 2;
 	final int MENU_ABOUT_ID = 3;
 	String[] data = {"Банк", "Рынок", "Биржа", "Хозяйство", "Секретарь"};
-	 protected int splashTime;
+	 protected int splashTime = 500;
 	 String[] day = {"Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"};
 	 String[] date = {"01-","02-","03-","04-","05-","06-","07-","08-","09-","10-","11-","12-","13-","14-","15-","16-","17-","18-","19-","20-","21-","22-","23-","24-","25-","26-","27-","28-","29-","30-", "31-"};
 	 String[] month = {"Jan-","Feb-","Mar-","Apr-","May-","Jun-","Jul-","Aug-","Sep-","Oct-","Nov-","Dec-"};
@@ -39,20 +43,17 @@ public class MainActivity extends Activity {
 	    int day_timer,d_timer,m_timer =0;
 	    double house_rent;
 	    double land_rent;
-	    double income_tax;
-	    double profit;
-	    double score;
+	    double income_tax = 0.98;
+	    double profit= 137.00;
+	    double score = 53657.00;
 	    DecimalFormat df = new DecimalFormat("###########");
 	    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		final Intent conf_intent = getIntent();
-		splashTime = conf_intent.getIntExtra("splashTime", 0);
-		score = conf_intent.getDoubleExtra("score_conf", 0);
-		profit = conf_intent.getDoubleExtra("profit_conf", 0);
-		income_tax = conf_intent.getDoubleExtra("income_tax_conf", 0);
+		SavePreferences("score",df.format(score));
+		SavePreferences("profit",df.format(profit));
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Spinner spinner = (Spinner) findViewById(R.id.spinner1);
@@ -72,7 +73,6 @@ public class MainActivity extends Activity {
             	break;            	
             }
             case 1:{
-            	splashTime = 6000;
             	Intent intent = new Intent(MainActivity.this, Shop.class);
                 startActivity(intent);
                 break;
@@ -111,7 +111,7 @@ public class MainActivity extends Activity {
         score_tv.setText(df.format(score));
         profit_tv.setText(df.format(profit));
         income_tax_tv.setText(df.format((1-income_tax)*100)+"%");
-         final Thread th=new Thread(){
+        final Thread th=new Thread(){
         	
             @Override
             public void run(){
@@ -125,7 +125,7 @@ public class MainActivity extends Activity {
                 	//for (timer = 0; timer < 31; timer++)
                     d_timer++;
                     day_timer++;
-                    splashTime = conf_intent.getIntExtra("splashTime", 0);
+                    //splashTime = 500;
             		
                     	{
                         int waited = 0;
@@ -153,15 +153,18 @@ public class MainActivity extends Activity {
                                         	day_timer=0;
                                         	m_timer++;
                                         	d_timer=0;
+                                        	if (profit <0){
+                                        		profit=0;
+                                        	}
                                         	score = score+(profit*income_tax);
-                                        	Intent put_intent = new Intent(MainActivity.this, Config.class);
-                                        	put_intent.putExtra("score_conf", score);
+                                        	profit=0;
+                                        	SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
                                         	//Toast.makeText(getBaseContext(), "Удерживается подоходный налог в размере "+ df.format(profit-(profit*income_tax))+" гроблей", Toast.LENGTH_LONG).show();
                                             //Log.w("score", Double.toString(score));
                                         	score_tv.setText(df.format(score));
-                                        	profit=0;
-                                        	put_intent.putExtra("profit_conf", profit);
-                                            profit_tv.setText(df.format(profit));
+                                        	
+                                        	profit_tv.setText(df.format(profit));
                                     } 
                                     try{
                                     	mnt.setText(month[m_timer]);
@@ -187,7 +190,7 @@ public class MainActivity extends Activity {
                                     	d_timer = 0;
                                     	mnt.setText("Mar-");
                                     	m_timer=m_timer+1;
-                                    	Toast.makeText(getBaseContext(), "Lisp", Toast.LENGTH_LONG).show();
+                                    	//Toast.makeText(getBaseContext(), "Lisp", Toast.LENGTH_LONG).show();
                                         
                                     }
                                     }
@@ -196,7 +199,7 @@ public class MainActivity extends Activity {
                                         	d_timer = 0;
                                         	mnt.setText("Mar-");
                                         	m_timer=m_timer+1;
-                                        	Toast.makeText(getBaseContext(), "NoLisp!!!!", Toast.LENGTH_LONG).show();
+                                        	//Toast.makeText(getBaseContext(), "NoLisp!!!!", Toast.LENGTH_LONG).show();
                                     	}
                                     }
                                     if(m_timer == 2 && d_timer >=31){
@@ -266,23 +269,41 @@ public class MainActivity extends Activity {
             };
         th.start();
         }
+	private void SavePreferences(String key, String value){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(key, value);
+        editor.commit();
+        }
+	
 	@Override
 	public void onPause() {
 	    super.onPause();  // Always call the superclass method first
+	    Log.w("Comers", "Pause");
+	  
 	}
 
 
 	@Override
 	public void onResume() {
-	    super.onResume();  // Always call the superclass method first
-	    Intent conf_intent = getIntent();
-	    score = conf_intent.getDoubleExtra("score_conf", 0);
-		profit = conf_intent.getDoubleExtra("profit_conf", 0);
-		income_tax = conf_intent.getDoubleExtra("income_tax_conf", 0);
-		
-	}
+	    super.onResume();
+	    Log.w("Comers", "Resume");
+	    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+	    score = Double.parseDouble(sharedPreferences.getString("score", ""));
+	    profit = Double.parseDouble(sharedPreferences.getString("profit", ""));
+	    score_tv.setText(df.format(score));
+	    profit_tv.setText(df.format(profit));
+	    splashTime = 500;
+	    }
 	
-
+@Override
+public void onStop(){
+	super.onStop();
+	Log.w("Comers", "Stop");
+	SavePreferences("score",df.format(score));
+	SavePreferences("profit",df.format(profit));
+	splashTime = 500000;
+}
 
 		@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
