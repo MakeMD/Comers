@@ -84,8 +84,8 @@ public class MainActivity extends Activity {
                 break;
             }
             case 3:{
-            	//Intent intent = new Intent(MainActivity.this, Property.class);
-                //startActivity(intent);
+            	Intent intent = new Intent(MainActivity.this, Havings.class);
+                startActivity(intent);
                 break;
             }
             case 4:{

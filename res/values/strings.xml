@@ -52,7 +52,6 @@
     <string name="fivek">5-комнатная</string>
     <string name="sixk">6-комнатная</string>
     <string name="sevenk">7-комнатная</string>
-    <string name="shop">Рынок</string>
     <string name="title_activity_shop">Shop</string>
     <string name="luaz_c">7620</string>
     <string name="moskw_c">23827</string>
@@ -65,5 +64,12 @@
     <string name="fourk_c">34304</string>
     <string name="fivek_c">34574</string>
     <string name="title_activity_config">Config</string>
+    <string name="shop">Магазин</string>
+    <string name="havings">Собственность</string>
+    <string name="Realty">Недвижимость</string>
+    <string name="Car">Транспорт</string>
+    <string name="Oil">Нефть</string>
+    <string name="Glebe">Земля</string>
+    <string name="Sold">Продать</string>
 
 </resources>

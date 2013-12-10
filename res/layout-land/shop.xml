@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/RelativeLayout1"
+    android:id="@+id/Activities"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:background="@drawable/bkg" >
+    android:background="@drawable/plashka5"
+    android:gravity="center_horizontal" >
 
     <RadioButton
         android:id="@+id/radioButton7"
@@ -84,9 +84,9 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="10dp"
+        android:onClick="onRadioClick"
         android:text="@string/luaz"
-        android:textColor="@color/text_color" 
-        android:onClick = "onRadioClick"/>
+        android:textColor="@color/text_color" />
 
     <RadioButton
         android:id="@+id/radioButton2"
@@ -96,8 +96,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="160dp"
         android:layout_marginTop="10dp"
+        android:onClick="onRadioClick"
         android:text="@string/onek"
-        android:onClick = "onRadioClick"
         android:textColor="@color/text_color" />
 
     <RadioButton

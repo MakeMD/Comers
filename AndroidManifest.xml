@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.chemart.comers"
-    android:versionCode="4"
+    android:versionCode="5"
     android:versionName="1.0" >
 
     <uses-sdk
@@ -27,6 +27,13 @@
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/shop"
             android:screenOrientation="landscape" >
+        </activity>
+        
+        <activity android:name="com.chemart.comers.Havings" 
+            android:label="@string/havings"
+             android:configChanges="orientation|keyboardHidden"
+             android:screenOrientation="landscape">
+            
         </activity>
         
     </application>
