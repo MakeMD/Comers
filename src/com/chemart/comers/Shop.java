@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Shop extends Activity {
-	double score,profit;
+	double score,profit, car_cost=0, apart_cost=0;
 	String str;
 	DecimalFormat df = new DecimalFormat("###########");
 
@@ -41,92 +41,112 @@ public class Shop extends Activity {
 		{
 		
 		case R.id.radioButton1:
-			score = score - 7620;
-			profit = profit - 7620;
+			car_cost = 7620;
+			score = score - car_cost;
+			profit = profit - car_cost;
 			editor.putString("profit", df.format(profit));
 	        editor.putString("score", df.format(score));
 	        editor.putString("CAR","ЛуАЗ");
+	        editor.putString("car_cost", df.format(car_cost));
 	        editor.commit();
 			Toast.makeText(getBaseContext(), "Вы купили Луаз! -7620 гроблей", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.radioButton5:
-			score = score - 23827;
-			profit = profit - 23827;
+			car_cost = 23827;
+			score = score - car_cost;
+			profit = profit - car_cost;
 			editor.putString("profit", df.format(profit));
 	        editor.putString("score", df.format(score));
 	        editor.putString("CAR","Москвич");
+	        editor.putString("car_cost", df.format(car_cost));
 	        editor.commit();
 			Toast.makeText(getBaseContext(), "Вы купили Москвич! -23827 гроблей", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.radioButton7:
-			score = score - 30603;
-			profit = profit - 30603;
+			car_cost = 30603;
+			score = score - car_cost;
+			profit = profit - car_cost;
 			editor.putString("profit", df.format(profit));
 	        editor.putString("score", df.format(score));
 	        editor.putString("CAR","Ваз 2106");
+	        editor.putString("car_cost", df.format(car_cost));
 	        editor.commit();
 			Toast.makeText(getBaseContext(), "Вы купили Ваз 2106! -30603 гроблей", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.radioButton9:
-			score = score - 44269;
-			profit = profit - 44269;
+			car_cost = 44269;
+			score = score - car_cost;
+			profit = profit - car_cost;
 			editor.putString("profit", df.format(profit));
 	        editor.putString("score", df.format(score));
 	        editor.putString("CAR","Ваз 2109");
+	        editor.putString("car_cost", df.format(car_cost));
 	        editor.commit();
 			Toast.makeText(getBaseContext(), "Вы купили Ваз 2109! -44269 гроблей", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.radioButton13:
-			score = score - 74879;
-			profit = profit - 74879;
+			car_cost = 74879;
+			score = score - car_cost;
+			profit = profit - car_cost;
 			editor.putString("profit", df.format(profit));
 	        editor.putString("score", df.format(score));
 	        editor.putString("CAR","Газ 3102");
+	        editor.putString("car_cost", df.format(car_cost));
 	        editor.commit();
 	        Toast.makeText(getBaseContext(), "Вы купили Газ 3102! -74879 гроблей", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.radioButton2:
-			score = score - 8304;
-			profit = profit - 8304;
+			apart_cost = 8304;
+			score = score - apart_cost;
+			profit = profit - apart_cost;
 			editor.putString("profit", df.format(profit));
 	        editor.putString("score", df.format(score));
 	        editor.putString("APART","1 -комн.");
+	        editor.putString("apart_cost", df.format(apart_cost));
 	        editor.commit();
 			Toast.makeText(getBaseContext(), "Вы купили 1-комнатную квартиру! -8304 гроблей", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.radioButton4:
-			score = score - 17286;
-			profit = profit - 17286;
+			apart_cost = 17286;
+			score = score - apart_cost;
+			profit = profit - apart_cost;
 			editor.putString("profit", df.format(profit));
 	        editor.putString("score", df.format(score));
 	        editor.putString("APART","2 -комн.");
+	        editor.putString("apart_cost", df.format(apart_cost));
 	        editor.commit();
 			Toast.makeText(getBaseContext(), "Вы купили 2-комнатную квартиру! -17286 гроблей", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.radioButton6:
-			score = score - 18934;
-			profit = profit - 18934;
+			apart_cost = 18934;
+			score = score - apart_cost;
+			profit = profit - apart_cost;
 			editor.putString("profit", df.format(profit));
 	        editor.putString("score", df.format(score));
 	        editor.putString("APART","3 -комн.");
+	        editor.putString("apart_cost", df.format(apart_cost));
 	        editor.commit();
 	        Toast.makeText(getBaseContext(), "Вы купили 3-комнатную квартиру! -18934 гроблей", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.radioButton8:
-			score = score - 34304;
-			profit = profit - 34304;
+			apart_cost = 34304;
+			score = score - apart_cost;
+			profit = profit - apart_cost;
 			editor.putString("profit", df.format(profit));
 	        editor.putString("score", df.format(score));
 	        editor.putString("APART","4 -комн.");
+	        editor.putString("apart_cost", df.format(apart_cost));
 	        editor.commit();
 	        Toast.makeText(getBaseContext(), "Вы купили 4-комнатную квартиру! -34304 гроблей", Toast.LENGTH_SHORT).show();
 			break;
 		case R.id.radioButton10:
-			score = score - 34574;
-			profit = profit - 34574;
+			apart_cost = 34574;
+			score = score - apart_cost;
+			profit = profit - apart_cost;
 			editor.putString("profit", df.format(profit));
 	        editor.putString("score", df.format(score));
 	        editor.putString("APART","5 -комн.");
+	        editor.putString("apart_cost", df.format(apart_cost));
 	        editor.commit();
 			Toast.makeText(getBaseContext(), "Вы купили 5-комнатную квартиру! -34574 гроблей", Toast.LENGTH_SHORT).show();
 			break;

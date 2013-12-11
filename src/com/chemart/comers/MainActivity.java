@@ -44,8 +44,12 @@ public class MainActivity extends Activity {
 	    double house_rent;
 	    double land_rent;
 	    double income_tax = 0.98;
-	    double profit= 137.00;
+	    double profit= 0.00;
 	    double score = 53657.00;
+	    double car_cost =0;
+	    double apart_cost =0;
+	    String car="",apart="";
+	    int oil=0,glebe=0;
 	    DecimalFormat df = new DecimalFormat("###########");
 	    
 	@Override
@@ -54,12 +58,17 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		SavePreferences("score",df.format(score));
 		SavePreferences("profit",df.format(profit));
+		SavePreferences("car_cost",df.format(car_cost));
+		SavePreferences("apart_cost",df.format(apart_cost));
+		SavePreferences("apart", apart);
+		SavePreferences("car", car);
+		
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner1);
         spinner.setAdapter(adapter);
         spinner.setPrompt("Μενώ");
-        spinner.setSelection(2);
+        spinner.setSelection(0);
         spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
@@ -70,28 +79,39 @@ public class MainActivity extends Activity {
             case 0:{
             	//Intent intent = new Intent(MainActivity.this, Bank.class);
                 //startActivity(intent);
+            	//position = 1;
+                //spinner.setSelection(1);
             	break;            	
             }
             case 1:{
             	Intent intent = new Intent(MainActivity.this, Shop.class);
                 startActivity(intent);
+                position =0;
+                spinner.setSelection(0);
                 break;
                 
             }
             case 2:{
             	//Intent intent = new Intent(MainActivity.this, Rialto.class);
                 //startActivity(intent);
-                break;
+            	//position =0;
+                //spinner.setSelection(0);
+                
+            	break;
             }
             case 3:{
             	Intent intent = new Intent(MainActivity.this, Havings.class);
                 startActivity(intent);
+                position = 0;
+                spinner.setSelection(0);
                 break;
             }
             case 4:{
             	//Intent intent = new Intent(MainActivity.this, Secretary.class);
                 //startActivity(intent);
-                break;
+            	//position = 0;
+                //spinner.setSelection(0);
+            	break;
             }
             }
             
