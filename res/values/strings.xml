@@ -52,7 +52,6 @@
     <string name="fivek">5-комнатная</string>
     <string name="sixk">6-комнатная</string>
     <string name="sevenk">7-комнатная</string>
-    <string name="title_activity_shop">Shop</string>
     <string name="luaz_c">7620</string>
     <string name="moskw_c">23827</string>
     <string name="vaz6_c">30603</string>
@@ -71,5 +70,20 @@
     <string name="Oil">Нефть</string>
     <string name="Glebe">Земля</string>
     <string name="Sold">Продать</string>
-
+    <string name="Jan">Jan</string>
+    <string name="Feb">Feb</string>
+    <string name="Mar">Mar</string>
+    <string name="Apr">Apr</string>
+    <string name="May">May</string>
+    <string name="Jun">Jun</string>
+    <string name="Jul">Jul</string>
+    <string name="Aug">Aug</string>
+    <string name="Sep">Sep</string>
+    <string name="Oct">Oct</string>
+    <string name="Nov">Nov</string>
+    <string name="Dec">Dec</string>
+	<string name="Bay">Купить</string>
+	<string name="Railto">Биржа</string>
+	
+	
 </resources>

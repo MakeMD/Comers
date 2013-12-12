@@ -30,6 +30,7 @@
         android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/textView1"
         android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
         android:text="@string/Car" />
 
@@ -40,6 +41,7 @@
         android:layout_alignLeft="@+id/textView3"
         android:layout_below="@+id/textView3"
         android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
         android:text="@string/Oil" />
 
@@ -58,6 +60,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView5"
         android:layout_below="@+id/textView5"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
         android:text="@string/Glebe" />
 
@@ -78,7 +81,8 @@
         android:layout_alignBottom="@+id/textView2"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/textView2"
-        android:text="@string/Sold" />
+        android:text="@string/Sold"
+        android:onClick="onRadioClick" />
 
     <RadioButton
         android:id="@+id/radioButton3"
@@ -88,7 +92,8 @@
         android:layout_alignBottom="@+id/textView6"
         android:layout_alignLeft="@+id/radioButton2"
         android:layout_marginRight="10dp"
-        android:text="@string/Sold" />
+        android:text="@string/Sold" 
+        android:onClick="onRadioClick" />
 
     <RadioButton
         android:id="@+id/radioButton2"
@@ -97,7 +102,8 @@
         android:layout_alignBaseline="@+id/textView4"
         android:layout_alignBottom="@+id/textView4"
         android:layout_alignLeft="@+id/radioButton1"
-        android:text="@string/Sold" />
+        android:text="@string/Sold" 
+        android:onClick="onRadioClick" />
 
     <EditText
         android:id="@+id/editText1"
@@ -128,7 +134,7 @@
         android:layout_alignBaseline="@+id/textView1"
         android:layout_alignBottom="@+id/textView1"
         android:layout_toRightOf="@+id/textView1"
-        android:text="1-комнатная" />
+        />
 
     <TextView
         android:id="@+id/textView4"
@@ -146,6 +152,7 @@
         android:layout_alignBaseline="@+id/textView8"
         android:layout_alignBottom="@+id/textView8"
         android:layout_alignLeft="@+id/radioButton3"
-        android:text="@string/Sold" />
+        android:text="@string/Sold" 
+        android:onClick="onRadioClick" />
 
 </RelativeLayout>

@@ -62,7 +62,9 @@ public class MainActivity extends Activity {
 		SavePreferences("apart_cost",df.format(apart_cost));
 		SavePreferences("apart", apart);
 		SavePreferences("car", car);
+		//
 		
+		//
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         final Spinner spinner = (Spinner) findViewById(R.id.spinner1);
@@ -92,10 +94,10 @@ public class MainActivity extends Activity {
                 
             }
             case 2:{
-            	//Intent intent = new Intent(MainActivity.this, Rialto.class);
-                //startActivity(intent);
-            	//position =0;
-                //spinner.setSelection(0);
+            	Intent intent = new Intent(MainActivity.this, Railto.class);
+                startActivity(intent);
+            	position =0;
+                spinner.setSelection(0);
                 
             	break;
             }
