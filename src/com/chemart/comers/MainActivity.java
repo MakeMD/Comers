@@ -5,6 +5,7 @@ package com.chemart.comers;
 
 import java.text.DecimalFormat;
 import java.util.GregorianCalendar;
+import java.util.Random;
 
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -48,7 +49,9 @@ public class MainActivity extends Activity {
 	    double score = 53657.00;
 	    double car_cost =0;
 	    double apart_cost =0;
+	    int oil_cost=0, glebe_cost=0;
 	    String car="",apart="";
+	    int month_now=1;
 	    int oil=0,glebe=0;
 	    DecimalFormat df = new DecimalFormat("###########");
 	    
@@ -62,8 +65,13 @@ public class MainActivity extends Activity {
 		SavePreferences("apart_cost",df.format(apart_cost));
 		SavePreferences("apart", apart);
 		SavePreferences("car", car);
+		SavePreferences("month_now",Integer.toString(month_now));
 		//
+		final Random myRandom = new Random();
+		int i = myRandom.nextInt(500-300)+300;
 		
+        Log.w("COMERS", Integer.toString(i));
+		SavePreferences("glebe_cost",Integer.toString(i));
 		//
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -182,6 +190,12 @@ public class MainActivity extends Activity {
                                         	profit=0;
                                         	SavePreferences("score",df.format(score));
                                         	SavePreferences("profit",df.format(profit));
+                                        	final Random myRandom = new Random();
+                                        	int koef = myRandom.nextInt(70);
+                                        	int i = (myRandom.nextInt(500-300)+300)+koef;
+                                        	SavePreferences("glebe_cost",Integer.toString(i));
+                                        	SavePreferences("month_now",Integer.toString(m_timer));
+                                        	Log.w("COMERS", Integer.toString(m_timer));	
                                         	//Toast.makeText(getBaseContext(), "”держиваетс€ подоходный налог в размере "+ df.format(profit-(profit*income_tax))+" гроблей", Toast.LENGTH_LONG).show();
                                             //Log.w("score", Double.toString(score));
                                         	score_tv.setText(df.format(score));
@@ -213,8 +227,7 @@ public class MainActivity extends Activity {
                                     	mnt.setText("Mar-");
                                     	m_timer=m_timer+1;
                                     	//Toast.makeText(getBaseContext(), "Lisp", Toast.LENGTH_LONG).show();
-                                        
-                                    }
+                                        }
                                     }
                                     else{
                                     	if(m_timer == 1 && d_timer >= 28){
@@ -228,53 +241,64 @@ public class MainActivity extends Activity {
                                     	d_timer = 0;
                                     	mnt.setText("Apr-");
                                     	m_timer=m_timer+1;
+                                    	
                                     }
                                     if(m_timer == 3 && d_timer >=30){
                                     	d_timer = 0;
                                     	mnt.setText("May-");
                                     	m_timer=m_timer+1;
+                                    	
                                     }
                                     if(m_timer == 4 && d_timer >=31){
                                     	d_timer = 0;
                                     	mnt.setText("Jun-");
                                     	m_timer=m_timer+1;
+                                    	
                                     }
                                     if(m_timer == 5 && d_timer >=30){
                                     	d_timer = 0;
                                     	mnt.setText("Jul-");
                                     	m_timer=m_timer+1;
+                                    	
                                     }
                                     if(m_timer == 6 && d_timer >=31){
                                     	d_timer = 0;
                                     	mnt.setText("Aug-");
                                     	m_timer=m_timer+1;
+                                    	
                                     }
                                     if(m_timer == 7 && d_timer >=31){
                                     	d_timer = 0;
                                     	mnt.setText("Sep-");
                                     	m_timer=m_timer+1;
+                                    	
                                     }
                                     if(m_timer == 8 && d_timer >=30){
                                     	d_timer = 0;
                                     	mnt.setText("Oct-");
                                     	m_timer=m_timer+1;
+                                    	
                                     }
                                     if(m_timer == 9 && d_timer >=31){
                                     	d_timer = 0;
                                     	mnt.setText("Nov-");
                                     	m_timer=m_timer+1;
+                                    	
                                     }
                                     if(m_timer == 10 && d_timer >=30){
                                     	d_timer = 0;
                                     	mnt.setText("Dec-");
                                     	m_timer=m_timer+1;
+                                    	
                                     }
                                     if(m_timer == 11 && d_timer >=31){
                                     	d_timer = 0;
                                     	mnt.setText("Jan-");
                                     	Toast.makeText(getBaseContext(), "Happy New year!", Toast.LENGTH_SHORT).show();
                                     	m_timer=0;
+                                    	
                                     }
+                                    
                                     }
                             });
                             waited += 100;

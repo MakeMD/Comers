@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.chemart.comers"
-    android:versionCode="5"
+    android:versionCode="6"
     android:versionName="1.0" >
 
     <uses-sdk
@@ -36,7 +36,7 @@
         <activity android:name="com.chemart.comers.Railto" 
             android:label="@string/Railto"
             android:configChanges="orientation|keyboardHidden"
-             android:screenOrientation="landscape">
+            android:screenOrientation="landscape">
             
         </activity>
         
