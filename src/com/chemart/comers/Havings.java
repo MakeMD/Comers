@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -37,12 +38,14 @@ SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferen
     profit = Double.parseDouble(sharedPreferences.getString("profit", ""));
 	car_cost = Double.parseDouble(sharedPreferences.getString("car_cost", ""));
     apart_cost = Double.parseDouble(sharedPreferences.getString("apart_cost", ""));
+ 	oil = Integer.parseInt(getDefaults("oil",this));
+ 	glebe = Integer.parseInt(getDefaults("glebe",this));
  	apart = sharedPreferences.getString("APART", "");
     car = sharedPreferences.getString("CAR", "");
     apart_tv.setText(apart);
     car_tv.setText(car);
 	oil_tv.setText(Integer.toString(oil)+" "+"бар.");
-	glebe_tv.setText(Integer.toString(glebe)+" "+"Га");
+	glebe_tv.setText(Integer.toString(glebe)+" "+"акр");
 	EditOil = (EditText) findViewById(R.id.editText1);
 	EditGlebe = (EditText) findViewById(R.id.editText2);
 	}
@@ -78,12 +81,17 @@ SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferen
 	        editor.putString("CAR", car);
 	        editor.commit();
 	        break;
+	        
 		case R.id.radioButton3:
 			if(oil>0 && EditOil.getText().toString() != null){
-				oil = oil - Integer.parseInt(EditOil.getText().toString());
-				//score = score + (oil*oil_cost);
-				 //profit = profit + (oil*oil_cost);
-				Toast.makeText(getBaseContext(), "Вы продали "+ Integer.toString(oil)+" барелей нефти", Toast.LENGTH_SHORT).show();				 
+				//oil = oil - Integer.parseInt(EditOil.getText().toString());
+				//oil_tv.setText(Integer.toString(oil)+" "+"бар.");
+				//score = score + (oil*(Integer.parseInt(getDefaults("oil_cost",this))));
+				 //profit = profit + (oil*(Integer.parseInt(getDefaults("oil_cost",this))));
+				 //SavePreferences("score",df.format(score));
+				 //SavePreferences("profit",df.format(profit));
+				 //SavePreferences("oil",Integer.toString(oil));
+				 //Toast.makeText(getBaseContext(), "Вы продали "+ Integer.toString(oil)+" барелей нефти", Toast.LENGTH_SHORT).show();				 
 			}
 			else{
 					Toast.makeText(getBaseContext(), "Недостаточно ресурсов для продажи", Toast.LENGTH_SHORT).show();
@@ -92,9 +100,13 @@ SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferen
 		case R.id.radioButton4:
 			if(glebe>0 && EditGlebe.getText().toString() != null){
 				glebe = glebe - Integer.parseInt(EditGlebe.getText().toString());
-				//score = score + (glebe*glebe_cost);
-				 //profit = profit + (glebe*glebe_cost);
-				Toast.makeText(getBaseContext(), "Вы продали "+ Integer.toString(glebe)+" гектар земли", Toast.LENGTH_SHORT).show();
+				glebe_tv.setText(Integer.toString(glebe)+" "+"акр");
+				score = score + (glebe*(Integer.parseInt(getDefaults("glebe_cost",this))));
+				 profit = profit + (glebe*(Integer.parseInt(getDefaults("glebe_cost",this))));
+				 SavePreferences("score",df.format(score));
+				 SavePreferences("profit",df.format(profit));
+				 SavePreferences("glebe",Integer.toString(glebe));
+				 Toast.makeText(getBaseContext(), "Вы продали "+ EditGlebe.getText().toString()+" акров земли", Toast.LENGTH_SHORT).show();
 			}
 			else{
 				Toast.makeText(getBaseContext(), "Недостаточно ресурсов для продажи", Toast.LENGTH_SHORT).show();
@@ -106,6 +118,16 @@ SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferen
 		setResult(RESULT_OK, soldIntent);
 		finish();	
 	}
+	public static String getDefaults(String key, Context context) {
+	    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+	    return preferences.getString(key, null);
+	}
+	private void SavePreferences(String key, String value){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(key, value);
+        editor.commit();
+        }
 	@Override
 	public void onStop(){
 		super.onStop();

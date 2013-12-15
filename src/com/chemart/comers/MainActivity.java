@@ -7,6 +7,7 @@ import java.text.DecimalFormat;
 import java.util.GregorianCalendar;
 import java.util.Random;
 
+import android.R.bool;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.app.Activity;
@@ -52,7 +53,7 @@ public class MainActivity extends Activity {
 	    int oil_cost=0, glebe_cost=0;
 	    String car="",apart="";
 	    int month_now=1;
-	    int oil=0,glebe=0;
+	    int oil=100,glebe=100;
 	    DecimalFormat df = new DecimalFormat("###########");
 	    
 	@Override
@@ -65,13 +66,10 @@ public class MainActivity extends Activity {
 		SavePreferences("apart_cost",df.format(apart_cost));
 		SavePreferences("apart", apart);
 		SavePreferences("car", car);
+		SavePreferences("oil", Integer.toString(oil));
+		SavePreferences("glebe", Integer.toString(glebe));
 		SavePreferences("month_now",Integer.toString(month_now));
 		//
-		final Random myRandom = new Random();
-		int i = myRandom.nextInt(500-300)+300;
-		
-        Log.w("COMERS", Integer.toString(i));
-		SavePreferences("glebe_cost",Integer.toString(i));
 		//
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -181,7 +179,7 @@ public class MainActivity extends Activity {
                                     {
                                         	e.printStackTrace();
                                         	day_timer=0;
-                                        	m_timer++;
+                                        	
                                         	d_timer=0;
                                         	if (profit <0){
                                         		profit=0;
@@ -190,12 +188,7 @@ public class MainActivity extends Activity {
                                         	profit=0;
                                         	SavePreferences("score",df.format(score));
                                         	SavePreferences("profit",df.format(profit));
-                                        	final Random myRandom = new Random();
-                                        	int koef = myRandom.nextInt(70);
-                                        	int i = (myRandom.nextInt(500-300)+300)+koef;
-                                        	SavePreferences("glebe_cost",Integer.toString(i));
-                                        	SavePreferences("month_now",Integer.toString(m_timer));
-                                        	Log.w("COMERS", Integer.toString(m_timer));	
+                                        	m_timer++;
                                         	//Toast.makeText(getBaseContext(), "”держиваетс€ подоходный налог в размере "+ df.format(profit-(profit*income_tax))+" гроблей", Toast.LENGTH_LONG).show();
                                             //Log.w("score", Double.toString(score));
                                         	score_tv.setText(df.format(score));
@@ -204,7 +197,75 @@ public class MainActivity extends Activity {
                                     } 
                                     try{
                                     	mnt.setText(month[m_timer]);
-                                    	  }
+                                    	int g,o;
+                                    	final Random myRandom = new Random();
+                                    	int koef_g = myRandom.nextInt(70);
+                                    	int koef_o = myRandom.nextInt(5);
+                                    	int sign = myRandom.nextInt(2);
+                                    	if (sign == 0){
+                                    	g = (myRandom.nextInt(500-300)+300)+koef_g;
+                                    	o = (myRandom.nextInt(100-10)+100)+koef_o;
+                                    	}
+                                    	else{
+                                    	g = (myRandom.nextInt(500-300)+300)-koef_g;
+                                    	o = (myRandom.nextInt(100-10)+100)-koef_o;
+                                    	}
+                                    	SavePreferences("glebe_cost",Integer.toString(g));
+                                    	SavePreferences("oil_cost",Integer.toString(o));
+                                    	SavePreferences("month_now",Integer.toString(m_timer));
+                                    	switch (m_timer){
+                                    	case 0:
+                                    		SavePreferences("g_jan",Integer.toString(g));
+                                    		SavePreferences("o_jan",Integer.toString(o));
+                                    		break;
+                                    	case 1:
+                                    		SavePreferences("g_feb",Integer.toString(g));
+                                    		SavePreferences("o_feb",Integer.toString(o));
+                                    		break;
+                                    	case 2:
+                                    		SavePreferences("g_mar",Integer.toString(g));
+                                    		SavePreferences("o_mar",Integer.toString(o));
+                                    		break;
+                                    	case 3:
+                                    		SavePreferences("g_apr",Integer.toString(g));
+                                    		SavePreferences("o_apr",Integer.toString(o));
+                                    		break;
+                                    	case 4:
+                                    		SavePreferences("g_may",Integer.toString(g));
+                                    		SavePreferences("o_may",Integer.toString(o));
+                                    		break;
+                                    	case 5:
+                                    		SavePreferences("g_jun",Integer.toString(g));
+                                    		SavePreferences("o_jun",Integer.toString(o));
+                                    		break;
+                                    	case 6:
+                                    		SavePreferences("g_jul",Integer.toString(g));
+                                    		SavePreferences("o_jul",Integer.toString(o));
+                                    		break;
+                                    	case 7:
+                                    		SavePreferences("g_aug",Integer.toString(g));
+                                    		SavePreferences("o_aug",Integer.toString(o));
+                                    		break;
+                                        case 8:
+                                        	SavePreferences("g_sep",Integer.toString(g));
+                                        	SavePreferences("o_sep",Integer.toString(o));
+                                    		break;
+                                        case 9:
+                                        	SavePreferences("g_oct",Integer.toString(g));
+                                        	SavePreferences("o_oct",Integer.toString(o));
+                                    		break;
+                                        case 10:
+                                        	SavePreferences("g_nov",Integer.toString(g));
+                                        	SavePreferences("o_nov",Integer.toString(o));
+                                    		break;
+                                        case 11:
+                                        	SavePreferences("g_dec",Integer.toString(g));
+                                        	SavePreferences("o_dec",Integer.toString(o));
+                                    		break;
+                                    	}
+                                    	Log.w("COMERS", Integer.toString(m_timer));	
+                                    		  
+                                    }
                                     catch(Exception e)
                                     {
                                     	e.printStackTrace();
@@ -223,6 +284,7 @@ public class MainActivity extends Activity {
                                     if (cal.isLeapYear(y_timer) == true)
                                     {
                                     if(m_timer == 1 && d_timer >= 29){
+                                    	
                                     	d_timer = 0;
                                     	mnt.setText("Mar-");
                                     	m_timer=m_timer+1;
@@ -231,6 +293,7 @@ public class MainActivity extends Activity {
                                     }
                                     else{
                                     	if(m_timer == 1 && d_timer >= 28){
+                                    			
                                         	d_timer = 0;
                                         	mnt.setText("Mar-");
                                         	m_timer=m_timer+1;
@@ -238,66 +301,77 @@ public class MainActivity extends Activity {
                                     	}
                                     }
                                     if(m_timer == 2 && d_timer >=31){
+                                    		
                                     	d_timer = 0;
                                     	mnt.setText("Apr-");
                                     	m_timer=m_timer+1;
                                     	
                                     }
                                     if(m_timer == 3 && d_timer >=30){
+                                    		
                                     	d_timer = 0;
                                     	mnt.setText("May-");
                                     	m_timer=m_timer+1;
                                     	
                                     }
                                     if(m_timer == 4 && d_timer >=31){
+                                    		
                                     	d_timer = 0;
                                     	mnt.setText("Jun-");
                                     	m_timer=m_timer+1;
                                     	
                                     }
                                     if(m_timer == 5 && d_timer >=30){
+                                    		
                                     	d_timer = 0;
                                     	mnt.setText("Jul-");
                                     	m_timer=m_timer+1;
                                     	
                                     }
                                     if(m_timer == 6 && d_timer >=31){
+                                    		
                                     	d_timer = 0;
                                     	mnt.setText("Aug-");
                                     	m_timer=m_timer+1;
                                     	
                                     }
                                     if(m_timer == 7 && d_timer >=31){
+                                    	
                                     	d_timer = 0;
                                     	mnt.setText("Sep-");
                                     	m_timer=m_timer+1;
                                     	
                                     }
                                     if(m_timer == 8 && d_timer >=30){
+                                    	
                                     	d_timer = 0;
                                     	mnt.setText("Oct-");
                                     	m_timer=m_timer+1;
                                     	
                                     }
                                     if(m_timer == 9 && d_timer >=31){
+                                    
                                     	d_timer = 0;
                                     	mnt.setText("Nov-");
                                     	m_timer=m_timer+1;
                                     	
                                     }
                                     if(m_timer == 10 && d_timer >=30){
+                                    
                                     	d_timer = 0;
                                     	mnt.setText("Dec-");
                                     	m_timer=m_timer+1;
                                     	
                                     }
                                     if(m_timer == 11 && d_timer >=31){
+                                    
                                     	d_timer = 0;
                                     	mnt.setText("Jan-");
                                     	Toast.makeText(getBaseContext(), "Happy New year!", Toast.LENGTH_SHORT).show();
                                     	m_timer=0;
                                     	
                                     }
+                                    
                                     
                                     }
                             });
@@ -337,6 +411,8 @@ public class MainActivity extends Activity {
 	    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 	    score = Double.parseDouble(sharedPreferences.getString("score", ""));
 	    profit = Double.parseDouble(sharedPreferences.getString("profit", ""));
+	    //oil = Integer.parseInt(sharedPreferences.getString("oil", ""));
+	    //glebe = Integer.parseInt(sharedPreferences.getString("glebe", ""));
 	    score_tv.setText(df.format(score));
 	    profit_tv.setText(df.format(profit));
 	    splashTime = 500;
@@ -348,6 +424,8 @@ public void onStop(){
 	Log.w("Comers", "Stop");
 	SavePreferences("score",df.format(score));
 	SavePreferences("profit",df.format(profit));
+	SavePreferences("oil",Integer.toString(oil));
+	SavePreferences("glebe",Integer.toString(glebe));
 	splashTime = 500000;
 }
 
