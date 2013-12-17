@@ -4,10 +4,14 @@ import java.text.DecimalFormat;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Railto extends Activity {
 	
@@ -19,6 +23,9 @@ public class Railto extends Activity {
 	int month_now;
 	String g_jan, g_feb,g_mar,g_apr,g_may,g_jun,g_jul,g_aug,g_sep,g_oct,g_nov,g_dec;
 	String o_jan, o_feb,o_mar,o_apr,o_may,o_jun,o_jul,o_aug,o_sep,o_oct,o_nov,o_dec;
+	EditText EditOil = (EditText) findViewById(R.id.editText2);
+	EditText EditGlebe = (EditText) findViewById(R.id.editText1);
+	double score, profit;
 	DecimalFormat df = new DecimalFormat("###########");
 
 	
@@ -26,6 +33,9 @@ public class Railto extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	setContentView(R.layout.railto);
+	SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+	score = Double.parseDouble(sharedPreferences.getString("score", ""));
+    profit = Double.parseDouble(sharedPreferences.getString("profit", ""));
 	month_now = Integer.parseInt(getDefaults("month_now",this));
 	g_tv_jan = (TextView) findViewById(R.id.textView13);
 	g_tv_feb = (TextView) findViewById(R.id.TextView01);
@@ -320,6 +330,29 @@ public class Railto extends Activity {
 		oil_tv.setText(getDefaults("oil_cost", this)+" за барель");
 		break;
 	}
+	}
+	public void onRadioClick(View v){
+		Intent buyIntent = new Intent(Railto.this, MainActivity.class);
+		switch (v.getId()) 
+		{
+		case R.id.radioButton1:
+			if(glebe>0 && EditGlebe.getText().toString() != null){
+				double g_buy = Integer.parseInt(getDefaults("glebe_cost",this))*Integer.parseInt(EditGlebe.getText().toString());
+				glebe = glebe + Integer.parseInt(EditGlebe.getText().toString());
+				glebe_tv.setText(Integer.toString(glebe)+" "+"акр");
+				score = score + (glebe*(Integer.parseInt(getDefaults("glebe_cost",this))));
+				 profit = profit + (glebe*(Integer.parseInt(getDefaults("glebe_cost",this))));
+				 SavePreferences("score",df.format(score));
+				 SavePreferences("profit",df.format(profit));
+				 SavePreferences("glebe",Integer.toString(glebe));
+				 Toast.makeText(getBaseContext(), "Вы продали "+ EditGlebe.getText().toString()+" акров земли", Toast.LENGTH_SHORT).show();
+			}
+			else{
+				Toast.makeText(getBaseContext(), "Недостаточно ресурсов для продажи", Toast.LENGTH_SHORT).show();
+			}
+		break;
+		}
+		
 	}
 	private void SavePreferences(String key, String value){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());

@@ -22,7 +22,7 @@ public class Havings extends Activity {
 	EditText EditOil, EditGlebe; 
 	String apart,car;
 	double car_cost, apart_cost, score, profit;
-	int oil=0,glebe=0;
+	int oil,glebe;
 	DecimalFormat df = new DecimalFormat("###########");
 
 	@Override
@@ -84,19 +84,21 @@ SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferen
 	        
 		case R.id.radioButton3:
 			if(oil>0 && EditOil.getText().toString() != null){
-				//oil = oil - Integer.parseInt(EditOil.getText().toString());
-				//oil_tv.setText(Integer.toString(oil)+" "+"бар.");
-				//score = score + (oil*(Integer.parseInt(getDefaults("oil_cost",this))));
-				 //profit = profit + (oil*(Integer.parseInt(getDefaults("oil_cost",this))));
-				 //SavePreferences("score",df.format(score));
-				 //SavePreferences("profit",df.format(profit));
-				 //SavePreferences("oil",Integer.toString(oil));
-				 //Toast.makeText(getBaseContext(), "Вы продали "+ Integer.toString(oil)+" барелей нефти", Toast.LENGTH_SHORT).show();				 
+			//oil = Integer.parseInt(getDefaults("oil",this))+100;
+			oil = oil - Integer.parseInt(EditOil.getText().toString());
+				oil_tv.setText(Integer.toString(oil)+" "+"бар.");
+				score = score + (oil*(Integer.parseInt(getDefaults("oil_cost",this))));
+				profit = profit + (oil*(Integer.parseInt(getDefaults("oil_cost",this))));
+				SavePreferences("score",df.format(score));
+				SavePreferences("profit",df.format(profit));
+				SavePreferences("oil",Integer.toString(oil));
+				Toast.makeText(getBaseContext(), "Вы продали "+ Integer.toString(oil)+" барелей нефти", Toast.LENGTH_SHORT).show();				 
 			}
 			else{
 					Toast.makeText(getBaseContext(), "Недостаточно ресурсов для продажи", Toast.LENGTH_SHORT).show();
 			    		
 	}
+			break;
 		case R.id.radioButton4:
 			if(glebe>0 && EditGlebe.getText().toString() != null){
 				glebe = glebe - Integer.parseInt(EditGlebe.getText().toString());

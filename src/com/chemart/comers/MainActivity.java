@@ -54,6 +54,7 @@ public class MainActivity extends Activity {
 	    String car="",apart="";
 	    int month_now=1;
 	    int oil=100,glebe=100;
+	    int g,o;
 	    DecimalFormat df = new DecimalFormat("###########");
 	    
 	@Override
@@ -70,7 +71,21 @@ public class MainActivity extends Activity {
 		SavePreferences("glebe", Integer.toString(glebe));
 		SavePreferences("month_now",Integer.toString(month_now));
 		//
-		//
+		final Random myRandom = new Random();
+    	int koef_g = myRandom.nextInt(70);
+    	int koef_o = myRandom.nextInt(5);
+    	int sign = myRandom.nextInt(2);
+    	if (sign == 0){
+    	g = (myRandom.nextInt(500-300)+300)+koef_g;
+    	o = (myRandom.nextInt(100-10)+100)+koef_o;
+    	}
+    	else{
+    	g = (myRandom.nextInt(500-300)+300)-koef_g;
+    	o = (myRandom.nextInt(100-10)+100)-koef_o;
+    	}
+    	SavePreferences("glebe_cost",Integer.toString(g));
+    	SavePreferences("oil_cost",Integer.toString(o));
+    	//
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         final Spinner spinner = (Spinner) findViewById(R.id.spinner1);
@@ -188,6 +203,22 @@ public class MainActivity extends Activity {
                                         	profit=0;
                                         	SavePreferences("score",df.format(score));
                                         	SavePreferences("profit",df.format(profit));
+                                        	
+                                        	final Random myRandom = new Random();
+                                        	int koef_g = myRandom.nextInt(70);
+                                        	int koef_o = myRandom.nextInt(5);
+                                        	int sign = myRandom.nextInt(2);
+                                        	if (sign == 0){
+                                        	g = (myRandom.nextInt(500-300)+300)+koef_g;
+                                        	o = (myRandom.nextInt(100-10)+100)+koef_o;
+                                        	}
+                                        	else{
+                                        	g = (myRandom.nextInt(500-300)+300)-koef_g;
+                                        	o = (myRandom.nextInt(100-10)+100)-koef_o;
+                                        	}
+                                        	SavePreferences("glebe_cost",Integer.toString(g));
+                                        	SavePreferences("oil_cost",Integer.toString(o));
+                                        	
                                         	m_timer++;
                                         	//Toast.makeText(getBaseContext(), "”держиваетс€ подоходный налог в размере "+ df.format(profit-(profit*income_tax))+" гроблей", Toast.LENGTH_LONG).show();
                                             //Log.w("score", Double.toString(score));
@@ -197,19 +228,7 @@ public class MainActivity extends Activity {
                                     } 
                                     try{
                                     	mnt.setText(month[m_timer]);
-                                    	int g,o;
-                                    	final Random myRandom = new Random();
-                                    	int koef_g = myRandom.nextInt(70);
-                                    	int koef_o = myRandom.nextInt(5);
-                                    	int sign = myRandom.nextInt(2);
-                                    	if (sign == 0){
-                                    	g = (myRandom.nextInt(500-300)+300)+koef_g;
-                                    	o = (myRandom.nextInt(100-10)+100)+koef_o;
-                                    	}
-                                    	else{
-                                    	g = (myRandom.nextInt(500-300)+300)-koef_g;
-                                    	o = (myRandom.nextInt(100-10)+100)-koef_o;
-                                    	}
+                                    	
                                     	SavePreferences("glebe_cost",Integer.toString(g));
                                     	SavePreferences("oil_cost",Integer.toString(o));
                                     	SavePreferences("month_now",Integer.toString(m_timer));
@@ -389,6 +408,11 @@ public class MainActivity extends Activity {
             };
         th.start();
         }
+	
+	private void SwitchRandom(int g, int o){
+		
+	}
+	
 	private void SavePreferences(String key, String value){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = prefs.edit();

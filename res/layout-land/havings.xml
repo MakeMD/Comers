@@ -52,7 +52,7 @@
         android:layout_alignBaseline="@+id/textView5"
         android:layout_alignBottom="@+id/textView5"
         android:layout_alignRight="@+id/textView4"
-        android:text="1000 бар." />
+        android:text=" бар." />
 
     <TextView
         android:id="@+id/textView7"
@@ -71,7 +71,7 @@
         android:layout_alignBaseline="@+id/textView7"
         android:layout_alignBottom="@+id/textView7"
         android:layout_alignRight="@+id/textView6"
-        android:text="100 Га" />
+        android:text=" Га" />
 
     <RadioButton
         android:id="@+id/radioButton1"
