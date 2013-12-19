@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -23,10 +24,12 @@ public class Railto extends Activity {
 	int month_now;
 	String g_jan, g_feb,g_mar,g_apr,g_may,g_jun,g_jul,g_aug,g_sep,g_oct,g_nov,g_dec;
 	String o_jan, o_feb,o_mar,o_apr,o_may,o_jun,o_jul,o_aug,o_sep,o_oct,o_nov,o_dec;
-	EditText EditOil = (EditText) findViewById(R.id.editText2);
-	EditText EditGlebe = (EditText) findViewById(R.id.editText1);
+	EditText EditOil;
+	EditText EditGlebe;
 	double score, profit;
 	DecimalFormat df = new DecimalFormat("###########");
+	
+	
 
 	
 	@Override
@@ -36,6 +39,8 @@ public class Railto extends Activity {
 	SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 	score = Double.parseDouble(sharedPreferences.getString("score", ""));
     profit = Double.parseDouble(sharedPreferences.getString("profit", ""));
+	EditOil = (EditText) findViewById(R.id.editText2);
+	EditGlebe = (EditText) findViewById(R.id.editText1);
 	month_now = Integer.parseInt(getDefaults("month_now",this));
 	g_tv_jan = (TextView) findViewById(R.id.textView13);
 	g_tv_feb = (TextView) findViewById(R.id.TextView01);
@@ -332,28 +337,60 @@ public class Railto extends Activity {
 	}
 	}
 	public void onRadioClick(View v){
+		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		SharedPreferences.Editor editor = sharedPreferences.edit();
 		Intent buyIntent = new Intent(Railto.this, MainActivity.class);
 		switch (v.getId()) 
 		{
 		case R.id.radioButton1:
-			if(glebe>0 && EditGlebe.getText().toString() != null){
+			if(EditGlebe.getText().toString() != null){
 				double g_buy = Integer.parseInt(getDefaults("glebe_cost",this))*Integer.parseInt(EditGlebe.getText().toString());
-				glebe = glebe + Integer.parseInt(EditGlebe.getText().toString());
-				glebe_tv.setText(Integer.toString(glebe)+" "+"акр");
-				score = score + (glebe*(Integer.parseInt(getDefaults("glebe_cost",this))));
-				 profit = profit + (glebe*(Integer.parseInt(getDefaults("glebe_cost",this))));
-				 SavePreferences("score",df.format(score));
-				 SavePreferences("profit",df.format(profit));
-				 SavePreferences("glebe",Integer.toString(glebe));
-				 Toast.makeText(getBaseContext(), "Вы продали "+ EditGlebe.getText().toString()+" акров земли", Toast.LENGTH_SHORT).show();
+				if (g_buy <=score){
+				glebe = glebe + Integer.parseInt(EditGlebe.getText().toString());	
+					glebe_tv.setText(Integer.toString(glebe)+" "+"акр");
+					score = score - (Integer.parseInt(getDefaults("glebe_cost",this))*Integer.parseInt(EditGlebe.getText().toString()));
+					profit = profit - (Integer.parseInt(getDefaults("glebe_cost",this))*Integer.parseInt(EditGlebe.getText().toString()));
+					 SavePreferences("score",df.format(score));
+					 SavePreferences("profit",df.format(profit));
+					 SavePreferences("glebe",Integer.toString(glebe));
+					 Toast.makeText(getBaseContext(), "Вы купили "+ EditGlebe.getText().toString()+" акров земли", Toast.LENGTH_SHORT).show();
+				}
+				else{
+					Toast.makeText(getBaseContext(), "Недостаточно средств для покупки", Toast.LENGTH_SHORT).show();
+			}
+				
 			}
 			else{
-				Toast.makeText(getBaseContext(), "Недостаточно ресурсов для продажи", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getBaseContext(), "Недостаточно средств для покупки", Toast.LENGTH_SHORT).show();
 			}
 		break;
+		case R.id.radioButton2:
+			if(EditOil.getText().toString() != null){
+				double o_buy = Integer.parseInt(getDefaults("oil_cost",this))*Integer.parseInt(EditOil.getText().toString());
+				if (o_buy <=score){
+				oil = oil + Integer.parseInt(EditOil.getText().toString());	
+					oil_tv.setText(Integer.toString(oil)+" "+"бар.");
+					score = score - (Integer.parseInt(getDefaults("oil_cost",this))*Integer.parseInt(EditOil.getText().toString()));
+					profit = profit - (Integer.parseInt(getDefaults("oil_cost",this))*Integer.parseInt(EditOil.getText().toString()));
+					 SavePreferences("score",df.format(score));
+					 SavePreferences("profit",df.format(profit));
+					 SavePreferences("oil",Integer.toString(oil));
+					 Toast.makeText(getBaseContext(), "Вы купили "+ EditOil.getText().toString()+" барелей нефти", Toast.LENGTH_SHORT).show();
+				}
+				else{
+					Toast.makeText(getBaseContext(), "Недостаточно средств для покупки", Toast.LENGTH_SHORT).show();
+			}
+			}
+			else{
+				Toast.makeText(getBaseContext(), "Недостаточно средств для покупки", Toast.LENGTH_SHORT).show();
 		}
-		
+		default:
+			break;
+		}
+		setResult(RESULT_OK, buyIntent);
+		finish();
 	}
+	
 	private void SavePreferences(String key, String value){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = prefs.edit();
@@ -364,4 +401,13 @@ public class Railto extends Activity {
 	    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
 	    return preferences.getString(key, null);
 	}
+	@Override
+	public void onStop(){
+		super.onStop();
+		}
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+	return super.onCreateOptionsMenu(menu);
+
+	}	
 }

@@ -385,7 +385,8 @@
         android:layout_alignBottom="@+id/textView26"
         android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/textView25"
-        android:text="@string/Bay" />
+        android:text="@string/Bay"
+        android:onClick="onRadioClick" />
 
     <RadioButton
         android:id="@+id/radioButton1"
@@ -394,6 +395,7 @@
         android:layout_alignBaseline="@+id/textView25"
         android:layout_alignBottom="@+id/textView25"
         android:layout_alignLeft="@+id/radioButton2"
-        android:text="@string/Bay" />
+        android:text="@string/Bay"
+        android:onClick="onRadioClick" />
 
 </RelativeLayout>

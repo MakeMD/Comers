@@ -32,7 +32,6 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	
-	
 	final int MENU_QUIT_ID = 2;
 	final int MENU_ABOUT_ID = 3;
 	String[] data = {"Банк", "Рынок", "Биржа", "Хозяйство", "Секретарь"};
@@ -53,7 +52,7 @@ public class MainActivity extends Activity {
 	    int oil_cost=0, glebe_cost=0;
 	    String car="",apart="";
 	    int month_now=1;
-	    int oil=100,glebe=100;
+	    int oil,glebe;
 	    int g,o;
 	    DecimalFormat df = new DecimalFormat("###########");
 	    
@@ -435,8 +434,8 @@ public class MainActivity extends Activity {
 	    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 	    score = Double.parseDouble(sharedPreferences.getString("score", ""));
 	    profit = Double.parseDouble(sharedPreferences.getString("profit", ""));
-	    //oil = Integer.parseInt(sharedPreferences.getString("oil", ""));
-	    //glebe = Integer.parseInt(sharedPreferences.getString("glebe", ""));
+	    oil = Integer.parseInt(sharedPreferences.getString("oil", ""));
+	    glebe = Integer.parseInt(sharedPreferences.getString("glebe", ""));
 	    score_tv.setText(df.format(score));
 	    profit_tv.setText(df.format(profit));
 	    splashTime = 500;
