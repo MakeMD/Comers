@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.chemart.comers"
-    android:versionCode="7"
+    android:versionCode="8"
     android:versionName="1.0" >
 
     <uses-sdk
@@ -37,6 +37,11 @@
             android:label="@string/Railto"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="landscape">
+            </activity>
+        <activity android:name="com.chemart.comers.Secret" 
+            android:label="@string/Secret"
+            android:configChanges="orientation|keyboardHidden"
+             android:screenOrientation="landscape">
             </activity>
         
     </application>

@@ -21,8 +21,8 @@ public class Havings extends Activity {
 	TextView apart_tv, car_tv, oil_tv, glebe_tv;
 	EditText EditOil, EditGlebe; 
 	String apart,car;
-	double car_cost, apart_cost, score, profit;
-	int oil,glebe;
+	double car_cost, apart_cost, score, profit, saldo_o,saldo_g,saldo_gs,saldo_os;
+	int oil,glebe,sales_o,sales_g;
 	DecimalFormat df = new DecimalFormat("###########");
 
 	@Override
@@ -34,7 +34,9 @@ public class Havings extends Activity {
 	oil_tv = (TextView) findViewById(R.id.textView6);
 	glebe_tv = (TextView) findViewById(R.id.textView8);
 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-    score = Double.parseDouble(sharedPreferences.getString("score", ""));
+	saldo_os = Double.parseDouble(sharedPreferences.getString("saldo_os", ""));
+	saldo_gs = Double.parseDouble(sharedPreferences.getString("saldo_gs", ""));    
+	score = Double.parseDouble(sharedPreferences.getString("score", ""));
     profit = Double.parseDouble(sharedPreferences.getString("profit", ""));
 	car_cost = Double.parseDouble(sharedPreferences.getString("car_cost", ""));
     apart_cost = Double.parseDouble(sharedPreferences.getString("apart_cost", ""));
@@ -42,6 +44,8 @@ SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferen
  	glebe = Integer.parseInt(getDefaults("glebe",this));
  	apart = sharedPreferences.getString("APART", "");
     car = sharedPreferences.getString("CAR", "");
+    sales_g = Integer.parseInt(sharedPreferences.getString("sales_g", ""));
+    sales_o = Integer.parseInt(sharedPreferences.getString("sales_o", ""));
     apart_tv.setText(apart);
     car_tv.setText(car);
 	oil_tv.setText(Integer.toString(oil)+" "+"бар.");
@@ -89,9 +93,13 @@ SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferen
 				oil_tv.setText(Integer.toString(oil)+" "+"бар.");
 				score = score + (oil*(Integer.parseInt(getDefaults("oil_cost",this))));
 				profit = profit + (oil*(Integer.parseInt(getDefaults("oil_cost",this))));
+				saldo_o = profit;
+				saldo_os = saldo_o;
 				SavePreferences("score",df.format(score));
 				SavePreferences("profit",df.format(profit));
 				SavePreferences("oil",Integer.toString(oil));
+				SavePreferences("sales_o",EditOil.getText().toString());
+				SavePreferences("saldo_os",df.format(saldo_os));
 				Toast.makeText(getBaseContext(), "Вы продали "+ Integer.toString(oil)+" барелей нефти", Toast.LENGTH_SHORT).show();				 
 			}
 			else{
@@ -105,9 +113,13 @@ SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferen
 				glebe_tv.setText(Integer.toString(glebe)+" "+"акр");
 				score = score + (glebe*(Integer.parseInt(getDefaults("glebe_cost",this))));
 				 profit = profit + (glebe*(Integer.parseInt(getDefaults("glebe_cost",this))));
+				saldo_g = profit;
+				saldo_gs = saldo_g;
 				 SavePreferences("score",df.format(score));
 				 SavePreferences("profit",df.format(profit));
 				 SavePreferences("glebe",Integer.toString(glebe));
+				 SavePreferences("sales_g",EditGlebe.getText().toString());
+				 SavePreferences("saldo_gs",df.format(saldo_gs));
 				 Toast.makeText(getBaseContext(), "Вы продали "+ EditGlebe.getText().toString()+" акров земли", Toast.LENGTH_SHORT).show();
 			}
 			else{

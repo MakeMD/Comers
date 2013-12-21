@@ -84,6 +84,14 @@
     <string name="Dec">Dec</string>
 	<string name="Bay">Купить</string>
 	<string name="Railto">Биржа</string>
+	<string name="Secret">Секретарь</string>
+	<string name="Energo">На энергитическую установку в этом месяце понадобится</string>
+	<string name="Energo_str"> _ баррелей нефти</string>
+	<string name="Birth">Ваш день рождения</string>
+	<string name="Birth_str"> __/___</string>
+	<string name="Sales">Продано</string>
+	<string name="Buyes">Куплено</string>
+	<string name="Saldo">Результат</string>
 	
 	
 </resources>

@@ -118,7 +118,8 @@ public final class R {
         public static final int activity_main=0x7f030000;
         public static final int havings=0x7f030001;
         public static final int railto=0x7f030002;
-        public static final int shop=0x7f030003;
+        public static final int secret=0x7f030003;
+        public static final int shop=0x7f030004;
     }
     public static final class menu {
         public static final int config=0x7f080000;
@@ -129,8 +130,13 @@ public final class R {
         public static final int Apr=0x7f050040;
         public static final int Aug=0x7f050044;
         public static final int Bay=0x7f050049;
+        public static final int Birth=0x7f05004e;
+        public static final int Birth_str=0x7f05004f;
+        public static final int Buyes=0x7f050051;
         public static final int Car=0x7f050039;
         public static final int Dec=0x7f050048;
+        public static final int Energo=0x7f05004c;
+        public static final int Energo_str=0x7f05004d;
         public static final int Feb=0x7f05003e;
         public static final int Glebe=0x7f05003b;
         public static final int Jan=0x7f05003d;
@@ -143,6 +149,9 @@ public final class R {
         public static final int Oil=0x7f05003a;
         public static final int Railto=0x7f05004a;
         public static final int Realty=0x7f050038;
+        public static final int Saldo=0x7f050052;
+        public static final int Sales=0x7f050050;
+        public static final int Secret=0x7f05004b;
         public static final int Sep=0x7f050045;
         public static final int Sold=0x7f05003c;
         public static final int about=0x7f05001c;

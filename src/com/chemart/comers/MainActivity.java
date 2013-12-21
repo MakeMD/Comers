@@ -35,7 +35,7 @@ public class MainActivity extends Activity {
 	final int MENU_QUIT_ID = 2;
 	final int MENU_ABOUT_ID = 3;
 	String[] data = {"Банк", "Рынок", "Биржа", "Хозяйство", "Секретарь"};
-	 protected int splashTime = 500;
+	 protected int splashTime = 1000;
 	 String[] day = {"Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"};
 	 String[] date = {"01-","02-","03-","04-","05-","06-","07-","08-","09-","10-","11-","12-","13-","14-","15-","16-","17-","18-","19-","20-","21-","22-","23-","24-","25-","26-","27-","28-","29-","30-", "31-"};
 	 String[] month = {"Jan-","Feb-","Mar-","Apr-","May-","Jun-","Jul-","Aug-","Sep-","Oct-","Nov-","Dec-"};
@@ -54,12 +54,15 @@ public class MainActivity extends Activity {
 	    int month_now=1;
 	    int oil,glebe;
 	    int g,o;
+	    int sales_g=0,sales_o=0,buyes_o=0,buyes_g=0;
+	    double saldo_ob=0.00,saldo_gb=0.00,saldo_os=0.00,saldo_gs=0.00;
 	    DecimalFormat df = new DecimalFormat("###########");
 	    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		//
 		SavePreferences("score",df.format(score));
 		SavePreferences("profit",df.format(profit));
 		SavePreferences("car_cost",df.format(car_cost));
@@ -69,6 +72,14 @@ public class MainActivity extends Activity {
 		SavePreferences("oil", Integer.toString(oil));
 		SavePreferences("glebe", Integer.toString(glebe));
 		SavePreferences("month_now",Integer.toString(month_now));
+		SavePreferences("sales_g",Integer.toString(sales_g));
+		SavePreferences("sales_o",Integer.toString(sales_o));
+		SavePreferences("buyes_g",Integer.toString(buyes_g));
+		SavePreferences("buyes_o",Integer.toString(buyes_o));
+		SavePreferences("saldo_gb",df.format(saldo_gb));
+		SavePreferences("saldo_ob",df.format(saldo_ob));
+		SavePreferences("saldo_gs",df.format(saldo_gs));
+		SavePreferences("saldo_os",df.format(saldo_os));
 		//
 		final Random myRandom = new Random();
     	int koef_g = myRandom.nextInt(70);
@@ -129,10 +140,10 @@ public class MainActivity extends Activity {
                 break;
             }
             case 4:{
-            	//Intent intent = new Intent(MainActivity.this, Secretary.class);
-                //startActivity(intent);
-            	//position = 0;
-                //spinner.setSelection(0);
+            	Intent intent = new Intent(MainActivity.this, Secret.class);
+                startActivity(intent);
+            	position = 0;
+                spinner.setSelection(0);
             	break;
             }
             }
@@ -436,9 +447,13 @@ public class MainActivity extends Activity {
 	    profit = Double.parseDouble(sharedPreferences.getString("profit", ""));
 	    oil = Integer.parseInt(sharedPreferences.getString("oil", ""));
 	    glebe = Integer.parseInt(sharedPreferences.getString("glebe", ""));
+	    sales_g = Integer.parseInt(sharedPreferences.getString("sales_g", ""));
+	    sales_o = Integer.parseInt(sharedPreferences.getString("sales_o", ""));
+	    buyes_g = Integer.parseInt(sharedPreferences.getString("buyes_g", ""));
+	    buyes_o = Integer.parseInt(sharedPreferences.getString("buyes_o", ""));
 	    score_tv.setText(df.format(score));
 	    profit_tv.setText(df.format(profit));
-	    splashTime = 500;
+	    splashTime = 1000;
 	    }
 	
 @Override
@@ -449,6 +464,14 @@ public void onStop(){
 	SavePreferences("profit",df.format(profit));
 	SavePreferences("oil",Integer.toString(oil));
 	SavePreferences("glebe",Integer.toString(glebe));
+	SavePreferences("sales_g",Integer.toString(sales_g));
+	SavePreferences("sales_o",Integer.toString(sales_o));
+	SavePreferences("buyes_g",Integer.toString(buyes_g));
+	SavePreferences("buyes_o",Integer.toString(buyes_o));
+	//SavePreferences("saldo_gb",df.format(saldo_gb));
+//	SavePreferences("saldo_ob",df.format(saldo_ob));
+	//SavePreferences("saldo_gs",df.format(saldo_gs));
+	//SavePreferences("saldo_os",df.format(saldo_os));
 	splashTime = 500000;
 }
 
