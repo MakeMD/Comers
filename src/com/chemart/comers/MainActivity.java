@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
 	
 	final int MENU_QUIT_ID = 2;
 	final int MENU_ABOUT_ID = 3;
-	String[] data = {"Банк", "Рынок", "Биржа", "Хозяйство", "Секретарь"};
+	String[] data = {"Меню ", "Банк", "Рынок", "Биржа", "Хозяйство", "Секретарь"};
 	 protected int splashTime = 1000;
 	 String[] day = {"Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"};
 	 String[] date = {"01-","02-","03-","04-","05-","06-","07-","08-","09-","10-","11-","12-","13-","14-","15-","16-","17-","18-","19-","20-","21-","22-","23-","24-","25-","26-","27-","28-","29-","30-", "31-"};
@@ -101,7 +101,7 @@ public class MainActivity extends Activity {
         final Spinner spinner = (Spinner) findViewById(R.id.spinner1);
         spinner.setAdapter(adapter);
         spinner.setPrompt("Меню");
-        spinner.setSelection(0);
+        spinner.setSelection(-1);
         spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
@@ -110,13 +110,18 @@ public class MainActivity extends Activity {
               //Toast.makeText(getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
             switch (position){
             case 0:{
-            	//Intent intent = new Intent(MainActivity.this, Bank.class);
-                //startActivity(intent);
-            	//position = 1;
-                //spinner.setSelection(1);
-            	break;            	
+            	position = 0;
+                 spinner.setSelection(0);
+                 break;
             }
             case 1:{
+            	Intent intent = new Intent(MainActivity.this, Bank.class);
+            	startActivity(intent);
+            	position = 0;
+            	spinner.setSelection(0);
+            	break;            	
+            }
+            case 2:{
             	Intent intent = new Intent(MainActivity.this, Shop.class);
                 startActivity(intent);
                 position =0;
@@ -124,7 +129,7 @@ public class MainActivity extends Activity {
                 break;
                 
             }
-            case 2:{
+            case 3:{
             	Intent intent = new Intent(MainActivity.this, Railto.class);
                 startActivity(intent);
             	position =0;
@@ -132,14 +137,14 @@ public class MainActivity extends Activity {
                 
             	break;
             }
-            case 3:{
+            case 4:{
             	Intent intent = new Intent(MainActivity.this, Havings.class);
                 startActivity(intent);
                 position = 0;
                 spinner.setSelection(0);
                 break;
             }
-            case 4:{
+            case 5:{
             	Intent intent = new Intent(MainActivity.this, Secret.class);
                 startActivity(intent);
             	position = 0;

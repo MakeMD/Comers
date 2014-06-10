@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="18" />
+        android:targetSdkVersion="10" android:maxSdkVersion="19"/>
 
     <application
         android:allowBackup="true"
@@ -43,6 +43,11 @@
             android:configChanges="orientation|keyboardHidden"
              android:screenOrientation="landscape">
             </activity>
+        <activity android:name="com.chemart.comers.Bank"
+           android:label="@string/Bank"
+            android:configChanges="orientation|keyboardHidden"
+             android:screenOrientation="landscape">
+        </activity>
         
     </application>
 
