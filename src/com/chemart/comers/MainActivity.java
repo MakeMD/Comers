@@ -38,9 +38,9 @@ public class MainActivity extends Activity {
 	 protected int splashTime = 1000;
 	 String[] day = {"Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"};
 	 String[] date = {"01-","02-","03-","04-","05-","06-","07-","08-","09-","10-","11-","12-","13-","14-","15-","16-","17-","18-","19-","20-","21-","22-","23-","24-","25-","26-","27-","28-","29-","30-", "31-"};
-	 String[] month = {"Jan-","Feb-","Mar-","Apr-","May-","Jun-","Jul-","Aug-","Sep-","Oct-","Nov-","Dec-"};
+	 String[] month = {"1Jan-","1Feb-","1Mar-","1Apr-","1May-","1Jun-","1Jul-","1Aug-","1Sep-","1Oct-","1Nov-","1Dec-"};
 	 int y_timer = 2000;   
-	 TextView dt,dy,mnt,yr,score_tv,profit_tv,income_tax_tv;
+	 TextView dt,dy,mnt,yr,score_tv,profit_tv,income_tax_tv,kredit_proc_tv,depoz_proc_tv,kredit_tv,depozit_tv;
 	    int day_timer,d_timer,m_timer =0;
 	    double house_rent;
 	    double land_rent;
@@ -54,7 +54,9 @@ public class MainActivity extends Activity {
 	    int month_now=1;
 	    int oil,glebe;
 	    int g,o;
-	    int sales_g=0,sales_o=0,buyes_o=0,buyes_g=0;
+	    int kredit_proc = 10;
+	    int depoz_proc = 3;
+	    int sales_g=0,sales_o=0,buyes_o=0,buyes_g=0, kredit=0, depozit=0, kredit_srok=0,depoz_srok=0;
 	    double saldo_ob=0.00,saldo_gb=0.00,saldo_os=0.00,saldo_gs=0.00;
 	    DecimalFormat df = new DecimalFormat("###########");
 	    
@@ -80,6 +82,13 @@ public class MainActivity extends Activity {
 		SavePreferences("saldo_ob",df.format(saldo_ob));
 		SavePreferences("saldo_gs",df.format(saldo_gs));
 		SavePreferences("saldo_os",df.format(saldo_os));
+		SavePreferences("kredit_proc",Integer.toString(kredit_proc));
+		SavePreferences("depoz_proc",Integer.toString(depoz_proc));
+		SavePreferences("kredit",Integer.toString(kredit));
+		SavePreferences("depozit",Integer.toString(depozit));
+		SavePreferences("kredit_srok",Integer.toString(kredit_srok));
+		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+		
 		//
 		final Random myRandom = new Random();
     	int koef_g = myRandom.nextInt(70);
@@ -166,9 +175,17 @@ public class MainActivity extends Activity {
         score_tv = (TextView) findViewById(R.id.textView5);
         profit_tv = (TextView) findViewById(R.id.textView14);
         income_tax_tv = (TextView) findViewById(R.id.textView17);
+        kredit_proc_tv = (TextView) findViewById(R.id.textView21);
+        depoz_proc_tv = (TextView) findViewById(R.id.textView19);
+        kredit_tv = (TextView) findViewById(R.id.textView8);
+        depozit_tv = (TextView) findViewById(R.id.textView11);
         score_tv.setText(df.format(score));
         profit_tv.setText(df.format(profit));
         income_tax_tv.setText(df.format((1-income_tax)*100)+"%");
+        kredit_proc_tv.setText(Integer.toString(kredit_proc)+"%");
+        depoz_proc_tv.setText(Integer.toString(depoz_proc)+"%");
+        kredit_tv.setText(Integer.toString(kredit));
+        depozit_tv.setText(Integer.toString(depozit));
         final Thread th=new Thread(){
         	
             @Override
@@ -203,6 +220,7 @@ public class MainActivity extends Activity {
                                     }
                                 	try {
                                         dt.setText(date[d_timer]);
+                                       
                                         
                                     }
                                     catch(Exception e) 
@@ -211,15 +229,38 @@ public class MainActivity extends Activity {
                                         	day_timer=0;
                                         	
                                         	d_timer=0;
+                                        	
                                         	if (profit <0){
                                         		profit=0;
                                         	}
+                                        	
                                         	score = score+(profit*income_tax);
                                         	profit=0;
                                         	SavePreferences("score",df.format(score));
                                         	SavePreferences("profit",df.format(profit));
+                                        	//
+                                        	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                     	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
+                                     	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                         	
-                                        	final Random myRandom = new Random();
+                                        	//if (kredit >0){
+                                         		kredit = kredit + kredit_proc;
+                                         		kredit_tv.setText(Integer.toString(kredit));
+                                             	SavePreferences("kredit",Integer.toString(kredit));
+                                         	//}
+                                         	//else{
+                                         	//	kredit =0;
+                                             //		}
+                                         	if (depozit >0){
+                                         		depozit = depozit + depoz_proc;
+                                         		depozit_tv.setText(Integer.toString(depozit));
+                                         		SavePreferences("depozit",Integer.toString(depozit));
+                                         	}
+                                         	else{
+                                         		depozit =0;
+                                         	}
+                                         	//
+                                         	final Random myRandom = new Random();
                                         	int koef_g = myRandom.nextInt(70);
                                         	int koef_o = myRandom.nextInt(5);
                                         	int sign = myRandom.nextInt(2);
@@ -238,11 +279,13 @@ public class MainActivity extends Activity {
                                         	//Toast.makeText(getBaseContext(), "Удерживается подоходный налог в размере "+ df.format(profit-(profit*income_tax))+" гроблей", Toast.LENGTH_LONG).show();
                                             //Log.w("score", Double.toString(score));
                                         	score_tv.setText(df.format(score));
-                                        	
                                         	profit_tv.setText(df.format(profit));
+                                        	
                                     } 
                                     try{
                                     	mnt.setText(month[m_timer]);
+                                    	
+                                    	
                                     	
                                     	SavePreferences("glebe_cost",Integer.toString(g));
                                     	SavePreferences("oil_cost",Integer.toString(o));
@@ -308,6 +351,7 @@ public class MainActivity extends Activity {
                                     }
                                     try{
                                     	yr.setText(Integer.toString(y_timer));
+                                    	
                                     }
                                     catch(Exception e)
                                     {
@@ -318,92 +362,382 @@ public class MainActivity extends Activity {
                                     if (cal.isLeapYear(y_timer) == true)
                                     {
                                     if(m_timer == 1 && d_timer >= 29){
+                                    	//
+                                    	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                 	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
+                                 	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
+                                    	//if (kredit >0){
+                                     		kredit = kredit + kredit_proc;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                         	SavePreferences("kredit",Integer.toString(kredit));
+                                     	//}
+                                     	//else{
+                                     	//	kredit =0;
+                                         //		}
+                                     	if (depozit >0){
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     	}
+                                     	else{
+                                     		depozit =0;
+                                     	}
+                                     	//
                                     	d_timer = 0;
-                                    	mnt.setText("Mar-");
+                                    	mnt.setText("2Mar-");
                                     	m_timer=m_timer+1;
+                                    	SavePreferences("score",df.format(score));
+                                    	SavePreferences("profit",df.format(profit));
+                                    	SavePreferences("kredit",Integer.toString(kredit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
                                     	//Toast.makeText(getBaseContext(), "Lisp", Toast.LENGTH_LONG).show();
                                         }
                                     }
                                     else{
                                     	if(m_timer == 1 && d_timer >= 28){
-                                    			
+                                    		//
+                                        	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                     	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
+                                     	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
+                                        	
+                                        	//if (kredit >0){
+                                         		kredit = kredit + kredit_proc;
+                                         		kredit_tv.setText(Integer.toString(kredit));
+                                             	SavePreferences("kredit",Integer.toString(kredit));
+                                         	//}
+                                         	//else{
+                                         	//	kredit =0;
+                                             //		}
+                                         	if (depozit >0){
+                                         		depozit = depozit + depoz_proc;
+                                         		depozit_tv.setText(Integer.toString(depozit));
+                                         		SavePreferences("depozit",Integer.toString(depozit));
+                                         	}
+                                         	else{
+                                         		depozit =0;
+                                         	}
+                                         	//	
                                         	d_timer = 0;
-                                        	mnt.setText("Mar-");
+                                        	mnt.setText("2Mar-");
                                         	m_timer=m_timer+1;
+                                        	SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
                                         	//Toast.makeText(getBaseContext(), "NoLisp!!!!", Toast.LENGTH_LONG).show();
                                     	}
                                     }
                                     if(m_timer == 2 && d_timer >=31){
-                                    		
-                                    	d_timer = 0;
-                                    	mnt.setText("Apr-");
-                                    	m_timer=m_timer+1;
+                                    	//
+                                    	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                 	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
+                                 	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
+                                    	//if (kredit >0){
+                                     		kredit = kredit + kredit_proc;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                         	SavePreferences("kredit",Integer.toString(kredit));
+                                     	//}
+                                     	//else{
+                                     	//	kredit =0;
+                                         //		}
+                                     	if (depozit >0){
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     	}
+                                     	else{
+                                     		depozit =0;
+                                     	}
+                                     	//
+                                    	d_timer = 0;
+                                    	mnt.setText("2Apr-");
+                                    	m_timer=m_timer+1;
+                                    	SavePreferences("score",df.format(score));
+                                    	SavePreferences("profit",df.format(profit));
+                                    	SavePreferences("kredit",Integer.toString(kredit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
                                     }
                                     if(m_timer == 3 && d_timer >=30){
-                                    		
-                                    	d_timer = 0;
-                                    	mnt.setText("May-");
-                                    	m_timer=m_timer+1;
+                                    	//
+                                    	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                 	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
+                                 	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
+                                    	//if (kredit >0){
+                                     		kredit = kredit + kredit_proc;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                         	SavePreferences("kredit",Integer.toString(kredit));
+                                     	//}
+                                     	//else{
+                                     	//	kredit =0;
+                                         //		}
+                                     	if (depozit >0){
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     	}
+                                     	else{
+                                     		depozit =0;
+                                     	}
+                                     	//
+                                    	d_timer = 0;
+                                    	mnt.setText("2May-");
+                                    	m_timer=m_timer+1;
+                                    	SavePreferences("score",df.format(score));
+                                    	SavePreferences("profit",df.format(profit));
+                                    	SavePreferences("kredit",Integer.toString(kredit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
                                     }
                                     if(m_timer == 4 && d_timer >=31){
-                                    		
-                                    	d_timer = 0;
-                                    	mnt.setText("Jun-");
-                                    	m_timer=m_timer+1;
+                                    	//
+                                    	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                 	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
+                                 	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
+                                    	//if (kredit >0){
+                                     		kredit = kredit + kredit_proc;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                         	SavePreferences("kredit",Integer.toString(kredit));
+                                     	//}
+                                     	//else{
+                                     	//	kredit =0;
+                                         //		}
+                                     	if (depozit >0){
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     	}
+                                     	else{
+                                     		depozit =0;
+                                     	}
+                                     	//
+                                    	d_timer = 0;
+                                    	mnt.setText("2Jun-");
+                                    	m_timer=m_timer+1;
+                                    	SavePreferences("score",df.format(score));
+                                    	SavePreferences("profit",df.format(profit));
+                                    	SavePreferences("kredit",Integer.toString(kredit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
                                     }
                                     if(m_timer == 5 && d_timer >=30){
-                                    		
-                                    	d_timer = 0;
-                                    	mnt.setText("Jul-");
-                                    	m_timer=m_timer+1;
+                                    	//
+                                    	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                 	    kredit = Integer.parseInt(sharedPreferences2.getString("kredit", ""));
+                                 	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
+                                    	//if (kredit >0){
+                                     		kredit = kredit + kredit_proc;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                         	SavePreferences("kredit",Integer.toString(kredit));
+                                     	//}
+                                     	//else{
+                                     	//	kredit =0;
+                                         //		}
+                                     	if (depozit >0){
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     	}
+                                     	else{
+                                     		depozit =0;
+                                     	}
+                                     	//
+                                    	d_timer = 0;
+                                    	mnt.setText("2Jul-");
+                                    	m_timer=m_timer+1;
+                                    	SavePreferences("score",df.format(score));
+                                    	SavePreferences("profit",df.format(profit));
+                                    	SavePreferences("kredit",Integer.toString(kredit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
                                     }
                                     if(m_timer == 6 && d_timer >=31){
-                                    		
-                                    	d_timer = 0;
-                                    	mnt.setText("Aug-");
-                                    	m_timer=m_timer+1;
+                                    	//
+                                    	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                 	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
+                                 	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
+                                    	//if (kredit >0){
+                                     		kredit = kredit + kredit_proc;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                         	SavePreferences("kredit",Integer.toString(kredit));
+                                     	//}
+                                     	//else{
+                                     	//	kredit =0;
+                                         //		}
+                                     	if (depozit >0){
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     	}
+                                     	else{
+                                     		depozit =0;
+                                     	}
+                                     	//
+                                    	d_timer = 0;
+                                    	mnt.setText("2Aug-");
+                                    	m_timer=m_timer+1;
+                                    	SavePreferences("score",df.format(score));
+                                    	SavePreferences("profit",df.format(profit));
+                                    	SavePreferences("kredit",Integer.toString(kredit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
                                     }
                                     if(m_timer == 7 && d_timer >=31){
+                                    	//
+                                    	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                 	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
+                                 	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
+                                    	//if (kredit >0){
+                                     		kredit = kredit + kredit_proc;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                         	SavePreferences("kredit",Integer.toString(kredit));
+                                     	//}
+                                     	//else{
+                                     	//	kredit =0;
+                                         //		}
+                                     	if (depozit >0){
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     	}
+                                     	else{
+                                     		depozit =0;
+                                     	}
+                                     	//
                                     	d_timer = 0;
-                                    	mnt.setText("Sep-");
+                                    	mnt.setText("2Sep-");
                                     	m_timer=m_timer+1;
-                                    	
+                                    	SavePreferences("score",df.format(score));
+                                    	SavePreferences("profit",df.format(profit));
+                                    	SavePreferences("kredit",Integer.toString(kredit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
                                     }
                                     if(m_timer == 8 && d_timer >=30){
+                                    	//
+                                    	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                 	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
+                                 	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
+                                    	//if (kredit >0){
+                                     		kredit = kredit + kredit_proc;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                         	SavePreferences("kredit",Integer.toString(kredit));
+                                     	//}
+                                     	//else{
+                                     	//	kredit =0;
+                                         //		}
+                                     	if (depozit >0){
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     	}
+                                     	else{
+                                     		depozit =0;
+                                     	}
+                                     	//
                                     	d_timer = 0;
-                                    	mnt.setText("Oct-");
+                                    	mnt.setText("2Oct-");
                                     	m_timer=m_timer+1;
-                                    	
+                                    	SavePreferences("score",df.format(score));
+                                    	SavePreferences("profit",df.format(profit));
+                                    	SavePreferences("kredit",Integer.toString(kredit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
                                     }
                                     if(m_timer == 9 && d_timer >=31){
-                                    
-                                    	d_timer = 0;
-                                    	mnt.setText("Nov-");
-                                    	m_timer=m_timer+1;
+                                    	//
+                                    	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                 	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
+                                 	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
+                                    	//if (kredit >0){
+                                     		kredit = kredit + kredit_proc;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                         	SavePreferences("kredit",Integer.toString(kredit));
+                                     	//}
+                                     	//else{
+                                     	//	kredit =0;
+                                         //		}
+                                     	if (depozit >0){
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     	}
+                                     	else{
+                                     		depozit =0;
+                                     	}
+                                     	//
+                                    	d_timer = 0;
+                                    	mnt.setText("2Nov-");
+                                    	m_timer=m_timer+1;
+                                    	SavePreferences("score",df.format(score));
+                                    	SavePreferences("profit",df.format(profit));
+                                    	SavePreferences("kredit",Integer.toString(kredit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
                                     }
                                     if(m_timer == 10 && d_timer >=30){
-                                    
-                                    	d_timer = 0;
-                                    	mnt.setText("Dec-");
-                                    	m_timer=m_timer+1;
+                                    	//
+                                    	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                 	    kredit = Integer.parseInt(sharedPreferences2.getString("kredit", ""));
+                                 	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
+                                    	//if (kredit >0){
+                                     		kredit = kredit + kredit_proc;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                         	SavePreferences("kredit",Integer.toString(kredit));
+                                     	//}
+                                     	//else{
+                                     	//	kredit =0;
+                                         //		}
+                                     	if (depozit >0){
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     	}
+                                     	else{
+                                     		depozit =0;
+                                     	}
+                                     	//
+                                    	d_timer = 0;
+                                    	mnt.setText("2Dec-");
+                                    	m_timer=m_timer+1;
+                                    	SavePreferences("score",df.format(score));
+                                    	SavePreferences("profit",df.format(profit));
+                                    	SavePreferences("kredit",Integer.toString(kredit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
                                     }
                                     if(m_timer == 11 && d_timer >=31){
-                                    
+                                    	//
+                                    	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                 	    kredit = Integer.parseInt(sharedPreferences2.getString("kredit", ""));
+                                 	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
+                                    	
+                                    	//if (kredit >0){
+                                     		kredit = kredit + kredit_proc;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                         	SavePreferences("kredit",Integer.toString(kredit));
+                                     	//}
+                                     	//else{
+                                     	//	kredit =0;
+                                         //		}
+                                     	if (depozit >0){
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     	}
+                                     	else{
+                                     		depozit =0;
+                                     	}
+                                     	//
                                     	d_timer = 0;
-                                    	mnt.setText("Jan-");
+                                    	mnt.setText("2Jan-");
                                     	Toast.makeText(getBaseContext(), "Happy New year!", Toast.LENGTH_SHORT).show();
                                     	m_timer=0;
-                                    	
+                                    	SavePreferences("score",df.format(score));
+                                    	SavePreferences("profit",df.format(profit));
+                                    	SavePreferences("kredit",Integer.toString(kredit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
                                     }
                                     
                                     
@@ -456,8 +790,16 @@ public class MainActivity extends Activity {
 	    sales_o = Integer.parseInt(sharedPreferences.getString("sales_o", ""));
 	    buyes_g = Integer.parseInt(sharedPreferences.getString("buyes_g", ""));
 	    buyes_o = Integer.parseInt(sharedPreferences.getString("buyes_o", ""));
+	    kredit = Integer.parseInt(sharedPreferences.getString("kredit", ""));
+	    depozit = Integer.parseInt(sharedPreferences.getString("depozit", ""));
+	    kredit_srok = Integer.parseInt(sharedPreferences.getString("kredit_srok", ""));
+	    depoz_srok = Integer.parseInt(sharedPreferences.getString("depoz_srok", ""));
+	    kredit_proc = Integer.parseInt(sharedPreferences.getString("kredit_proc", ""));
+	    depoz_proc = Integer.parseInt(sharedPreferences.getString("depoz_proc", ""));
 	    score_tv.setText(df.format(score));
 	    profit_tv.setText(df.format(profit));
+	    kredit_tv.setText(Integer.toString(kredit));
+	    depozit_tv.setText(Integer.toString(depozit));
 	    splashTime = 1000;
 	    }
 	
@@ -473,6 +815,10 @@ public void onStop(){
 	SavePreferences("sales_o",Integer.toString(sales_o));
 	SavePreferences("buyes_g",Integer.toString(buyes_g));
 	SavePreferences("buyes_o",Integer.toString(buyes_o));
+	SavePreferences("kredit",Integer.toString(kredit));
+	SavePreferences("depozit",Integer.toString(depozit));
+	SavePreferences("kredit_srok",Integer.toString(kredit_srok));
+	SavePreferences("depoz_srok",Integer.toString(depoz_srok));
 	//SavePreferences("saldo_gb",df.format(saldo_gb));
 //	SavePreferences("saldo_ob",df.format(saldo_ob));
 	//SavePreferences("saldo_gs",df.format(saldo_gs));

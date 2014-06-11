@@ -18,22 +18,13 @@ import android.widget.Toast;
 
 public class Bank extends Activity {
 	
-	TextView oil_tv,glebe_tv,oil_tv_c,glebe_tv_c;
-	TextView g_tv_jan,g_tv_feb,g_tv_mar,g_tv_apr,g_tv_may,g_tv_jun,g_tv_jul,g_tv_aug,g_tv_sep,g_tv_oct,g_tv_nov,g_tv_dec;
-	TextView o_tv_jan,o_tv_feb,o_tv_mar,o_tv_apr,o_tv_may,o_tv_jun,o_tv_jul,o_tv_aug,o_tv_sep,o_tv_oct,o_tv_nov,o_tv_dec;
-	int oil, glebe;
-	int glebe_c, oil_c;
-	int month_now;
-	int buyes_g,buyes_o;
-	int buyes_g1;
 	int srok;
-	String g_jan, g_feb,g_mar,g_apr,g_may,g_jun,g_jul,g_aug,g_sep,g_oct,g_nov,g_dec;
-	String o_jan, o_feb,o_mar,o_apr,o_may,o_jun,o_jul,o_aug,o_sep,o_oct,o_nov,o_dec;
 	
 	EditText EditDepozBank;
 	EditText EditKreditBank;
 	EditText EditSrok;
-	double score, profit,saldo_o,saldo_g, saldo_ob, saldo_gb;
+	double score, profit;
+	int kredit,depozit,kredit_srok,depoz_srok,kredit_proc,depoz_proc;
 	DecimalFormat df = new DecimalFormat("###########");
 	
 	
@@ -46,6 +37,12 @@ public class Bank extends Activity {
 	SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 	score = Double.parseDouble(sharedPreferences.getString("score", ""));
     profit = Double.parseDouble(sharedPreferences.getString("profit", ""));
+    kredit = Integer.parseInt(sharedPreferences.getString("kredit", ""));
+    depozit = Integer.parseInt(sharedPreferences.getString("depozit", ""));
+    kredit_srok = Integer.parseInt(sharedPreferences.getString("kredit_srok", ""));
+    depoz_srok = Integer.parseInt(sharedPreferences.getString("depoz_srok", ""));
+    kredit_proc = Integer.parseInt(sharedPreferences.getString("kredit_proc", ""));
+    depoz_proc = Integer.parseInt(sharedPreferences.getString("depoz_proc", ""));
     EditDepozBank = (EditText) findViewById(R.id.editText1);
 	EditKreditBank = (EditText) findViewById(R.id.editText2);
 	EditSrok = (EditText) findViewById(R.id.editText3);
@@ -60,18 +57,21 @@ public class Bank extends Activity {
 			try{
 				if (EditSrok.getText().toString()   != null){
 					if(EditKreditBank.getText().toString() != null){
-				score = Integer.parseInt(getDefaults("score",this))+Integer.parseInt(EditKreditBank.getText().toString());	
-				
-				score = score + (Integer.parseInt(getDefaults("score",this))+Integer.parseInt(EditKreditBank.getText().toString()));
-					profit = profit + (Integer.parseInt(getDefaults("score",this))+Integer.parseInt(EditKreditBank.getText().toString()));
+						kredit = Integer.parseInt(sharedPreferences.getString("kredit", ""))+ Integer.parseInt(EditKreditBank.getText().toString());
+						score = Integer.parseInt(getDefaults("score",this))+Integer.parseInt(EditKreditBank.getText().toString());	
+				//score = score + (Integer.parseInt(getDefaults("score",this))+kredit);
+					//profit = profit + (Integer.parseInt(getDefaults("score",this))+kredit);
 					SavePreferences("score",df.format(score));
 					 SavePreferences("profit",df.format(profit));
+					 SavePreferences("kredit",Integer.toString(kredit));
+					 SavePreferences("kredit_srok",EditSrok.getText().toString());
+					 
 					 Toast.makeText(getBaseContext(), "Вы взяли в кредит "+ EditKreditBank.getText().toString()+" гроблей", Toast.LENGTH_SHORT).show();
 					
 				}
 				
 				else{
-					Toast.makeText(getBaseContext(), "Введите сумму", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getBaseContext(), "Введите срок", Toast.LENGTH_SHORT).show();
 				}
 			
 				}
@@ -89,20 +89,24 @@ public class Bank extends Activity {
 			
 			if (EditSrok.getText().toString() != null){
 				if(EditDepozBank.getText().toString() != null){
-				
-				score = score - Integer.parseInt(EditDepozBank.getText().toString());	
-					score = score - (Integer.parseInt(getDefaults("score",this))-Integer.parseInt(EditDepozBank.getText().toString()));
-					profit = profit - (Integer.parseInt(getDefaults("score",this))-Integer.parseInt(EditDepozBank.getText().toString()));
+					depozit = Integer.parseInt(sharedPreferences.getString("depozit", ""))+ Integer.parseInt(EditDepozBank.getText().toString());
+				    
+					//score = score - Integer.parseInt(EditDepozBank.getText().toString());	
+					score = score - (Integer.parseInt(getDefaults("score",this))-depozit);
+					//profit = profit - (Integer.parseInt(getDefaults("score",this))-depozit);
 					 SavePreferences("score",df.format(score));
 					 SavePreferences("profit",df.format(profit));
+					 SavePreferences("depozit",Integer.toString(depozit));
+					 SavePreferences("depoz_srok",EditSrok.getText().toString());
 					 Toast.makeText(getBaseContext(), "Вы вложили "+ EditDepozBank.getText().toString()+" гроблей", Toast.LENGTH_SHORT).show();
 				}
 				else{
+					Toast.makeText(getBaseContext(), "Введите срок", Toast.LENGTH_SHORT).show();
 			}
 				
 			}
 			else{
-				Toast.makeText(getBaseContext(), "Введите срок", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getBaseContext(), "Введите сумму", Toast.LENGTH_SHORT).show();
 		}
 			
 	//	default:
