@@ -243,23 +243,68 @@ public class MainActivity extends Activity {
                                      	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
                                      	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                         	
-                                        	//if (kredit >0){
-                                         		kredit = kredit + kredit_proc;
+                                        	if ((kredit >0)&(kredit_srok>0)){
+                                         		kredit_srok --;
+                                     	    	kredit = kredit + kredit_proc;
                                          		kredit_tv.setText(Integer.toString(kredit));
-                                             	SavePreferences("kredit",Integer.toString(kredit));
-                                         	//}
-                                         	//else{
-                                         	//	kredit =0;
-                                             //		}
-                                         	if (depozit >0){
-                                         		depozit = depozit + depoz_proc;
-                                         		depozit_tv.setText(Integer.toString(depozit));
-                                         		SavePreferences("depozit",Integer.toString(depozit));
+                                         		score_tv.setText(df.format(score));
+                                         		SavePreferences("score",df.format(score));
+                                            	SavePreferences("profit",df.format(profit));
+                                            	SavePreferences("kredit",Integer.toString(kredit));
+                                             	SavePreferences("kredit_srok",Integer.toString(kredit_srok));
                                          	}
                                          	else{
+                                         		score = score - kredit;
+                                         		kredit =0;
+                                         		kredit_srok = 0;
+                                         		kredit_tv.setText(Integer.toString(kredit));
+                                         		score_tv.setText(df.format(score));
+                                         		SavePreferences("score",df.format(score));
+                                            	SavePreferences("profit",df.format(profit));
+                                            	SavePreferences("kredit",Integer.toString(kredit));
+                                            	SavePreferences("depozit",Integer.toString(depozit));
+                                            	SavePreferences("depozit",Integer.toString(depozit));
+                                         		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                            		}
+                                         	if ((depozit >0)&(depoz_srok>0)){
+                                         		depoz_srok --;
+                                         		depozit = depozit + depoz_proc;
+                                         		depozit_tv.setText(Integer.toString(depozit));
+                                         		score_tv.setText(df.format(score));
+                                         		SavePreferences("score",df.format(score));
+                                            	SavePreferences("profit",df.format(profit));
+                                            	SavePreferences("depozit",Integer.toString(depozit));
+                                         		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                         	}
+                                         	else{
+                                         		score = score + depozit;
                                          		depozit =0;
+                                         		depoz_srok = 0;
+                                         		depozit_tv.setText(Integer.toString(depozit));
+                                         		score_tv.setText(df.format(score));
+                                         		SavePreferences("score",df.format(score));
+                                            	SavePreferences("profit",df.format(profit));
+                                            	SavePreferences("kredit",Integer.toString(kredit));
+                                            	SavePreferences("depozit",Integer.toString(depozit));
+                                            	SavePreferences("depozit",Integer.toString(depozit));
+                                         		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                          	}
                                          	//
+                                         	//
+                                         	final Random myBankRandom = new Random();
+                                         	kredit_proc = myRandom.nextInt(19);
+                                         	depoz_proc = myRandom.nextInt(9);
+                                         	if (kredit_proc <=0){
+                                         		kredit_proc =1;
+                                         	}
+                                         	if (depoz_proc <=0){
+                                         		depoz_proc =1;
+                                         	}
+                                         	kredit_proc_tv.setText(Integer.toString(kredit_proc)+"%");
+                                         	depoz_proc_tv.setText(Integer.toString(depoz_proc)+"%");
+                                         	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
+                                        	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
+                                        	//
                                          	final Random myRandom = new Random();
                                         	int koef_g = myRandom.nextInt(70);
                                         	int koef_o = myRandom.nextInt(5);
@@ -367,23 +412,67 @@ public class MainActivity extends Activity {
                                  	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
                                  	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
-                                    	//if (kredit >0){
-                                     		kredit = kredit + kredit_proc;
+                                    	if ((kredit >0)&(kredit_srok>0)){
+                                     		kredit_srok --;
+                                 	    	kredit = kredit + kredit_proc;
                                      		kredit_tv.setText(Integer.toString(kredit));
-                                         	SavePreferences("kredit",Integer.toString(kredit));
-                                     	//}
-                                     	//else{
-                                     	//	kredit =0;
-                                         //		}
-                                     	if (depozit >0){
-                                     		depozit = depozit + depoz_proc;
-                                     		depozit_tv.setText(Integer.toString(depozit));
-                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                         	SavePreferences("kredit_srok",Integer.toString(kredit_srok));
                                      	}
                                      	else{
+                                     		score = score - kredit;
+                                     		kredit =0;
+                                     		kredit_srok = 0;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                        		}
+                                     	if ((depozit >0)&(depoz_srok>0)){
+                                     		depoz_srok --;
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                     	}
+                                     	else{
+                                     		score = score + depozit;
                                      		depozit =0;
+                                     		depoz_srok = 0;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+                                     	final Random myBankRandom = new Random();
+                                     	kredit_proc = myRandom.nextInt(19);
+                                     	depoz_proc = myRandom.nextInt(9);
+                                     	if (kredit_proc <=0){
+                                     		kredit_proc =1;
+                                     	}
+                                     	if (depoz_proc <=0){
+                                     		depoz_proc =1;
+                                     	}
+                                     	kredit_proc_tv.setText(Integer.toString(kredit_proc)+"%");
+                                     	depoz_proc_tv.setText(Integer.toString(depoz_proc)+"%");
+                                     	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
+                                    	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
+                                    	//
                                     	d_timer = 0;
                                     	mnt.setText("2Mar-");
                                     	m_timer=m_timer+1;
@@ -391,33 +480,79 @@ public class MainActivity extends Activity {
                                     	SavePreferences("profit",df.format(profit));
                                     	SavePreferences("kredit",Integer.toString(kredit));
                                     	SavePreferences("depozit",Integer.toString(depozit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
+                                 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                     	//Toast.makeText(getBaseContext(), "Lisp", Toast.LENGTH_LONG).show();
                                         }
                                     }
                                     else{
                                     	if(m_timer == 1 && d_timer >= 28){
                                     		//
-                                        	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                    		SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                                      	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
                                      	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                         	
-                                        	//if (kredit >0){
-                                         		kredit = kredit + kredit_proc;
+                                        	if ((kredit >0)&(kredit_srok>0)){
+                                         		kredit_srok --;
+                                     	    	kredit = kredit + kredit_proc;
                                          		kredit_tv.setText(Integer.toString(kredit));
-                                             	SavePreferences("kredit",Integer.toString(kredit));
-                                         	//}
-                                         	//else{
-                                         	//	kredit =0;
-                                             //		}
-                                         	if (depozit >0){
-                                         		depozit = depozit + depoz_proc;
-                                         		depozit_tv.setText(Integer.toString(depozit));
-                                         		SavePreferences("depozit",Integer.toString(depozit));
+                                         		score_tv.setText(df.format(score));
+                                         		SavePreferences("score",df.format(score));
+                                            	SavePreferences("profit",df.format(profit));
+                                            	 	SavePreferences("kredit",Integer.toString(kredit));
+                                             	SavePreferences("kredit_srok",Integer.toString(kredit_srok));
                                          	}
                                          	else{
-                                         		depozit =0;
+                                         		score = score - kredit;
+                                         		kredit =0;
+                                         		kredit_srok = 0;
+                                         		kredit_tv.setText(Integer.toString(kredit));
+                                         		score_tv.setText(df.format(score));
+                                         		SavePreferences("score",df.format(score));
+                                            	SavePreferences("profit",df.format(profit));
+                                            	SavePreferences("kredit",Integer.toString(kredit));
+                                            	SavePreferences("depozit",Integer.toString(depozit));
+                                            	SavePreferences("depozit",Integer.toString(depozit));
+                                         		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                            		}
+                                         	if ((depozit >0)&(depoz_srok>0)){
+                                         		depoz_srok --;
+                                         		depozit = depozit + depoz_proc;
+                                         		depozit_tv.setText(Integer.toString(depozit));
+                                         		score_tv.setText(df.format(score));
+                                         		SavePreferences("score",df.format(score));
+                                            	SavePreferences("profit",df.format(profit));
+                                            	SavePreferences("depozit",Integer.toString(depozit));
+                                         		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                          	}
-                                         	//	
+                                         	else{
+                                         		score = score + depozit;
+                                         		depozit =0;
+                                         		depoz_srok = 0;
+                                         		depozit_tv.setText(Integer.toString(depozit));
+                                         		score_tv.setText(df.format(score));
+                                         		SavePreferences("score",df.format(score));
+                                            	SavePreferences("profit",df.format(profit));
+                                            	SavePreferences("kredit",Integer.toString(kredit));
+                                            	SavePreferences("depozit",Integer.toString(depozit));
+                                            	SavePreferences("depozit",Integer.toString(depozit));
+                                         		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                         	}
+                                         	//
+                                         	final Random myBankRandom = new Random();
+                                         	kredit_proc = myRandom.nextInt(19);
+                                         	depoz_proc = myRandom.nextInt(9);
+                                         	if (kredit_proc <=0){
+                                         		kredit_proc =1;
+                                         	}
+                                         	if (depoz_proc <=0){
+                                         		depoz_proc =1;
+                                         	}
+                                         	kredit_proc_tv.setText(Integer.toString(kredit_proc)+"%");
+                                         	depoz_proc_tv.setText(Integer.toString(depoz_proc)+"%");
+                                         	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
+                                        	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
+                                        	//
                                         	d_timer = 0;
                                         	mnt.setText("2Mar-");
                                         	m_timer=m_timer+1;
@@ -434,23 +569,67 @@ public class MainActivity extends Activity {
                                  	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
                                  	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
-                                    	//if (kredit >0){
-                                     		kredit = kredit + kredit_proc;
+                                    	if ((kredit >0)&(kredit_srok>0)){
+                                     		kredit_srok --;
+                                 	    	kredit = kredit + kredit_proc;
                                      		kredit_tv.setText(Integer.toString(kredit));
-                                         	SavePreferences("kredit",Integer.toString(kredit));
-                                     	//}
-                                     	//else{
-                                     	//	kredit =0;
-                                         //		}
-                                     	if (depozit >0){
-                                     		depozit = depozit + depoz_proc;
-                                     		depozit_tv.setText(Integer.toString(depozit));
-                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                         	SavePreferences("kredit_srok",Integer.toString(kredit_srok));
                                      	}
                                      	else{
+                                     		score = score - kredit;
+                                     		kredit =0;
+                                     		kredit_srok = 0;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                        		}
+                                     	if ((depozit >0)&(depoz_srok>0)){
+                                     		depoz_srok --;
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                     	}
+                                     	else{
+                                     		score = score + depozit;
                                      		depozit =0;
+                                     		depoz_srok = 0;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+                                     	final Random myBankRandom = new Random();
+                                     	kredit_proc = myRandom.nextInt(19);
+                                     	depoz_proc = myRandom.nextInt(9);
+                                     	if (kredit_proc <=0){
+                                     		kredit_proc =1;
+                                     	}
+                                     	if (depoz_proc <=0){
+                                     		depoz_proc =1;
+                                     	}
+                                     	kredit_proc_tv.setText(Integer.toString(kredit_proc)+"%");
+                                     	depoz_proc_tv.setText(Integer.toString(depoz_proc)+"%");
+                                     	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
+                                    	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
+                                    	//
                                     	d_timer = 0;
                                     	mnt.setText("2Apr-");
                                     	m_timer=m_timer+1;
@@ -458,6 +637,8 @@ public class MainActivity extends Activity {
                                     	SavePreferences("profit",df.format(profit));
                                     	SavePreferences("kredit",Integer.toString(kredit));
                                     	SavePreferences("depozit",Integer.toString(depozit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
+                                 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                     }
                                     if(m_timer == 3 && d_timer >=30){
                                     	//
@@ -465,23 +646,67 @@ public class MainActivity extends Activity {
                                  	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
                                  	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
-                                    	//if (kredit >0){
-                                     		kredit = kredit + kredit_proc;
+                                    	if ((kredit >0)&(kredit_srok>0)){
+                                     		kredit_srok --;
+                                 	    	kredit = kredit + kredit_proc;
                                      		kredit_tv.setText(Integer.toString(kredit));
-                                         	SavePreferences("kredit",Integer.toString(kredit));
-                                     	//}
-                                     	//else{
-                                     	//	kredit =0;
-                                         //		}
-                                     	if (depozit >0){
-                                     		depozit = depozit + depoz_proc;
-                                     		depozit_tv.setText(Integer.toString(depozit));
-                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                         	SavePreferences("kredit_srok",Integer.toString(kredit_srok));
                                      	}
                                      	else{
+                                     		score = score - kredit;
+                                     		kredit =0;
+                                     		kredit_srok = 0;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                        		}
+                                     	if ((depozit >0)&(depoz_srok>0)){
+                                     		depoz_srok --;
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                     	}
+                                     	else{
+                                     		score = score + depozit;
                                      		depozit =0;
+                                     		depoz_srok = 0;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+                                     	final Random myBankRandom = new Random();
+                                     	kredit_proc = myRandom.nextInt(19);
+                                     	depoz_proc = myRandom.nextInt(9);
+                                     	if (kredit_proc <=0){
+                                     		kredit_proc =1;
+                                     	}
+                                     	if (depoz_proc <=0){
+                                     		depoz_proc =1;
+                                     	}
+                                     	kredit_proc_tv.setText(Integer.toString(kredit_proc)+"%");
+                                     	depoz_proc_tv.setText(Integer.toString(depoz_proc)+"%");
+                                     	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
+                                    	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
+                                    	//
                                     	d_timer = 0;
                                     	mnt.setText("2May-");
                                     	m_timer=m_timer+1;
@@ -489,6 +714,8 @@ public class MainActivity extends Activity {
                                     	SavePreferences("profit",df.format(profit));
                                     	SavePreferences("kredit",Integer.toString(kredit));
                                     	SavePreferences("depozit",Integer.toString(depozit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
+                                 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                     }
                                     if(m_timer == 4 && d_timer >=31){
                                     	//
@@ -496,23 +723,67 @@ public class MainActivity extends Activity {
                                  	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
                                  	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
-                                    	//if (kredit >0){
-                                     		kredit = kredit + kredit_proc;
+                                    	if ((kredit >0)&(kredit_srok>0)){
+                                     		kredit_srok --;
+                                 	    	kredit = kredit + kredit_proc;
                                      		kredit_tv.setText(Integer.toString(kredit));
-                                         	SavePreferences("kredit",Integer.toString(kredit));
-                                     	//}
-                                     	//else{
-                                     	//	kredit =0;
-                                         //		}
-                                     	if (depozit >0){
-                                     		depozit = depozit + depoz_proc;
-                                     		depozit_tv.setText(Integer.toString(depozit));
-                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                         	SavePreferences("kredit_srok",Integer.toString(kredit_srok));
                                      	}
                                      	else{
+                                     		score = score - kredit;
+                                     		kredit =0;
+                                     		kredit_srok = 0;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                        		}
+                                     	if ((depozit >0)&(depoz_srok>0)){
+                                     		depoz_srok --;
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                     	}
+                                     	else{
+                                     		score = score + depozit;
                                      		depozit =0;
+                                     		depoz_srok = 0;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+                                     	final Random myBankRandom = new Random();
+                                     	kredit_proc = myRandom.nextInt(19);
+                                     	depoz_proc = myRandom.nextInt(9);
+                                     	if (kredit_proc <=0){
+                                     		kredit_proc =1;
+                                     	}
+                                     	if (depoz_proc <=0){
+                                     		depoz_proc =1;
+                                     	}
+                                     	kredit_proc_tv.setText(Integer.toString(kredit_proc)+"%");
+                                     	depoz_proc_tv.setText(Integer.toString(depoz_proc)+"%");
+                                     	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
+                                    	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
+                                    	//
                                     	d_timer = 0;
                                     	mnt.setText("2Jun-");
                                     	m_timer=m_timer+1;
@@ -524,26 +795,70 @@ public class MainActivity extends Activity {
                                     if(m_timer == 5 && d_timer >=30){
                                     	//
                                     	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                                 	    kredit = Integer.parseInt(sharedPreferences2.getString("kredit", ""));
+                                 	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
                                  	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
-                                    	//if (kredit >0){
-                                     		kredit = kredit + kredit_proc;
+                                    	if ((kredit >0)&(kredit_srok>0)){
+                                     		kredit_srok --;
+                                 	    	kredit = kredit + kredit_proc;
                                      		kredit_tv.setText(Integer.toString(kredit));
-                                         	SavePreferences("kredit",Integer.toString(kredit));
-                                     	//}
-                                     	//else{
-                                     	//	kredit =0;
-                                         //		}
-                                     	if (depozit >0){
-                                     		depozit = depozit + depoz_proc;
-                                     		depozit_tv.setText(Integer.toString(depozit));
-                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                         	SavePreferences("kredit_srok",Integer.toString(kredit_srok));
                                      	}
                                      	else{
+                                     		score = score - kredit;
+                                     		kredit =0;
+                                     		kredit_srok = 0;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                        		}
+                                     	if ((depozit >0)&(depoz_srok>0)){
+                                     		depoz_srok --;
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                     	}
+                                     	else{
+                                     		score = score + depozit;
                                      		depozit =0;
+                                     		depoz_srok = 0;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+                                     	final Random myBankRandom = new Random();
+                                     	kredit_proc = myRandom.nextInt(19);
+                                     	depoz_proc = myRandom.nextInt(9);
+                                     	if (kredit_proc <=0){
+                                     		kredit_proc =1;
+                                     	}
+                                     	if (depoz_proc <=0){
+                                     		depoz_proc =1;
+                                     	}
+                                     	kredit_proc_tv.setText(Integer.toString(kredit_proc)+"%");
+                                     	depoz_proc_tv.setText(Integer.toString(depoz_proc)+"%");
+                                     	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
+                                    	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
+                                    	//
                                     	d_timer = 0;
                                     	mnt.setText("2Jul-");
                                     	m_timer=m_timer+1;
@@ -551,6 +866,8 @@ public class MainActivity extends Activity {
                                     	SavePreferences("profit",df.format(profit));
                                     	SavePreferences("kredit",Integer.toString(kredit));
                                     	SavePreferences("depozit",Integer.toString(depozit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
+                                 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                     }
                                     if(m_timer == 6 && d_timer >=31){
                                     	//
@@ -558,23 +875,67 @@ public class MainActivity extends Activity {
                                  	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
                                  	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
-                                    	//if (kredit >0){
-                                     		kredit = kredit + kredit_proc;
+                                    	if ((kredit >0)&(kredit_srok>0)){
+                                     		kredit_srok --;
+                                 	    	kredit = kredit + kredit_proc;
                                      		kredit_tv.setText(Integer.toString(kredit));
-                                         	SavePreferences("kredit",Integer.toString(kredit));
-                                     	//}
-                                     	//else{
-                                     	//	kredit =0;
-                                         //		}
-                                     	if (depozit >0){
-                                     		depozit = depozit + depoz_proc;
-                                     		depozit_tv.setText(Integer.toString(depozit));
-                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                         	SavePreferences("kredit_srok",Integer.toString(kredit_srok));
                                      	}
                                      	else{
+                                     		score = score - kredit;
+                                     		kredit =0;
+                                     		kredit_srok = 0;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                        		}
+                                     	if ((depozit >0)&(depoz_srok>0)){
+                                     		depoz_srok --;
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                     	}
+                                     	else{
+                                     		score = score + depozit;
                                      		depozit =0;
+                                     		depoz_srok = 0;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+                                     	final Random myBankRandom = new Random();
+                                     	kredit_proc = myRandom.nextInt(19);
+                                     	depoz_proc = myRandom.nextInt(9);
+                                     	if (kredit_proc <=0){
+                                     		kredit_proc =1;
+                                     	}
+                                     	if (depoz_proc <=0){
+                                     		depoz_proc =1;
+                                     	}
+                                     	kredit_proc_tv.setText(Integer.toString(kredit_proc)+"%");
+                                     	depoz_proc_tv.setText(Integer.toString(depoz_proc)+"%");
+                                     	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
+                                    	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
+                                    	//
                                     	d_timer = 0;
                                     	mnt.setText("2Aug-");
                                     	m_timer=m_timer+1;
@@ -582,6 +943,8 @@ public class MainActivity extends Activity {
                                     	SavePreferences("profit",df.format(profit));
                                     	SavePreferences("kredit",Integer.toString(kredit));
                                     	SavePreferences("depozit",Integer.toString(depozit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
+                                 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                     }
                                     if(m_timer == 7 && d_timer >=31){
                                     	//
@@ -589,23 +952,67 @@ public class MainActivity extends Activity {
                                  	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
                                  	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
-                                    	//if (kredit >0){
-                                     		kredit = kredit + kredit_proc;
+                                    	if ((kredit >0)&(kredit_srok>0)){
+                                     		kredit_srok --;
+                                 	    	kredit = kredit + kredit_proc;
                                      		kredit_tv.setText(Integer.toString(kredit));
-                                         	SavePreferences("kredit",Integer.toString(kredit));
-                                     	//}
-                                     	//else{
-                                     	//	kredit =0;
-                                         //		}
-                                     	if (depozit >0){
-                                     		depozit = depozit + depoz_proc;
-                                     		depozit_tv.setText(Integer.toString(depozit));
-                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                         	SavePreferences("kredit_srok",Integer.toString(kredit_srok));
                                      	}
                                      	else{
+                                     		score = score - kredit;
+                                     		kredit =0;
+                                     		kredit_srok = 0;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                        		}
+                                     	if ((depozit >0)&(depoz_srok>0)){
+                                     		depoz_srok --;
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                     	}
+                                     	else{
+                                     		score = score + depozit;
                                      		depozit =0;
+                                     		depoz_srok = 0;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+                                     	final Random myBankRandom = new Random();
+                                     	kredit_proc = myRandom.nextInt(19);
+                                     	depoz_proc = myRandom.nextInt(9);
+                                     	if (kredit_proc <=0){
+                                     		kredit_proc =1;
+                                     	}
+                                     	if (depoz_proc <=0){
+                                     		depoz_proc =1;
+                                     	}
+                                     	kredit_proc_tv.setText(Integer.toString(kredit_proc)+"%");
+                                     	depoz_proc_tv.setText(Integer.toString(depoz_proc)+"%");
+                                     	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
+                                    	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
+                                    	//
                                     	d_timer = 0;
                                     	mnt.setText("2Sep-");
                                     	m_timer=m_timer+1;
@@ -613,6 +1020,8 @@ public class MainActivity extends Activity {
                                     	SavePreferences("profit",df.format(profit));
                                     	SavePreferences("kredit",Integer.toString(kredit));
                                     	SavePreferences("depozit",Integer.toString(depozit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
+                                 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                     }
                                     if(m_timer == 8 && d_timer >=30){
                                     	//
@@ -620,23 +1029,67 @@ public class MainActivity extends Activity {
                                  	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
                                  	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
-                                    	//if (kredit >0){
-                                     		kredit = kredit + kredit_proc;
+                                    	if ((kredit >0)&(kredit_srok>0)){
+                                     		kredit_srok --;
+                                 	    	kredit = kredit + kredit_proc;
                                      		kredit_tv.setText(Integer.toString(kredit));
-                                         	SavePreferences("kredit",Integer.toString(kredit));
-                                     	//}
-                                     	//else{
-                                     	//	kredit =0;
-                                         //		}
-                                     	if (depozit >0){
-                                     		depozit = depozit + depoz_proc;
-                                     		depozit_tv.setText(Integer.toString(depozit));
-                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                         	SavePreferences("kredit_srok",Integer.toString(kredit_srok));
                                      	}
                                      	else{
+                                     		score = score - kredit;
+                                     		kredit =0;
+                                     		kredit_srok = 0;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                        		}
+                                     	if ((depozit >0)&(depoz_srok>0)){
+                                     		depoz_srok --;
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                     	}
+                                     	else{
+                                     		score = score + depozit;
                                      		depozit =0;
+                                     		depoz_srok = 0;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+                                     	final Random myBankRandom = new Random();
+                                     	kredit_proc = myRandom.nextInt(19);
+                                     	depoz_proc = myRandom.nextInt(9);
+                                     	if (kredit_proc <=0){
+                                     		kredit_proc =1;
+                                     	}
+                                     	if (depoz_proc <=0){
+                                     		depoz_proc =1;
+                                     	}
+                                     	kredit_proc_tv.setText(Integer.toString(kredit_proc)+"%");
+                                     	depoz_proc_tv.setText(Integer.toString(depoz_proc)+"%");
+                                     	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
+                                    	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
+                                    	//
                                     	d_timer = 0;
                                     	mnt.setText("2Oct-");
                                     	m_timer=m_timer+1;
@@ -644,6 +1097,8 @@ public class MainActivity extends Activity {
                                     	SavePreferences("profit",df.format(profit));
                                     	SavePreferences("kredit",Integer.toString(kredit));
                                     	SavePreferences("depozit",Integer.toString(depozit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
+                                 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                     }
                                     if(m_timer == 9 && d_timer >=31){
                                     	//
@@ -651,23 +1106,67 @@ public class MainActivity extends Activity {
                                  	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
                                  	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
-                                    	//if (kredit >0){
-                                     		kredit = kredit + kredit_proc;
+                                    	if ((kredit >0)&(kredit_srok>0)){
+                                     		kredit_srok --;
+                                 	    	kredit = kredit + kredit_proc;
                                      		kredit_tv.setText(Integer.toString(kredit));
-                                         	SavePreferences("kredit",Integer.toString(kredit));
-                                     	//}
-                                     	//else{
-                                     	//	kredit =0;
-                                         //		}
-                                     	if (depozit >0){
-                                     		depozit = depozit + depoz_proc;
-                                     		depozit_tv.setText(Integer.toString(depozit));
-                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                         	SavePreferences("kredit_srok",Integer.toString(kredit_srok));
                                      	}
                                      	else{
+                                     		score = score - kredit;
+                                     		kredit =0;
+                                     		kredit_srok = 0;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                        		}
+                                     	if ((depozit >0)&(depoz_srok>0)){
+                                     		depoz_srok --;
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                     	}
+                                     	else{
+                                     		score = score + depozit;
                                      		depozit =0;
+                                     		depoz_srok = 0;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+                                     	final Random myBankRandom = new Random();
+                                     	kredit_proc = myRandom.nextInt(19);
+                                     	depoz_proc = myRandom.nextInt(9);
+                                     	if (kredit_proc <=0){
+                                     		kredit_proc =1;
+                                     	}
+                                     	if (depoz_proc <=0){
+                                     		depoz_proc =1;
+                                     	}
+                                     	kredit_proc_tv.setText(Integer.toString(kredit_proc)+"%");
+                                     	depoz_proc_tv.setText(Integer.toString(depoz_proc)+"%");
+                                     	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
+                                    	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
+                                    	//
                                     	d_timer = 0;
                                     	mnt.setText("2Nov-");
                                     	m_timer=m_timer+1;
@@ -675,30 +1174,76 @@ public class MainActivity extends Activity {
                                     	SavePreferences("profit",df.format(profit));
                                     	SavePreferences("kredit",Integer.toString(kredit));
                                     	SavePreferences("depozit",Integer.toString(depozit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
+                                 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                     }
                                     if(m_timer == 10 && d_timer >=30){
                                     	//
                                     	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                                 	    kredit = Integer.parseInt(sharedPreferences2.getString("kredit", ""));
+                                 	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
                                  	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
-                                    	//if (kredit >0){
-                                     		kredit = kredit + kredit_proc;
+                                    	if ((kredit >0)&(kredit_srok>0)){
+                                     		kredit_srok --;
+                                 	    	kredit = kredit + kredit_proc;
                                      		kredit_tv.setText(Integer.toString(kredit));
-                                         	SavePreferences("kredit",Integer.toString(kredit));
-                                     	//}
-                                     	//else{
-                                     	//	kredit =0;
-                                         //		}
-                                     	if (depozit >0){
-                                     		depozit = depozit + depoz_proc;
-                                     		depozit_tv.setText(Integer.toString(depozit));
-                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                         	SavePreferences("kredit_srok",Integer.toString(kredit_srok));
                                      	}
                                      	else{
+                                     		score = score - kredit;
+                                     		kredit =0;
+                                     		kredit_srok = 0;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                        		}
+                                     	if ((depozit >0)&(depoz_srok>0)){
+                                     		depoz_srok --;
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                     	}
+                                     	else{
+                                     		score = score + depozit;
                                      		depozit =0;
+                                     		depoz_srok = 0;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+                                     	final Random myBankRandom = new Random();
+                                     	kredit_proc = myRandom.nextInt(19);
+                                     	depoz_proc = myRandom.nextInt(9);
+                                     	if (kredit_proc <=0){
+                                     		kredit_proc =1;
+                                     	}
+                                     	if (depoz_proc <=0){
+                                     		depoz_proc =1;
+                                     	}
+                                     	kredit_proc_tv.setText(Integer.toString(kredit_proc)+"%");
+                                     	depoz_proc_tv.setText(Integer.toString(depoz_proc)+"%");
+                                     	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
+                                    	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
+                                    	//
                                     	d_timer = 0;
                                     	mnt.setText("2Dec-");
                                     	m_timer=m_timer+1;
@@ -706,30 +1251,76 @@ public class MainActivity extends Activity {
                                     	SavePreferences("profit",df.format(profit));
                                     	SavePreferences("kredit",Integer.toString(kredit));
                                     	SavePreferences("depozit",Integer.toString(depozit));
+                                    	SavePreferences("depozit",Integer.toString(depozit));
+                                 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                     }
                                     if(m_timer == 11 && d_timer >=31){
                                     	//
                                     	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                                 	    kredit = Integer.parseInt(sharedPreferences2.getString("kredit", ""));
+                                 	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
                                  	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
-                                    	//if (kredit >0){
-                                     		kredit = kredit + kredit_proc;
+                                    	if ((kredit >0)&(kredit_srok>0)){
+                                     		kredit_srok --;
+                                 	    	kredit = kredit + kredit_proc;
                                      		kredit_tv.setText(Integer.toString(kredit));
-                                         	SavePreferences("kredit",Integer.toString(kredit));
-                                     	//}
-                                     	//else{
-                                     	//	kredit =0;
-                                         //		}
-                                     	if (depozit >0){
-                                     		depozit = depozit + depoz_proc;
-                                     		depozit_tv.setText(Integer.toString(depozit));
-                                     		SavePreferences("depozit",Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                         	SavePreferences("kredit_srok",Integer.toString(kredit_srok));
                                      	}
                                      	else{
+                                     		score = score - kredit;
+                                     		kredit =0;
+                                     		kredit_srok = 0;
+                                     		kredit_tv.setText(Integer.toString(kredit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                        		}
+                                     	if ((depozit >0)&(depoz_srok>0)){
+                                     		depoz_srok --;
+                                     		depozit = depozit + depoz_proc;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                     	}
+                                     	else{
+                                     		score = score + depozit;
                                      		depozit =0;
+                                     		depoz_srok = 0;
+                                     		depozit_tv.setText(Integer.toString(depozit));
+                                     		score_tv.setText(df.format(score));
+                                     		SavePreferences("score",df.format(score));
+                                        	SavePreferences("profit",df.format(profit));
+                                        	SavePreferences("kredit",Integer.toString(kredit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                        	SavePreferences("depozit",Integer.toString(depozit));
+                                     		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+                                     	final Random myBankRandom = new Random();
+                                     	kredit_proc = myRandom.nextInt(19);
+                                     	depoz_proc = myRandom.nextInt(9);
+                                     	if (kredit_proc <=0){
+                                     		kredit_proc =1;
+                                     	}
+                                     	if (depoz_proc <=0){
+                                     		depoz_proc =1;
+                                     	}
+                                     	kredit_proc_tv.setText(Integer.toString(kredit_proc)+"%");
+                                     	depoz_proc_tv.setText(Integer.toString(depoz_proc)+"%");
+                                     	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
+                                    	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
+                                    	//
                                     	d_timer = 0;
                                     	mnt.setText("2Jan-");
                                     	Toast.makeText(getBaseContext(), "Happy New year!", Toast.LENGTH_SHORT).show();
@@ -738,6 +1329,8 @@ public class MainActivity extends Activity {
                                     	SavePreferences("profit",df.format(profit));
                                     	SavePreferences("kredit",Integer.toString(kredit));
                                     	SavePreferences("depozit",Integer.toString(depozit));
+                                    	SavePreferences("kredit_srok",Integer.toString(kredit));
+                                    	SavePreferences("depoz_srok",Integer.toString(depozit));
                                     }
                                     
                                     
@@ -796,6 +1389,8 @@ public class MainActivity extends Activity {
 	    depoz_srok = Integer.parseInt(sharedPreferences.getString("depoz_srok", ""));
 	    kredit_proc = Integer.parseInt(sharedPreferences.getString("kredit_proc", ""));
 	    depoz_proc = Integer.parseInt(sharedPreferences.getString("depoz_proc", ""));
+	    depoz_srok = Integer.parseInt(sharedPreferences.getString("depoz_srok", ""));
+	    kredit_srok = Integer.parseInt(sharedPreferences.getString("kredit_srok", ""));
 	    score_tv.setText(df.format(score));
 	    profit_tv.setText(df.format(profit));
 	    kredit_tv.setText(Integer.toString(kredit));

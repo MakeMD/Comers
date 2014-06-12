@@ -21,7 +21,7 @@
     <string name="profit_text">Итого прибыль:</string>
     <string name="kredit_proc_text">Процент под кредит:</string>
     <string name="kredit_proc">6%</string>
-    <string name="debt_proc_text">Процент под долг:</string>
+    <string name="debt_proc_text">Процент под депозит:</string>
     <string name="debt_proc">9%</string>
     <string name="incom_tax_text">Подоходный налог:</string>
     <string name="income_tax">2%</string>

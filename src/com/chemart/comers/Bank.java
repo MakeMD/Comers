@@ -59,12 +59,14 @@ public class Bank extends Activity {
 					if(EditKreditBank.getText().toString() != null){
 						kredit = Integer.parseInt(sharedPreferences.getString("kredit", ""))+ Integer.parseInt(EditKreditBank.getText().toString());
 						score = Integer.parseInt(getDefaults("score",this))+Integer.parseInt(EditKreditBank.getText().toString());	
-				//score = score + (Integer.parseInt(getDefaults("score",this))+kredit);
+						//kredit_srok = Integer.parseInt(sharedPreferences.getString("kredit_srok", ""));
+						kredit_srok = Integer.parseInt(EditSrok.getText().toString());
+						//score = score + (Integer.parseInt(getDefaults("score",this))+kredit);
 					//profit = profit + (Integer.parseInt(getDefaults("score",this))+kredit);
 					SavePreferences("score",df.format(score));
 					 SavePreferences("profit",df.format(profit));
 					 SavePreferences("kredit",Integer.toString(kredit));
-					 SavePreferences("kredit_srok",EditSrok.getText().toString());
+					 SavePreferences("kredit_srok",Integer.toString(kredit_srok));
 					 
 					 Toast.makeText(getBaseContext(), "Вы взяли в кредит "+ EditKreditBank.getText().toString()+" гроблей", Toast.LENGTH_SHORT).show();
 					
@@ -90,14 +92,14 @@ public class Bank extends Activity {
 			if (EditSrok.getText().toString() != null){
 				if(EditDepozBank.getText().toString() != null){
 					depozit = Integer.parseInt(sharedPreferences.getString("depozit", ""))+ Integer.parseInt(EditDepozBank.getText().toString());
-				    
+					depoz_srok = Integer.parseInt(EditSrok.getText().toString());
 					//score = score - Integer.parseInt(EditDepozBank.getText().toString());	
-					score = score - (Integer.parseInt(getDefaults("score",this))-depozit);
+					score = Integer.parseInt(getDefaults("score",this))-Integer.parseInt(EditDepozBank.getText().toString());	
 					//profit = profit - (Integer.parseInt(getDefaults("score",this))-depozit);
 					 SavePreferences("score",df.format(score));
 					 SavePreferences("profit",df.format(profit));
 					 SavePreferences("depozit",Integer.toString(depozit));
-					 SavePreferences("depoz_srok",EditSrok.getText().toString());
+					 SavePreferences("depoz_srok",Integer.toString(depoz_srok));
 					 Toast.makeText(getBaseContext(), "Вы вложили "+ EditDepozBank.getText().toString()+" гроблей", Toast.LENGTH_SHORT).show();
 				}
 				else{
