@@ -38,8 +38,8 @@ public class MainActivity extends Activity {
 	 protected int splashTime = 1000;
 	 String[] day = {"Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"};
 	 String[] date = {"01-","02-","03-","04-","05-","06-","07-","08-","09-","10-","11-","12-","13-","14-","15-","16-","17-","18-","19-","20-","21-","22-","23-","24-","25-","26-","27-","28-","29-","30-", "31-"};
-	 String[] month = {"1Jan-","1Feb-","1Mar-","1Apr-","1May-","1Jun-","1Jul-","1Aug-","1Sep-","1Oct-","1Nov-","1Dec-"};
-	 int y_timer = 2000;   
+	 String[] month = {"Jan-","Feb-","Mar-","Apr-","May-","Jun-","Jul-","Aug-","Sep-","Oct-","Nov-","Dec-"};
+	 int y_timer = 500;   
 	 TextView dt,dy,mnt,yr,score_tv,profit_tv,income_tax_tv,kredit_proc_tv,depoz_proc_tv,kredit_tv,depozit_tv;
 	    int day_timer,d_timer,m_timer =0;
 	    double house_rent;
@@ -51,6 +51,7 @@ public class MainActivity extends Activity {
 	    double apart_cost =0;
 	    int oil_cost=0, glebe_cost=0;
 	    String car="",apart="";
+	    int birthday,birthmonth;
 	    int month_now=1;
 	    int oil,glebe;
 	    int g,o;
@@ -88,7 +89,8 @@ public class MainActivity extends Activity {
 		SavePreferences("depozit",Integer.toString(depozit));
 		SavePreferences("kredit_srok",Integer.toString(kredit_srok));
 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
-		
+		SavePreferences("birthday",Integer.toString(birthday));
+		SavePreferences("birthmonth",Integer.toString(birthmonth));
 		//
 		final Random myRandom = new Random();
     	int koef_g = myRandom.nextInt(70);
@@ -104,6 +106,19 @@ public class MainActivity extends Activity {
     	}
     	SavePreferences("glebe_cost",Integer.toString(g));
     	SavePreferences("oil_cost",Integer.toString(o));
+    	//
+    	//
+    	final Random mybirthRandom = new Random();
+    	birthday = mybirthRandom.nextInt(30);
+    	birthmonth = mybirthRandom.nextInt(11);
+    	if (birthday == 0){
+    		birthday = 1;
+    	}
+    	if (birthmonth == 0){
+    		birthmonth =1;
+    	}
+    	SavePreferences("birthday",Integer.toString(birthday));
+		SavePreferences("birthmonth",Integer.toString(birthmonth));
     	//
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -319,7 +334,14 @@ public class MainActivity extends Activity {
                                         	}
                                         	SavePreferences("glebe_cost",Integer.toString(g));
                                         	SavePreferences("oil_cost",Integer.toString(o));
-                                        	
+                                        	//
+                                        	if ((m_timer == birthmonth)&(d_timer == birthday)){
+                                        		Toast.makeText(getBaseContext(), "Birthday!!! Yahoo!!", Toast.LENGTH_LONG).show();
+                                        	}
+                                        	if ((m_timer == 11)&(d_timer == 30)){
+                                        		Toast.makeText(getBaseContext(), "Happy New Year!!!", Toast.LENGTH_LONG).show();
+                                        	}
+                                        	//
                                         	m_timer++;
                                         	//Toast.makeText(getBaseContext(), "Удерживается подоходный налог в размере "+ df.format(profit-(profit*income_tax))+" гроблей", Toast.LENGTH_LONG).show();
                                             //Log.w("score", Double.toString(score));
@@ -459,6 +481,14 @@ public class MainActivity extends Activity {
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+                                    	if ((m_timer == birthmonth)&(d_timer == birthday)){
+                                    		Toast.makeText(getBaseContext(), "Birthday!!! Yahoo!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	if ((m_timer == 11)&(d_timer == 30)){
+                                    		Toast.makeText(getBaseContext(), "Happy New Year!!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	//
+                                     	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
                                      	depoz_proc = myRandom.nextInt(9);
@@ -539,6 +569,15 @@ public class MainActivity extends Activity {
                                          		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                          	}
                                          	//
+                                        	if ((m_timer == birthmonth)&(d_timer == birthday)){
+                                        		Toast.makeText(getBaseContext(), "Birthday!!! Yahoo!!", Toast.LENGTH_LONG).show();
+                                        	}
+                                        	if ((m_timer == 11)&(d_timer == 30)){
+                                        		Toast.makeText(getBaseContext(), "Happy New Year!!!", Toast.LENGTH_LONG).show();
+                                        	}
+                                        	//
+                                         	//
+                                         	
                                          	final Random myBankRandom = new Random();
                                          	kredit_proc = myRandom.nextInt(19);
                                          	depoz_proc = myRandom.nextInt(9);
@@ -615,6 +654,14 @@ public class MainActivity extends Activity {
                                         	SavePreferences("depozit",Integer.toString(depozit));
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
+                                     	//
+                                    	if ((m_timer == birthmonth)&(d_timer == birthday)){
+                                    		Toast.makeText(getBaseContext(), "Birthday!!! Yahoo!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	if ((m_timer == 11)&(d_timer == 30)){
+                                    		Toast.makeText(getBaseContext(), "Happy New Year!!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	//
                                      	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
@@ -693,6 +740,14 @@ public class MainActivity extends Activity {
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+                                    	if ((m_timer == birthmonth)&(d_timer == birthday)){
+                                    		Toast.makeText(getBaseContext(), "Birthday!!! Yahoo!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	if ((m_timer == 11)&(d_timer == 30)){
+                                    		Toast.makeText(getBaseContext(), "Happy New Year!!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	//
+                                     	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
                                      	depoz_proc = myRandom.nextInt(9);
@@ -770,6 +825,14 @@ public class MainActivity extends Activity {
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+                                    	if ((m_timer == birthmonth)&(d_timer == birthday)){
+                                    		Toast.makeText(getBaseContext(), "Birthday!!! Yahoo!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	if ((m_timer == 11)&(d_timer == 30)){
+                                    		Toast.makeText(getBaseContext(), "Happy New Year!!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	//
+                                     	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
                                      	depoz_proc = myRandom.nextInt(9);
@@ -844,6 +907,14 @@ public class MainActivity extends Activity {
                                         	SavePreferences("depozit",Integer.toString(depozit));
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
+                                     	//
+                                    	if ((m_timer == birthmonth)&(d_timer == birthday)){
+                                    		Toast.makeText(getBaseContext(), "Birthday!!! Yahoo!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	if ((m_timer == 11)&(d_timer == 30)){
+                                    		Toast.makeText(getBaseContext(), "Happy New Year!!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	//
                                      	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
@@ -922,6 +993,14 @@ public class MainActivity extends Activity {
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+                                    	if ((m_timer == birthmonth)&(d_timer == birthday)){
+                                    		Toast.makeText(getBaseContext(), "Birthday!!! Yahoo!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	if ((m_timer == 11)&(d_timer == 30)){
+                                    		Toast.makeText(getBaseContext(), "Happy New Year!!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	//
+                                     	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
                                      	depoz_proc = myRandom.nextInt(9);
@@ -998,6 +1077,14 @@ public class MainActivity extends Activity {
                                         	SavePreferences("depozit",Integer.toString(depozit));
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
+                                     	//
+                                    	if ((m_timer == birthmonth)&(d_timer == birthday)){
+                                    		Toast.makeText(getBaseContext(), "Birthday!!! Yahoo!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	if ((m_timer == 11)&(d_timer == 30)){
+                                    		Toast.makeText(getBaseContext(), "Happy New Year!!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	//
                                      	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
@@ -1076,6 +1163,14 @@ public class MainActivity extends Activity {
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+                                    	if ((m_timer == birthmonth)&(d_timer == birthday)){
+                                    		Toast.makeText(getBaseContext(), "Birthday!!! Yahoo!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	if ((m_timer == 11)&(d_timer == 30)){
+                                    		Toast.makeText(getBaseContext(), "Happy New Year!!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	//
+                                     	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
                                      	depoz_proc = myRandom.nextInt(9);
@@ -1152,6 +1247,14 @@ public class MainActivity extends Activity {
                                         	SavePreferences("depozit",Integer.toString(depozit));
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
+                                     	//
+                                    	if ((m_timer == birthmonth)&(d_timer == birthday)){
+                                    		Toast.makeText(getBaseContext(), "Birthday!!! Yahoo!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	if ((m_timer == 11)&(d_timer == 30)){
+                                    		Toast.makeText(getBaseContext(), "Happy New Year!!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	//
                                      	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
@@ -1230,6 +1333,14 @@ public class MainActivity extends Activity {
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+                                    	if ((m_timer == birthmonth)&(d_timer == birthday)){
+                                    		Toast.makeText(getBaseContext(), "Birthday!!! Yahoo!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	if ((m_timer == 11)&(d_timer == 30)){
+                                    		Toast.makeText(getBaseContext(), "Happy New Year!!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	//
+                                     	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
                                      	depoz_proc = myRandom.nextInt(9);
@@ -1307,6 +1418,14 @@ public class MainActivity extends Activity {
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+                                    	if ((m_timer == birthmonth)&(d_timer == birthday)){
+                                    		Toast.makeText(getBaseContext(), "Birthday!!! Yahoo!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	if ((m_timer == 11)&(d_timer == 30)){
+                                    		Toast.makeText(getBaseContext(), "Happy New Year!!!", Toast.LENGTH_LONG).show();
+                                    	}
+                                    	//
+                                     	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
                                      	depoz_proc = myRandom.nextInt(9);
@@ -1332,19 +1451,14 @@ public class MainActivity extends Activity {
                                     	SavePreferences("kredit_srok",Integer.toString(kredit));
                                     	SavePreferences("depoz_srok",Integer.toString(depozit));
                                     }
-                                    
-                                    
                                     }
                             });
                             waited += 100;
-                                	
                             }  
-                        
-                    }
+                        }
                 }
                     }
                 catch (InterruptedException e) {
-                
                 }
             }
             };
@@ -1391,6 +1505,8 @@ public class MainActivity extends Activity {
 	    depoz_proc = Integer.parseInt(sharedPreferences.getString("depoz_proc", ""));
 	    depoz_srok = Integer.parseInt(sharedPreferences.getString("depoz_srok", ""));
 	    kredit_srok = Integer.parseInt(sharedPreferences.getString("kredit_srok", ""));
+	    birthday = Integer.parseInt(sharedPreferences.getString("birthday", ""));
+	    birthmonth = Integer.parseInt(sharedPreferences.getString("birthmonth", ""));
 	    score_tv.setText(df.format(score));
 	    profit_tv.setText(df.format(profit));
 	    kredit_tv.setText(Integer.toString(kredit));
@@ -1414,6 +1530,8 @@ public void onStop(){
 	SavePreferences("depozit",Integer.toString(depozit));
 	SavePreferences("kredit_srok",Integer.toString(kredit_srok));
 	SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+	SavePreferences("birthday",Integer.toString(birthday));
+	SavePreferences("birthmonth",Integer.toString(birthmonth));
 	//SavePreferences("saldo_gb",df.format(saldo_gb));
 //	SavePreferences("saldo_ob",df.format(saldo_ob));
 	//SavePreferences("saldo_gs",df.format(saldo_gs));
