@@ -29,11 +29,12 @@ public final class R {
     public static final class drawable {
         public static final int bkg=0x7f020000;
         public static final int ic_launcher=0x7f020001;
-        public static final int plashka=0x7f020002;
-        public static final int plashka2=0x7f020003;
-        public static final int plashka3=0x7f020004;
-        public static final int plashka4=0x7f020005;
-        public static final int plashka5=0x7f020006;
+        public static final int logo=0x7f020002;
+        public static final int plashka=0x7f020003;
+        public static final int plashka2=0x7f020004;
+        public static final int plashka3=0x7f020005;
+        public static final int plashka4=0x7f020006;
+        public static final int plashka5=0x7f020007;
     }
     public static final class id {
         public static final int Activities=0x7f090000;
@@ -51,8 +52,8 @@ public final class R {
         public static final int TextView12=0x7f09000c;
         public static final int TextView13=0x7f090009;
         public static final int TextView14=0x7f09001c;
-        public static final int TextView15=0x7f090040;
-        public static final int TextView16=0x7f090041;
+        public static final int TextView15=0x7f090041;
+        public static final int TextView16=0x7f090042;
         public static final int TextView17=0x7f090016;
         public static final int TextView18=0x7f090015;
         public static final int TextView19=0x7f09001a;
@@ -65,26 +66,27 @@ public final class R {
         public static final int TextView26=0x7f090014;
         public static final int TextView27=0x7f090013;
         public static final int TextView28=0x7f09001b;
-        public static final int action_settings=0x7f09004c;
-        public static final int editText1=0x7f09003d;
-        public static final int editText2=0x7f09003e;
+        public static final int action_settings=0x7f09004d;
+        public static final int editText1=0x7f09003c;
+        public static final int editText2=0x7f09003a;
+        public static final int editText3=0x7f09003e;
         public static final int imageView1=0x7f09001d;
         public static final int imageView2=0x7f09001e;
         public static final int imageView3=0x7f090029;
-        public static final int radioButton1=0x7f09003a;
-        public static final int radioButton10=0x7f090044;
-        public static final int radioButton11=0x7f09004a;
-        public static final int radioButton12=0x7f090045;
-        public static final int radioButton13=0x7f09004b;
-        public static final int radioButton14=0x7f090046;
-        public static final int radioButton2=0x7f09003c;
-        public static final int radioButton3=0x7f09003b;
-        public static final int radioButton4=0x7f09003f;
-        public static final int radioButton5=0x7f090047;
-        public static final int radioButton6=0x7f090042;
-        public static final int radioButton7=0x7f090048;
-        public static final int radioButton8=0x7f090043;
-        public static final int radioButton9=0x7f090049;
+        public static final int radioButton1=0x7f09003d;
+        public static final int radioButton10=0x7f090045;
+        public static final int radioButton11=0x7f09004b;
+        public static final int radioButton12=0x7f090046;
+        public static final int radioButton13=0x7f09004c;
+        public static final int radioButton14=0x7f090047;
+        public static final int radioButton2=0x7f09003b;
+        public static final int radioButton3=0x7f09003f;
+        public static final int radioButton4=0x7f090040;
+        public static final int radioButton5=0x7f090048;
+        public static final int radioButton6=0x7f090043;
+        public static final int radioButton7=0x7f090049;
+        public static final int radioButton8=0x7f090044;
+        public static final int radioButton9=0x7f09004a;
         public static final int spinner1=0x7f090037;
         public static final int textView1=0x7f090001;
         public static final int textView10=0x7f09002d;
@@ -116,25 +118,29 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int havings=0x7f030001;
-        public static final int railto=0x7f030002;
-        public static final int secret=0x7f030003;
-        public static final int shop=0x7f030004;
+        public static final int bank=0x7f030001;
+        public static final int havings=0x7f030002;
+        public static final int railto=0x7f030003;
+        public static final int secret=0x7f030004;
+        public static final int shop=0x7f030005;
     }
     public static final class menu {
-        public static final int config=0x7f080000;
-        public static final int main=0x7f080001;
-        public static final int shop=0x7f080002;
+        public static final int bank=0x7f080000;
+        public static final int config=0x7f080001;
+        public static final int main=0x7f080002;
+        public static final int shop=0x7f080003;
     }
     public static final class string {
         public static final int Apr=0x7f050040;
         public static final int Aug=0x7f050044;
+        public static final int Bank=0x7f050056;
         public static final int Bay=0x7f050049;
         public static final int Birth=0x7f05004e;
         public static final int Birth_str=0x7f05004f;
         public static final int Buyes=0x7f050051;
         public static final int Car=0x7f050039;
         public static final int Dec=0x7f050048;
+        public static final int Depozit_Bank=0x7f050054;
         public static final int Energo=0x7f05004c;
         public static final int Energo_str=0x7f05004d;
         public static final int Feb=0x7f05003e;
@@ -142,6 +148,7 @@ public final class R {
         public static final int Jan=0x7f05003d;
         public static final int Jul=0x7f050043;
         public static final int Jun=0x7f050042;
+        public static final int Kredit_Bank=0x7f050053;
         public static final int Mar=0x7f05003f;
         public static final int May=0x7f050041;
         public static final int Nov=0x7f050047;
@@ -154,6 +161,7 @@ public final class R {
         public static final int Secret=0x7f05004b;
         public static final int Sep=0x7f050045;
         public static final int Sold=0x7f05003c;
+        public static final int Srok=0x7f050055;
         public static final int about=0x7f05001c;
         public static final int account_score_text=0x7f050006;
         public static final int acount_score=0x7f050007;

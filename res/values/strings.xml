@@ -92,6 +92,10 @@
 	<string name="Sales">Продано</string>
 	<string name="Buyes">Куплено</string>
 	<string name="Saldo">Результат</string>
+	<string name="Kredit_Bank">Взять кредит под %</string>
+	<string name="Depozit_Bank">Взять депозит под %</string>
+	<string name="Srok">Срок</string>
+	<string name="Bank">Банк</string>
 	
 	
 </resources>
