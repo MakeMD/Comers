@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -22,11 +23,13 @@ public class Railto extends Activity {
 	int oil, glebe;
 	int glebe_c, oil_c;
 	int month_now;
+	int buyes_g,buyes_o;
+	int buyes_g1;
 	String g_jan, g_feb,g_mar,g_apr,g_may,g_jun,g_jul,g_aug,g_sep,g_oct,g_nov,g_dec;
 	String o_jan, o_feb,o_mar,o_apr,o_may,o_jun,o_jul,o_aug,o_sep,o_oct,o_nov,o_dec;
 	EditText EditOil;
 	EditText EditGlebe;
-	double score, profit;
+	double score, profit,saldo_o,saldo_g, saldo_ob, saldo_gb;
 	DecimalFormat df = new DecimalFormat("###########");
 	
 	
@@ -39,6 +42,12 @@ public class Railto extends Activity {
 	SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 	score = Double.parseDouble(sharedPreferences.getString("score", ""));
     profit = Double.parseDouble(sharedPreferences.getString("profit", ""));
+    buyes_g = Integer.parseInt(sharedPreferences.getString("buyes_g", ""));
+    buyes_o = Integer.parseInt(sharedPreferences.getString("buyes_o", ""));
+    saldo_ob = Double.parseDouble(sharedPreferences.getString("saldo_ob", ""));
+    saldo_gb = Double.parseDouble(sharedPreferences.getString("saldo_gb", ""));
+    oil = Integer.parseInt(sharedPreferences.getString("oil", ""));
+    glebe = Integer.parseInt(sharedPreferences.getString("glebe", ""));
 	EditOil = (EditText) findViewById(R.id.editText2);
 	EditGlebe = (EditText) findViewById(R.id.editText1);
 	month_now = Integer.parseInt(getDefaults("month_now",this));
@@ -347,12 +356,17 @@ public class Railto extends Activity {
 				double g_buy = Integer.parseInt(getDefaults("glebe_cost",this))*Integer.parseInt(EditGlebe.getText().toString());
 				if (g_buy <=score){
 				glebe = glebe + Integer.parseInt(EditGlebe.getText().toString());	
-					glebe_tv.setText(Integer.toString(glebe)+" "+"акр");
+					//glebe_tv.setText(Integer.toString(glebe)+" "+"акр");
 					score = score - (Integer.parseInt(getDefaults("glebe_cost",this))*Integer.parseInt(EditGlebe.getText().toString()));
 					profit = profit - (Integer.parseInt(getDefaults("glebe_cost",this))*Integer.parseInt(EditGlebe.getText().toString()));
-					 SavePreferences("score",df.format(score));
+					saldo_g = profit; 
+					saldo_gb = saldo_g;
+					SavePreferences("score",df.format(score));
 					 SavePreferences("profit",df.format(profit));
 					 SavePreferences("glebe",Integer.toString(glebe));
+					 buyes_g =buyes_g +  Integer.parseInt(EditGlebe.getText().toString());
+					 SavePreferences("buyes_g",Integer.toString(buyes_g));
+					 SavePreferences("saldo_gb", df.format(saldo_gb));
 					 Toast.makeText(getBaseContext(), "Вы купили "+ EditGlebe.getText().toString()+" акров земли", Toast.LENGTH_SHORT).show();
 				}
 				else{
@@ -364,6 +378,7 @@ public class Railto extends Activity {
 				Toast.makeText(getBaseContext(), "Недостаточно средств для покупки", Toast.LENGTH_SHORT).show();
 			}
 		break;
+		
 		case R.id.radioButton2:
 			if(EditOil.getText().toString() != null){
 				double o_buy = Integer.parseInt(getDefaults("oil_cost",this))*Integer.parseInt(EditOil.getText().toString());
@@ -372,9 +387,14 @@ public class Railto extends Activity {
 					oil_tv.setText(Integer.toString(oil)+" "+"бар.");
 					score = score - (Integer.parseInt(getDefaults("oil_cost",this))*Integer.parseInt(EditOil.getText().toString()));
 					profit = profit - (Integer.parseInt(getDefaults("oil_cost",this))*Integer.parseInt(EditOil.getText().toString()));
+					 saldo_o = profit;
+					 saldo_ob = saldo_o;
+					 buyes_o =buyes_o + Integer.parseInt(EditOil.getText().toString());
+					 SavePreferences("buyes_o",Integer.toString(buyes_o));
 					 SavePreferences("score",df.format(score));
 					 SavePreferences("profit",df.format(profit));
 					 SavePreferences("oil",Integer.toString(oil));
+					 SavePreferences("saldo_ob", df.format(saldo_ob));
 					 Toast.makeText(getBaseContext(), "Вы купили "+ EditOil.getText().toString()+" барелей нефти", Toast.LENGTH_SHORT).show();
 				}
 				else{
@@ -384,7 +404,7 @@ public class Railto extends Activity {
 			else{
 				Toast.makeText(getBaseContext(), "Недостаточно средств для покупки", Toast.LENGTH_SHORT).show();
 		}
-		default:
+	//	default:
 			break;
 		}
 		setResult(RESULT_OK, buyIntent);
