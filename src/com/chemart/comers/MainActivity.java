@@ -35,13 +35,22 @@ public class MainActivity extends Activity {
 	
 	final int MENU_QUIT_ID = 2;
 	final int MENU_ABOUT_ID = 3;
-	String[] data = {"Меню ", "Банк", "Рынок", "Биржа", "Хозяйство", "Секретарь"};
+	String[] data = {"Банк", "Рынок", "Биржа", "Хозяйство", "Секретарь"};
 	 protected int splashTime = 1000;
 	 String[] day = {"Понедельник","Вторник","Среда","Четверг","Пятница","Суббота","Воскресенье"};
 	 String[] date = {"01-","02-","03-","04-","05-","06-","07-","08-","09-","10-","11-","12-","13-","14-","15-","16-","17-","18-","19-","20-","21-","22-","23-","24-","25-","26-","27-","28-","29-","30-", "31-"};
+<<<<<<< HEAD
 	 String[] month = {"Jan-","Feb-","Mar-","Apr-","May-","Jun-","Jul-","Aug-","Sep-","Oct-","Nov-","Dec-"};
 	 int y_timer = 2000;   
+<<<<<<< HEAD
+=======
+	 TextView dt,dy,mnt,yr,score_tv,profit_tv,income_tax_tv;
+=======
+	 String[] month = {"1Jan-","1Feb-","1Mar-","1Apr-","1May-","1Jun-","1Jul-","1Aug-","1Sep-","1Oct-","1Nov-","1Dec-"};
+	 int y_timer = 2000;   
+>>>>>>> origin/master
 	 TextView dt,dy,mnt,yr,score_tv,profit_tv,income_tax_tv,kredit_proc_tv,depoz_proc_tv,kredit_tv,depozit_tv;
+>>>>>>> parent of c60b519... add birthday(w/o verify)
 	    int day_timer,d_timer,m_timer =0;
 	    double house_rent;
 	    double land_rent;
@@ -52,16 +61,19 @@ public class MainActivity extends Activity {
 	    double apart_cost =0;
 	    int oil_cost=0, glebe_cost=0;
 	    String car="",apart="";
-	    int birthday,birthmonth;
 	    int month_now=1;
 	    int oil,glebe;
 	    int g,o;
+<<<<<<< HEAD
 	    int kredit_proc = 10;
 	    int depoz_proc = 3;
 	    int sales_g=0,sales_o=0,buyes_o=0,buyes_g=0, kredit=0, depozit=0, kredit_srok=0,depoz_srok=0;
 	    
 	    int tempbirthd,tempbirthm,tempnyd,tempnym ;
 	     	
+=======
+	    int sales_g=0,sales_o=0,buyes_o=0,buyes_g=0;
+>>>>>>> origin/master
 	    double saldo_ob=0.00,saldo_gb=0.00,saldo_os=0.00,saldo_gs=0.00;
 	    DecimalFormat df = new DecimalFormat("###########");
 	    
@@ -87,16 +99,24 @@ public class MainActivity extends Activity {
 		SavePreferences("saldo_ob",df.format(saldo_ob));
 		SavePreferences("saldo_gs",df.format(saldo_gs));
 		SavePreferences("saldo_os",df.format(saldo_os));
+<<<<<<< HEAD
+=======
 		SavePreferences("kredit_proc",Integer.toString(kredit_proc));
 		SavePreferences("depoz_proc",Integer.toString(depoz_proc));
 		SavePreferences("kredit",Integer.toString(kredit));
 		SavePreferences("depozit",Integer.toString(depozit));
 		SavePreferences("kredit_srok",Integer.toString(kredit_srok));
 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+<<<<<<< HEAD
 		SavePreferences("birthday",Integer.toString(birthday));
 		SavePreferences("birthmonth",Integer.toString(birthmonth));
 	//End of SavePreferences
 	//Randomize coefficient of grab and oil
+=======
+		
+>>>>>>> parent of c60b519... add birthday(w/o verify)
+		//
+>>>>>>> origin/master
 		final Random myRandom = new Random();
     	int koef_g = myRandom.nextInt(70);
     	int koef_o = myRandom.nextInt(5);
@@ -111,6 +131,7 @@ public class MainActivity extends Activity {
     	}
     	SavePreferences("glebe_cost",Integer.toString(g));
     	SavePreferences("oil_cost",Integer.toString(o));
+<<<<<<< HEAD
     //End of Randomize
     //Generate birthday
     	final Random mybirthRandom = new Random();
@@ -126,12 +147,15 @@ public class MainActivity extends Activity {
 		SavePreferences("birthmonth",Integer.toString(birthmonth));
     //End of birthday
 	//Menu items selector
+=======
+    	//
+>>>>>>> origin/master
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         final Spinner spinner = (Spinner) findViewById(R.id.spinner1);
         spinner.setAdapter(adapter);
         spinner.setPrompt("Меню");
-        spinner.setSelection(-1);
+        spinner.setSelection(0);
         spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
@@ -140,18 +164,13 @@ public class MainActivity extends Activity {
               //Toast.makeText(getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
             switch (position){
             case 0:{
-            	position = 0;
-                 spinner.setSelection(0);
-                 break;
-            }
-            case 1:{
-            	Intent intent = new Intent(MainActivity.this, Bank.class);
-            	startActivity(intent);
-            	position = 0;
-            	spinner.setSelection(0);
+            	//Intent intent = new Intent(MainActivity.this, Bank.class);
+                //startActivity(intent);
+            	//position = 1;
+                //spinner.setSelection(1);
             	break;            	
             }
-            case 2:{
+            case 1:{
             	Intent intent = new Intent(MainActivity.this, Shop.class);
                 startActivity(intent);
                 position =0;
@@ -159,7 +178,7 @@ public class MainActivity extends Activity {
                 break;
                 
             }
-            case 3:{
+            case 2:{
             	Intent intent = new Intent(MainActivity.this, Railto.class);
                 startActivity(intent);
             	position =0;
@@ -167,14 +186,14 @@ public class MainActivity extends Activity {
                 
             	break;
             }
-            case 4:{
+            case 3:{
             	Intent intent = new Intent(MainActivity.this, Havings.class);
                 startActivity(intent);
                 position = 0;
                 spinner.setSelection(0);
                 break;
             }
-            case 5:{
+            case 4:{
             	Intent intent = new Intent(MainActivity.this, Secret.class);
                 startActivity(intent);
             	position = 0;
@@ -197,13 +216,10 @@ public class MainActivity extends Activity {
         score_tv = (TextView) findViewById(R.id.textView5);
         profit_tv = (TextView) findViewById(R.id.textView14);
         income_tax_tv = (TextView) findViewById(R.id.textView17);
-        kredit_proc_tv = (TextView) findViewById(R.id.textView21);
-        depoz_proc_tv = (TextView) findViewById(R.id.textView19);
-        kredit_tv = (TextView) findViewById(R.id.textView8);
-        depozit_tv = (TextView) findViewById(R.id.textView11);
         score_tv.setText(df.format(score));
         profit_tv.setText(df.format(profit));
         income_tax_tv.setText(df.format((1-income_tax)*100)+"%");
+<<<<<<< HEAD
         kredit_proc_tv.setText(Integer.toString(kredit_proc)+"%");
         depoz_proc_tv.setText(Integer.toString(depoz_proc)+"%");
         kredit_tv.setText(Integer.toString(kredit));
@@ -220,6 +236,8 @@ public class MainActivity extends Activity {
      	tempbirthm = birthmonth;
      	
      //Start thread for timer
+=======
+>>>>>>> origin/master
         final Thread th=new Thread(){
         	
             @Override
@@ -254,7 +272,6 @@ public class MainActivity extends Activity {
                                     }
                                 	try {
                                         dt.setText(date[d_timer]);
-                                       
                                         
                                     }
                                     catch(Exception e) 
@@ -263,83 +280,15 @@ public class MainActivity extends Activity {
                                         	day_timer=0;
                                         	
                                         	d_timer=0;
-                                        	
                                         	if (profit <0){
                                         		profit=0;
                                         	}
-                                        	
                                         	score = score+(profit*income_tax);
                                         	profit=0;
                                         	SavePreferences("score",df.format(score));
                                         	SavePreferences("profit",df.format(profit));
-                                        	//
-                                        	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                                     	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
-                                     	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                         	
-                                        	if ((kredit >0)&(kredit_srok>0)){
-                                         		kredit_srok --;
-                                     	    	kredit = kredit + kredit_proc;
-                                         		kredit_tv.setText(Integer.toString(kredit));
-                                         		score_tv.setText(df.format(score));
-                                         		SavePreferences("score",df.format(score));
-                                            	SavePreferences("profit",df.format(profit));
-                                            	SavePreferences("kredit",Integer.toString(kredit));
-                                             	SavePreferences("kredit_srok",Integer.toString(kredit_srok));
-                                         	}
-                                         	else{
-                                         		score = score - kredit;
-                                         		kredit =0;
-                                         		kredit_srok = 0;
-                                         		kredit_tv.setText(Integer.toString(kredit));
-                                         		score_tv.setText(df.format(score));
-                                         		SavePreferences("score",df.format(score));
-                                            	SavePreferences("profit",df.format(profit));
-                                            	SavePreferences("kredit",Integer.toString(kredit));
-                                            	SavePreferences("depozit",Integer.toString(depozit));
-                                            	SavePreferences("depozit",Integer.toString(depozit));
-                                         		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
-                                            		}
-                                         	if ((depozit >0)&(depoz_srok>0)){
-                                         		depoz_srok --;
-                                         		depozit = depozit + depoz_proc;
-                                         		depozit_tv.setText(Integer.toString(depozit));
-                                         		score_tv.setText(df.format(score));
-                                         		SavePreferences("score",df.format(score));
-                                            	SavePreferences("profit",df.format(profit));
-                                            	SavePreferences("depozit",Integer.toString(depozit));
-                                         		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
-                                         	}
-                                         	else{
-                                         		score = score + depozit;
-                                         		depozit =0;
-                                         		depoz_srok = 0;
-                                         		depozit_tv.setText(Integer.toString(depozit));
-                                         		score_tv.setText(df.format(score));
-                                         		SavePreferences("score",df.format(score));
-                                            	SavePreferences("profit",df.format(profit));
-                                            	SavePreferences("kredit",Integer.toString(kredit));
-                                            	SavePreferences("depozit",Integer.toString(depozit));
-                                            	SavePreferences("depozit",Integer.toString(depozit));
-                                         		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
-                                         	}
-                                         	//
-                                         	//
-                                         	final Random myBankRandom = new Random();
-                                         	kredit_proc = myRandom.nextInt(19);
-                                         	depoz_proc = myRandom.nextInt(9);
-                                         	if (kredit_proc <=0){
-                                         		kredit_proc =1;
-                                         	}
-                                         	if (depoz_proc <=0){
-                                         		depoz_proc =1;
-                                         	}
-                                         	kredit_proc_tv.setText(Integer.toString(kredit_proc)+"%");
-                                         	depoz_proc_tv.setText(Integer.toString(depoz_proc)+"%");
-                                         	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
-                                        	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
-                                        	//
-                                         	final Random myRandom = new Random();
+                                        	final Random myRandom = new Random();
                                         	int koef_g = myRandom.nextInt(70);
                                         	int koef_o = myRandom.nextInt(5);
                                         	int sign = myRandom.nextInt(2);
@@ -358,13 +307,11 @@ public class MainActivity extends Activity {
                                         	//Toast.makeText(getBaseContext(), "Удерживается подоходный налог в размере "+ df.format(profit-(profit*income_tax))+" гроблей", Toast.LENGTH_LONG).show();
                                             //Log.w("score", Double.toString(score));
                                         	score_tv.setText(df.format(score));
-                                        	profit_tv.setText(df.format(profit));
                                         	
+                                        	profit_tv.setText(df.format(profit));
                                     } 
                                     try{
                                     	mnt.setText(month[m_timer]);
-                                    	
-                                    	
                                     	
                                     	SavePreferences("glebe_cost",Integer.toString(g));
                                     	SavePreferences("oil_cost",Integer.toString(o));
@@ -445,7 +392,6 @@ public class MainActivity extends Activity {
                                     }
                                     try{
                                     	yr.setText(Integer.toString(y_timer));
-                                    	
                                     }
                                     catch(Exception e)
                                     {
@@ -456,11 +402,9 @@ public class MainActivity extends Activity {
                                     if (cal.isLeapYear(y_timer) == true)
                                     {
                                     if(m_timer == 1 && d_timer >= 29){
-                                    	//
-                                    	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                                 	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
-                                 	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
+<<<<<<< HEAD
+=======
                                     	if ((kredit >0)&(kredit_srok>0)){
                                      		kredit_srok --;
                                  	    	kredit = kredit + kredit_proc;
@@ -507,7 +451,10 @@ public class MainActivity extends Activity {
                                         	SavePreferences("depozit",Integer.toString(depozit));
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
+<<<<<<< HEAD
                                      	
+=======
+>>>>>>> origin/master
                                      	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
@@ -523,20 +470,18 @@ public class MainActivity extends Activity {
                                      	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
                                     	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
                                     	//
+>>>>>>> parent of c60b519... add birthday(w/o verify)
                                     	d_timer = 0;
-                                    	mnt.setText("2Mar-");
+                                    	mnt.setText("Mar-");
                                     	m_timer=m_timer+1;
-                                    	SavePreferences("score",df.format(score));
-                                    	SavePreferences("profit",df.format(profit));
-                                    	SavePreferences("kredit",Integer.toString(kredit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                     	//Toast.makeText(getBaseContext(), "Lisp", Toast.LENGTH_LONG).show();
                                         }
                                     }
                                     else{
                                     	if(m_timer == 1 && d_timer >= 28){
+<<<<<<< HEAD
+                                    			
+=======
                                     		//
                                     		SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                                      	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
@@ -588,9 +533,13 @@ public class MainActivity extends Activity {
                                             	SavePreferences("depozit",Integer.toString(depozit));
                                          		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                          	}
+<<<<<<< HEAD
                                          	
                                          	//
                                          	
+=======
+                                         	//
+>>>>>>> origin/master
                                          	final Random myBankRandom = new Random();
                                          	kredit_proc = myRandom.nextInt(19);
                                          	depoz_proc = myRandom.nextInt(9);
@@ -605,17 +554,17 @@ public class MainActivity extends Activity {
                                          	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
                                         	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
                                         	//
+>>>>>>> parent of c60b519... add birthday(w/o verify)
                                         	d_timer = 0;
-                                        	mnt.setText("2Mar-");
+                                        	mnt.setText("Mar-");
                                         	m_timer=m_timer+1;
-                                        	SavePreferences("score",df.format(score));
-                                        	SavePreferences("profit",df.format(profit));
-                                        	SavePreferences("kredit",Integer.toString(kredit));
-                                        	SavePreferences("depozit",Integer.toString(depozit));
                                         	//Toast.makeText(getBaseContext(), "NoLisp!!!!", Toast.LENGTH_LONG).show();
                                     	}
                                     }
                                     if(m_timer == 2 && d_timer >=31){
+<<<<<<< HEAD
+                                    		
+=======
                                     	//
                                     	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                                  	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
@@ -667,7 +616,10 @@ public class MainActivity extends Activity {
                                         	SavePreferences("depozit",Integer.toString(depozit));
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
+<<<<<<< HEAD
                                      	
+=======
+>>>>>>> origin/master
                                      	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
@@ -683,17 +635,16 @@ public class MainActivity extends Activity {
                                      	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
                                     	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
                                     	//
+>>>>>>> parent of c60b519... add birthday(w/o verify)
                                     	d_timer = 0;
-                                    	mnt.setText("2Apr-");
+                                    	mnt.setText("Apr-");
                                     	m_timer=m_timer+1;
-                                    	SavePreferences("score",df.format(score));
-                                    	SavePreferences("profit",df.format(profit));
-                                    	SavePreferences("kredit",Integer.toString(kredit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                    	
                                     }
                                     if(m_timer == 3 && d_timer >=30){
+<<<<<<< HEAD
+                                    		
+=======
                                     	//
                                     	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                                  	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
@@ -745,7 +696,10 @@ public class MainActivity extends Activity {
                                         	SavePreferences("depozit",Integer.toString(depozit));
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
+<<<<<<< HEAD
                                      	
+=======
+>>>>>>> origin/master
                                      	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
@@ -761,17 +715,16 @@ public class MainActivity extends Activity {
                                      	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
                                     	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
                                     	//
+>>>>>>> parent of c60b519... add birthday(w/o verify)
                                     	d_timer = 0;
-                                    	mnt.setText("2May-");
+                                    	mnt.setText("May-");
                                     	m_timer=m_timer+1;
-                                    	SavePreferences("score",df.format(score));
-                                    	SavePreferences("profit",df.format(profit));
-                                    	SavePreferences("kredit",Integer.toString(kredit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                    	
                                     }
                                     if(m_timer == 4 && d_timer >=31){
+<<<<<<< HEAD
+                                    		
+=======
                                     	//
                                     	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                                  	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
@@ -823,7 +776,10 @@ public class MainActivity extends Activity {
                                         	SavePreferences("depozit",Integer.toString(depozit));
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
+<<<<<<< HEAD
                                      	
+=======
+>>>>>>> origin/master
                                      	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
@@ -839,15 +795,16 @@ public class MainActivity extends Activity {
                                      	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
                                     	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
                                     	//
+>>>>>>> parent of c60b519... add birthday(w/o verify)
                                     	d_timer = 0;
-                                    	mnt.setText("2Jun-");
+                                    	mnt.setText("Jun-");
                                     	m_timer=m_timer+1;
-                                    	SavePreferences("score",df.format(score));
-                                    	SavePreferences("profit",df.format(profit));
-                                    	SavePreferences("kredit",Integer.toString(kredit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
+                                    	
                                     }
                                     if(m_timer == 5 && d_timer >=30){
+<<<<<<< HEAD
+                                    		
+=======
                                     	//
                                     	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                                  	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
@@ -899,7 +856,10 @@ public class MainActivity extends Activity {
                                         	SavePreferences("depozit",Integer.toString(depozit));
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
+<<<<<<< HEAD
                                      	
+=======
+>>>>>>> origin/master
                                      	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
@@ -915,17 +875,16 @@ public class MainActivity extends Activity {
                                      	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
                                     	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
                                     	//
+>>>>>>> parent of c60b519... add birthday(w/o verify)
                                     	d_timer = 0;
-                                    	mnt.setText("2Jul-");
+                                    	mnt.setText("Jul-");
                                     	m_timer=m_timer+1;
-                                    	SavePreferences("score",df.format(score));
-                                    	SavePreferences("profit",df.format(profit));
-                                    	SavePreferences("kredit",Integer.toString(kredit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                    	
                                     }
                                     if(m_timer == 6 && d_timer >=31){
+<<<<<<< HEAD
+                                    		
+=======
                                     	//
                                     	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                                  	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
@@ -977,7 +936,10 @@ public class MainActivity extends Activity {
                                         	SavePreferences("depozit",Integer.toString(depozit));
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
+<<<<<<< HEAD
                                      	
+=======
+>>>>>>> origin/master
                                      	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
@@ -993,22 +955,16 @@ public class MainActivity extends Activity {
                                      	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
                                     	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
                                     	//
+>>>>>>> parent of c60b519... add birthday(w/o verify)
                                     	d_timer = 0;
-                                    	mnt.setText("2Aug-");
+                                    	mnt.setText("Aug-");
                                     	m_timer=m_timer+1;
-                                    	SavePreferences("score",df.format(score));
-                                    	SavePreferences("profit",df.format(profit));
-                                    	SavePreferences("kredit",Integer.toString(kredit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                    	
                                     }
                                     if(m_timer == 7 && d_timer >=31){
-                                    	//
-                                    	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                                 	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
-                                 	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
+<<<<<<< HEAD
+=======
                                     	if ((kredit >0)&(kredit_srok>0)){
                                      		kredit_srok --;
                                  	    	kredit = kredit + kredit_proc;
@@ -1055,7 +1011,10 @@ public class MainActivity extends Activity {
                                         	SavePreferences("depozit",Integer.toString(depozit));
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
+<<<<<<< HEAD
                                      	
+=======
+>>>>>>> origin/master
                                      	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
@@ -1071,22 +1030,16 @@ public class MainActivity extends Activity {
                                      	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
                                     	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
                                     	//
+>>>>>>> parent of c60b519... add birthday(w/o verify)
                                     	d_timer = 0;
-                                    	mnt.setText("2Sep-");
+                                    	mnt.setText("Sep-");
                                     	m_timer=m_timer+1;
-                                    	SavePreferences("score",df.format(score));
-                                    	SavePreferences("profit",df.format(profit));
-                                    	SavePreferences("kredit",Integer.toString(kredit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                    	
                                     }
                                     if(m_timer == 8 && d_timer >=30){
-                                    	//
-                                    	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                                 	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
-                                 	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
                                     	
+<<<<<<< HEAD
+=======
                                     	if ((kredit >0)&(kredit_srok>0)){
                                      		kredit_srok --;
                                  	    	kredit = kredit + kredit_proc;
@@ -1133,7 +1086,10 @@ public class MainActivity extends Activity {
                                         	SavePreferences("depozit",Integer.toString(depozit));
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
+<<<<<<< HEAD
                                      	
+=======
+>>>>>>> origin/master
                                      	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
@@ -1149,17 +1105,16 @@ public class MainActivity extends Activity {
                                      	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
                                     	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
                                     	//
+>>>>>>> parent of c60b519... add birthday(w/o verify)
                                     	d_timer = 0;
-                                    	mnt.setText("2Oct-");
+                                    	mnt.setText("Oct-");
                                     	m_timer=m_timer+1;
-                                    	SavePreferences("score",df.format(score));
-                                    	SavePreferences("profit",df.format(profit));
-                                    	SavePreferences("kredit",Integer.toString(kredit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                    	
                                     }
                                     if(m_timer == 9 && d_timer >=31){
+<<<<<<< HEAD
+                                    
+=======
                                     	//
                                     	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                                  	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
@@ -1212,8 +1167,11 @@ public class MainActivity extends Activity {
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+<<<<<<< HEAD
                                     	
                                      	//
+=======
+>>>>>>> origin/master
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
                                      	depoz_proc = myRandom.nextInt(9);
@@ -1228,17 +1186,16 @@ public class MainActivity extends Activity {
                                      	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
                                     	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
                                     	//
+>>>>>>> parent of c60b519... add birthday(w/o verify)
                                     	d_timer = 0;
-                                    	mnt.setText("2Nov-");
+                                    	mnt.setText("Nov-");
                                     	m_timer=m_timer+1;
-                                    	SavePreferences("score",df.format(score));
-                                    	SavePreferences("profit",df.format(profit));
-                                    	SavePreferences("kredit",Integer.toString(kredit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                    	
                                     }
                                     if(m_timer == 10 && d_timer >=30){
+<<<<<<< HEAD
+                                    
+=======
                                     	//
                                     	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                                  	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
@@ -1291,8 +1248,11 @@ public class MainActivity extends Activity {
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
                                      	//
+<<<<<<< HEAD
                                     	
                                      	//
+=======
+>>>>>>> origin/master
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
                                      	depoz_proc = myRandom.nextInt(9);
@@ -1307,17 +1267,16 @@ public class MainActivity extends Activity {
                                      	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
                                     	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
                                     	//
+>>>>>>> parent of c60b519... add birthday(w/o verify)
                                     	d_timer = 0;
-                                    	mnt.setText("2Dec-");
+                                    	mnt.setText("Dec-");
                                     	m_timer=m_timer+1;
-                                    	SavePreferences("score",df.format(score));
-                                    	SavePreferences("profit",df.format(profit));
-                                    	SavePreferences("kredit",Integer.toString(kredit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                 		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
+                                    	
                                     }
                                     if(m_timer == 11 && d_timer >=31){
+<<<<<<< HEAD
+                                    
+=======
                                     	//
                                     	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                                  	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
@@ -1369,7 +1328,10 @@ public class MainActivity extends Activity {
                                         	SavePreferences("depozit",Integer.toString(depozit));
                                      		SavePreferences("depoz_srok",Integer.toString(depoz_srok));
                                      	}
+<<<<<<< HEAD
                                      	
+=======
+>>>>>>> origin/master
                                      	//
                                      	final Random myBankRandom = new Random();
                                      	kredit_proc = myRandom.nextInt(19);
@@ -1385,24 +1347,30 @@ public class MainActivity extends Activity {
                                      	SavePreferences("kredit_proc",Integer.toString(kredit_proc));
                                     	SavePreferences("depoz_proc",Integer.toString(depoz_proc));
                                     	//
+>>>>>>> parent of c60b519... add birthday(w/o verify)
                                     	d_timer = 0;
+<<<<<<< HEAD
                                     	mnt.setText("2Jan-");
+=======
+                                    	mnt.setText("Jan-");
+                                    	Toast.makeText(getBaseContext(), "Happy New year!", Toast.LENGTH_SHORT).show();
+>>>>>>> origin/master
                                     	m_timer=0;
-                                    	SavePreferences("score",df.format(score));
-                                    	SavePreferences("profit",df.format(profit));
-                                    	SavePreferences("kredit",Integer.toString(kredit));
-                                    	SavePreferences("depozit",Integer.toString(depozit));
-                                    	SavePreferences("kredit_srok",Integer.toString(kredit));
-                                    	SavePreferences("depoz_srok",Integer.toString(depozit));
+                                    	
                                     }
+                                    
+                                    
                                     }
                             });
                             waited += 100;
+                                	
                             }  
-                        }
+                        
+                    }
                 }
                     }
                 catch (InterruptedException e) {
+                
                 }
             }
             };
@@ -1441,6 +1409,8 @@ public class MainActivity extends Activity {
 	    sales_o = Integer.parseInt(sharedPreferences.getString("sales_o", ""));
 	    buyes_g = Integer.parseInt(sharedPreferences.getString("buyes_g", ""));
 	    buyes_o = Integer.parseInt(sharedPreferences.getString("buyes_o", ""));
+<<<<<<< HEAD
+=======
 	    kredit = Integer.parseInt(sharedPreferences.getString("kredit", ""));
 	    depozit = Integer.parseInt(sharedPreferences.getString("depozit", ""));
 	    kredit_srok = Integer.parseInt(sharedPreferences.getString("kredit_srok", ""));
@@ -1449,13 +1419,16 @@ public class MainActivity extends Activity {
 	    depoz_proc = Integer.parseInt(sharedPreferences.getString("depoz_proc", ""));
 	    depoz_srok = Integer.parseInt(sharedPreferences.getString("depoz_srok", ""));
 	    kredit_srok = Integer.parseInt(sharedPreferences.getString("kredit_srok", ""));
-	    birthday = Integer.parseInt(sharedPreferences.getString("birthday", ""));
-	    birthmonth = Integer.parseInt(sharedPreferences.getString("birthmonth", ""));
+>>>>>>> parent of c60b519... add birthday(w/o verify)
 	    score_tv.setText(df.format(score));
 	    profit_tv.setText(df.format(profit));
+<<<<<<< HEAD
 	    kredit_tv.setText(Integer.toString(kredit));
 	    depozit_tv.setText(Integer.toString(depozit));
 	    splashTime = 500;
+=======
+	    splashTime = 1000;
+>>>>>>> origin/master
 	    }
 	
 @Override
@@ -1470,12 +1443,13 @@ public void onStop(){
 	SavePreferences("sales_o",Integer.toString(sales_o));
 	SavePreferences("buyes_g",Integer.toString(buyes_g));
 	SavePreferences("buyes_o",Integer.toString(buyes_o));
+<<<<<<< HEAD
+=======
 	SavePreferences("kredit",Integer.toString(kredit));
 	SavePreferences("depozit",Integer.toString(depozit));
 	SavePreferences("kredit_srok",Integer.toString(kredit_srok));
 	SavePreferences("depoz_srok",Integer.toString(depoz_srok));
-	SavePreferences("birthday",Integer.toString(birthday));
-	SavePreferences("birthmonth",Integer.toString(birthmonth));
+>>>>>>> parent of c60b519... add birthday(w/o verify)
 	//SavePreferences("saldo_gb",df.format(saldo_gb));
 //	SavePreferences("saldo_ob",df.format(saldo_ob));
 	//SavePreferences("saldo_gs",df.format(saldo_gs));

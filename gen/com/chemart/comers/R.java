@@ -133,7 +133,7 @@ public final class R {
     public static final class string {
         public static final int Apr=0x7f050040;
         public static final int Aug=0x7f050044;
-        public static final int Bank=0x7f050055;
+        public static final int Bank=0x7f050056;
         public static final int Bay=0x7f050049;
         public static final int Birth=0x7f05004e;
         public static final int Birth_str=0x7f05004f;
@@ -161,7 +161,7 @@ public final class R {
         public static final int Secret=0x7f05004b;
         public static final int Sep=0x7f050045;
         public static final int Sold=0x7f05003c;
-        public static final int Srok=0x7f050056;
+        public static final int Srok=0x7f050055;
         public static final int about=0x7f05001c;
         public static final int account_score_text=0x7f050006;
         public static final int acount_score=0x7f050007;

@@ -1,6 +1,5 @@
 package com.chemart.comers;
 
-import java.io.IOException;
 import java.text.DecimalFormat;
 
 import android.app.Activity;
@@ -353,7 +352,6 @@ public class Railto extends Activity {
 		switch (v.getId()) 
 		{
 		case R.id.radioButton1:
-			try{
 			if(EditGlebe.getText().toString() != null){
 				double g_buy = Integer.parseInt(getDefaults("glebe_cost",this))*Integer.parseInt(EditGlebe.getText().toString());
 				if (g_buy <=score){
@@ -376,19 +374,12 @@ public class Railto extends Activity {
 			}
 				
 			}
+			else{
+				Toast.makeText(getBaseContext(), "Недостаточно средств для покупки", Toast.LENGTH_SHORT).show();
 			}
-			  catch(NumberFormatException e) 
-              {
-                  	e.printStackTrace();
-                  	Toast.makeText(getBaseContext(), "Введите колличество для покупки", Toast.LENGTH_SHORT).show();
-        			}
 		break;
 		
 		case R.id.radioButton2:
-			try{
-			if(EditGlebe.getText().toString()==null){
-				Toast.makeText(getBaseContext(), "Введите колличество для покупки", Toast.LENGTH_SHORT).show();
-			}
 			if(EditOil.getText().toString() != null){
 				double o_buy = Integer.parseInt(getDefaults("oil_cost",this))*Integer.parseInt(EditOil.getText().toString());
 				if (o_buy <=score){
@@ -411,15 +402,9 @@ public class Railto extends Activity {
 			}
 			}
 			else{
-				Toast.makeText(getBaseContext(), "Введите колличество для покупки", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getBaseContext(), "Недостаточно средств для покупки", Toast.LENGTH_SHORT).show();
 		}
 	//	default:
-			}
-			  catch(NumberFormatException e) 
-              {
-                  	e.printStackTrace();
-                  	Toast.makeText(getBaseContext(), "Введите колличество для покупки", Toast.LENGTH_SHORT).show();
-        			}
 			break;
 		}
 		setResult(RESULT_OK, buyIntent);

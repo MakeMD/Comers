@@ -21,7 +21,7 @@
     <string name="profit_text">Итого прибыль:</string>
     <string name="kredit_proc_text">Процент под кредит:</string>
     <string name="kredit_proc">6%</string>
-    <string name="debt_proc_text">Процент под депозит:</string>
+    <string name="debt_proc_text">Процент под долг:</string>
     <string name="debt_proc">9%</string>
     <string name="incom_tax_text">Подоходный налог:</string>
     <string name="income_tax">2%</string>
@@ -92,10 +92,10 @@
 	<string name="Sales">Продано</string>
 	<string name="Buyes">Куплено</string>
 	<string name="Saldo">Результат</string>
-	<string name="Kredit_Bank">Взять деньги под %</string>
-	<string name="Depozit_Bank">Дать деньги под %</string>
-	<string name="Bank">Банк</string>
+	<string name="Kredit_Bank">Взять кредит под %</string>
+	<string name="Depozit_Bank">Взять депозит под %</string>
 	<string name="Srok">Срок</string>
+	<string name="Bank">Банк</string>
 	
 	
 </resources>

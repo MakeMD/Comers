@@ -95,13 +95,12 @@ SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferen
 				profit = profit + (oil*(Integer.parseInt(getDefaults("oil_cost",this))));
 				saldo_o = profit;
 				saldo_os = saldo_o;
-				Toast.makeText(getBaseContext(), "Вы продали "+ EditOil.getText().toString()+" барелей нефти", Toast.LENGTH_SHORT).show();
 				SavePreferences("score",df.format(score));
 				SavePreferences("profit",df.format(profit));
 				SavePreferences("oil",Integer.toString(oil));
 				SavePreferences("sales_o",EditOil.getText().toString());
 				SavePreferences("saldo_os",df.format(saldo_os));
-								 
+				Toast.makeText(getBaseContext(), "Вы продали "+ Integer.toString(oil)+" барелей нефти", Toast.LENGTH_SHORT).show();				 
 			}
 			else{
 					Toast.makeText(getBaseContext(), "Недостаточно ресурсов для продажи", Toast.LENGTH_SHORT).show();
@@ -116,13 +115,12 @@ SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferen
 				 profit = profit + (glebe*(Integer.parseInt(getDefaults("glebe_cost",this))));
 				saldo_g = profit;
 				saldo_gs = saldo_g;
-				Toast.makeText(getBaseContext(), "Вы продали "+ EditGlebe.getText().toString()+" акров земли", Toast.LENGTH_SHORT).show(); 
-				SavePreferences("score",df.format(score));
+				 SavePreferences("score",df.format(score));
 				 SavePreferences("profit",df.format(profit));
 				 SavePreferences("glebe",Integer.toString(glebe));
 				 SavePreferences("sales_g",EditGlebe.getText().toString());
 				 SavePreferences("saldo_gs",df.format(saldo_gs));
-				 
+				 Toast.makeText(getBaseContext(), "Вы продали "+ EditGlebe.getText().toString()+" акров земли", Toast.LENGTH_SHORT).show();
 			}
 			else{
 				Toast.makeText(getBaseContext(), "Недостаточно ресурсов для продажи", Toast.LENGTH_SHORT).show();
