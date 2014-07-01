@@ -15,7 +15,10 @@ public class Secret extends Activity {
 	double score,profit,saldo_os,saldo_gs,saldo_ob,saldo_gb,saldo_o,saldo_g;
 	int oil,glebe,energo;
 	int sales_g,buyes_g,sales_o,buyes_o;
-	String birth;
+	//String birth;
+	int birthday,birthmonth;
+	String[] month = {"January","Febebruary","March","April","May","June","July","August","September","October","November","December"};
+	String[] day = {"01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"};
 	TextView energo_tv,birth_tv,sales_o_tv,sales_g_tv,buyes_o_tv,buyes_g_tv,saldo_o_tv,saldo_g_tv;
 	DecimalFormat df = new DecimalFormat("###########");
 	@Override
@@ -32,6 +35,8 @@ public class Secret extends Activity {
 		buyes_o = buyes_o + Integer.parseInt(getDefaults("buyes_o",this));
 		saldo_o = saldo_o + (Double.parseDouble(getDefaults("saldo_ob",this))+Double.parseDouble(getDefaults("saldo_os",this)));
 		saldo_g = saldo_g + (Double.parseDouble(getDefaults("saldo_gb",this))+Double.parseDouble(getDefaults("saldo_gs",this)));
+		birthday = Integer.parseInt(getDefaults("birthday",this));
+		birthmonth = Integer.parseInt(getDefaults("birthmonth",this));
 		//
 		energo_tv = (TextView) findViewById(R.id.textView2);
 		birth_tv = (TextView) findViewById(R.id.textView4);
@@ -51,6 +56,7 @@ public class Secret extends Activity {
 		saldo_g_tv.setText(df.format(saldo_g));
 		
 		//
+		birth_tv.setText(day[birthday]+" "+month[birthmonth]);
 	}
 	public static String getDefaults(String key, Context context) {
 	    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
