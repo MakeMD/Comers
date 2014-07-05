@@ -96,6 +96,8 @@
 	<string name="Depozit_Bank">Взять депозит под %</string>
 	<string name="Srok">Срок</string>
 	<string name="Bank">Банк</string>
+	<string name="splash">splash</string>
+	<color name="background">#000000</color>
 	
 	
 </resources>

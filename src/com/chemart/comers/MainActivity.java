@@ -7,14 +7,12 @@ import java.text.DecimalFormat;
 import java.util.GregorianCalendar;
 import java.util.Random;
 
-import android.R.bool;
+
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -276,7 +274,6 @@ public class MainActivity extends Activity {
                                         	SharedPreferences sharedPreferences2 = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                                      	    kredit =  Integer.parseInt(sharedPreferences2.getString("kredit", ""));
                                      	    depozit = Integer.parseInt(sharedPreferences2.getString("depozit", ""));
-                                        	
                                         	if ((kredit >0)&(kredit_srok>0)){
                                          		kredit_srok --;
                                      	    	kredit = kredit + kredit_proc;
@@ -326,8 +323,8 @@ public class MainActivity extends Activity {
                                          	//
                                          	//
                                          	final Random myBankRandom = new Random();
-                                         	kredit_proc = myRandom.nextInt(19);
-                                         	depoz_proc = myRandom.nextInt(9);
+                                         	kredit_proc = myBankRandom.nextInt(19);
+                                         	depoz_proc = myBankRandom.nextInt(9);
                                          	if (kredit_proc <=0){
                                          		kredit_proc =1;
                                          	}
@@ -510,8 +507,8 @@ public class MainActivity extends Activity {
                                      	
                                      	//
                                      	final Random myBankRandom = new Random();
-                                     	kredit_proc = myRandom.nextInt(19);
-                                     	depoz_proc = myRandom.nextInt(9);
+                                     	kredit_proc = myBankRandom.nextInt(19);
+                                     	depoz_proc = myBankRandom.nextInt(9);
                                      	if (kredit_proc <=0){
                                      		kredit_proc =1;
                                      	}
@@ -592,8 +589,8 @@ public class MainActivity extends Activity {
                                          	//
                                          	
                                          	final Random myBankRandom = new Random();
-                                         	kredit_proc = myRandom.nextInt(19);
-                                         	depoz_proc = myRandom.nextInt(9);
+                                         	kredit_proc = myBankRandom.nextInt(19);
+                                         	depoz_proc = myBankRandom.nextInt(9);
                                          	if (kredit_proc <=0){
                                          		kredit_proc =1;
                                          	}
@@ -670,8 +667,8 @@ public class MainActivity extends Activity {
                                      	
                                      	//
                                      	final Random myBankRandom = new Random();
-                                     	kredit_proc = myRandom.nextInt(19);
-                                     	depoz_proc = myRandom.nextInt(9);
+                                     	kredit_proc = myBankRandom.nextInt(19);
+                                     	depoz_proc = myBankRandom.nextInt(9);
                                      	if (kredit_proc <=0){
                                      		kredit_proc =1;
                                      	}
@@ -748,8 +745,8 @@ public class MainActivity extends Activity {
                                      	
                                      	//
                                      	final Random myBankRandom = new Random();
-                                     	kredit_proc = myRandom.nextInt(19);
-                                     	depoz_proc = myRandom.nextInt(9);
+                                     	kredit_proc = myBankRandom.nextInt(19);
+                                     	depoz_proc = myBankRandom.nextInt(9);
                                      	if (kredit_proc <=0){
                                      		kredit_proc =1;
                                      	}
@@ -826,8 +823,8 @@ public class MainActivity extends Activity {
                                      	
                                      	//
                                      	final Random myBankRandom = new Random();
-                                     	kredit_proc = myRandom.nextInt(19);
-                                     	depoz_proc = myRandom.nextInt(9);
+                                     	kredit_proc = myBankRandom.nextInt(19);
+                                     	depoz_proc = myBankRandom.nextInt(9);
                                      	if (kredit_proc <=0){
                                      		kredit_proc =1;
                                      	}
@@ -902,8 +899,8 @@ public class MainActivity extends Activity {
                                      	
                                      	//
                                      	final Random myBankRandom = new Random();
-                                     	kredit_proc = myRandom.nextInt(19);
-                                     	depoz_proc = myRandom.nextInt(9);
+                                     	kredit_proc = myBankRandom.nextInt(19);
+                                     	depoz_proc = myBankRandom.nextInt(9);
                                      	if (kredit_proc <=0){
                                      		kredit_proc =1;
                                      	}
@@ -980,8 +977,8 @@ public class MainActivity extends Activity {
                                      	
                                      	//
                                      	final Random myBankRandom = new Random();
-                                     	kredit_proc = myRandom.nextInt(19);
-                                     	depoz_proc = myRandom.nextInt(9);
+                                     	kredit_proc = myBankRandom.nextInt(19);
+                                     	depoz_proc = myBankRandom.nextInt(9);
                                      	if (kredit_proc <=0){
                                      		kredit_proc =1;
                                      	}
@@ -1058,8 +1055,8 @@ public class MainActivity extends Activity {
                                      	
                                      	//
                                      	final Random myBankRandom = new Random();
-                                     	kredit_proc = myRandom.nextInt(19);
-                                     	depoz_proc = myRandom.nextInt(9);
+                                     	kredit_proc = myBankRandom.nextInt(19);
+                                     	depoz_proc = myBankRandom.nextInt(9);
                                      	if (kredit_proc <=0){
                                      		kredit_proc =1;
                                      	}
@@ -1136,8 +1133,8 @@ public class MainActivity extends Activity {
                                      	
                                      	//
                                      	final Random myBankRandom = new Random();
-                                     	kredit_proc = myRandom.nextInt(19);
-                                     	depoz_proc = myRandom.nextInt(9);
+                                     	kredit_proc = myBankRandom.nextInt(19);
+                                     	depoz_proc = myBankRandom.nextInt(9);
                                      	if (kredit_proc <=0){
                                      		kredit_proc =1;
                                      	}
@@ -1215,8 +1212,8 @@ public class MainActivity extends Activity {
                                     	
                                      	//
                                      	final Random myBankRandom = new Random();
-                                     	kredit_proc = myRandom.nextInt(19);
-                                     	depoz_proc = myRandom.nextInt(9);
+                                     	kredit_proc = myBankRandom.nextInt(19);
+                                     	depoz_proc = myBankRandom.nextInt(9);
                                      	if (kredit_proc <=0){
                                      		kredit_proc =1;
                                      	}
@@ -1294,8 +1291,8 @@ public class MainActivity extends Activity {
                                     	
                                      	//
                                      	final Random myBankRandom = new Random();
-                                     	kredit_proc = myRandom.nextInt(19);
-                                     	depoz_proc = myRandom.nextInt(9);
+                                     	kredit_proc = myBankRandom.nextInt(19);
+                                     	depoz_proc = myBankRandom.nextInt(9);
                                      	if (kredit_proc <=0){
                                      		kredit_proc =1;
                                      	}
@@ -1372,8 +1369,8 @@ public class MainActivity extends Activity {
                                      	
                                      	//
                                      	final Random myBankRandom = new Random();
-                                     	kredit_proc = myRandom.nextInt(19);
-                                     	depoz_proc = myRandom.nextInt(9);
+                                     	kredit_proc = myBankRandom.nextInt(19);
+                                     	depoz_proc = myBankRandom.nextInt(9);
                                      	if (kredit_proc <=0){
                                      		kredit_proc =1;
                                      	}
@@ -1409,9 +1406,7 @@ public class MainActivity extends Activity {
         th.start();
         }
 	
-	private void SwitchRandom(int g, int o){
-		
-	}
+	
 	
 	private void SavePreferences(String key, String value){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());

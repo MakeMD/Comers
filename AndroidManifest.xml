@@ -14,9 +14,10 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.chemart.comers.MainActivity"
+            android:name="com.chemart.comers.Splash"
             android:configChanges="orientation|keyboardHidden"
-            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:label="@string/splash"
             android:screenOrientation="landscape" >
         <intent-filter><action android:name="android.intent.action.MAIN" />
          <category android:name="android.intent.category.LAUNCHER" /></intent-filter>
@@ -24,6 +25,7 @@
         <activity
             android:name="com.chemart.comers.Shop"
             android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:label="@string/shop"
             android:screenOrientation="landscape" >
         </activity>
@@ -31,23 +33,34 @@
         <activity android:name="com.chemart.comers.Havings" 
             android:label="@string/havings"
              android:configChanges="orientation|keyboardHidden"
+             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
              android:screenOrientation="landscape">
         </activity>
         <activity android:name="com.chemart.comers.Railto" 
             android:label="@string/Railto"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="landscape">
             </activity>
         <activity android:name="com.chemart.comers.Secret" 
             android:label="@string/Secret"
             android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
              android:screenOrientation="landscape">
             </activity>
         <activity android:name="com.chemart.comers.Bank"
             android:label="@string/Bank"
             android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
               android:screenOrientation="landscape">
         	</activity>
+        <activity android:name="com.chemart.comers.MainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape">
+            
+        </activity>
         
     </application>
 

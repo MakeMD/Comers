@@ -1,6 +1,5 @@
 package com.chemart.comers;
 
-import java.io.IOException;
 import java.text.DecimalFormat;
 
 import android.app.Activity;
@@ -9,11 +8,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class Bank extends Activity {
@@ -49,7 +46,6 @@ public class Bank extends Activity {
 	}
 	public void onRadioClick(View v){
 		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-		SharedPreferences.Editor editor = sharedPreferences.edit();
 		Intent buyIntent = new Intent(Bank.this, MainActivity.class);
 		switch (v.getId()) 
 		{

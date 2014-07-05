@@ -17,7 +17,7 @@ public class Secret extends Activity {
 	int sales_g,buyes_g,sales_o,buyes_o;
 	//String birth;
 	int birthday,birthmonth;
-	String[] month = {"January","Febebruary","March","April","May","June","July","August","September","October","November","December"};
+	String[] month = {"January","February","March","April","May","June","July","August","September","October","November","December"};
 	String[] day = {"01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"};
 	TextView energo_tv,birth_tv,sales_o_tv,sales_g_tv,buyes_o_tv,buyes_g_tv,saldo_o_tv,saldo_g_tv;
 	DecimalFormat df = new DecimalFormat("###########");
@@ -62,6 +62,7 @@ public class Secret extends Activity {
 	    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
 	    return preferences.getString(key, null);
 	}
+	@SuppressWarnings("unused")
 	private void SavePreferences(String key, String value){
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor editor = prefs.edit();
